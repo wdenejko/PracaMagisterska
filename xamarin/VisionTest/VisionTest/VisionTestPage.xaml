@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage BackgroundColor="#42f48f" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:VisionTest" x:Class="VisionTest.VisionTestPage">
+	<Grid Padding="20">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="40" />
+		</Grid.RowDefinitions>
+		<Image Grid.Row="0" x:Name="TakenImage" HorizontalOptions="Center"/>
+		<ScrollView Grid.Row="1">
+			<Label  x:Name="RecognizedTextLabel" FontSize="13" TextColor="Black" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand"/>
+		</ScrollView>
+		<Button Grid.Row="2" x:Name="TakePictureButton" Clicked="TakePictureClicked" Text="Take a picture" BackgroundColor="#25ba65" TextColor="White" />
+		<Button Grid.Row="3" x:Name="ChoosePictureButton" Clicked="ChoosePictureClicked" Text="...or choose from gallery" BackgroundColor="#25ba65" TextColor="White" />
+	</Grid>
+</ContentPage>
