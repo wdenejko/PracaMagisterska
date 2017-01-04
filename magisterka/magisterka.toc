@@ -1,31 +1,31 @@
 \select@language {polish}
 \contentsline {chapter}{Wprowadzenie}{6}{chapter*.4}
 \contentsline {chapter}{\numberline {1}Rozpoznawanie tekstu w aplikacjach wieloplatformowych}{7}{chapter.1}
-\contentsline {section}{\numberline {1.1}Przedstawienie problemu}{7}{section.1.1}
-\contentsline {section}{\numberline {1.2}Sposób wytworzenia zbioru treningowego}{8}{section.1.2}
-\contentsline {section}{\numberline {1.3}Algorytm k-NN}{9}{section.1.3}
-\contentsline {section}{\numberline {1.4}Metryka miejska}{10}{section.1.4}
-\contentsline {section}{\numberline {1.5}Jednokierunkowe, wielowarstwowe sieci neuronowe}{11}{section.1.5}
-\contentsline {section}{\numberline {1.6}Konwolucyjne sieci neuronowe}{11}{section.1.6}
-\contentsline {chapter}{\numberline {2}Implementacja aplikacji do rozpoznawania tekstu}{13}{chapter.2}
-\contentsline {section}{\numberline {2.1}Xamarin.Android i Xamarin.iOS}{13}{section.2.1}
-\contentsline {section}{\numberline {2.2}Xamarin.Forms}{14}{section.2.2}
-\contentsline {section}{\numberline {2.3}Microsoft Computer Vision API}{15}{section.2.3}
-\contentsline {section}{\numberline {2.4}Tesseract API}{15}{section.2.4}
-\contentsline {section}{\numberline {2.5}Microsoft Azure for Machine Learning}{16}{section.2.5}
-\contentsline {section}{\numberline {2.6}Tensorflow}{16}{section.2.6}
+\contentsline {section}{\numberline {1.1}Przedstawienie problemu}{8}{section.1.1}
+\contentsline {section}{\numberline {1.2}Sposób wytworzenia zbioru treningowego}{9}{section.1.2}
+\contentsline {section}{\numberline {1.3}Algorytm k-NN}{11}{section.1.3}
+\contentsline {section}{\numberline {1.4}Random Forest}{12}{section.1.4}
+\contentsline {section}{\numberline {1.5}Jednokierunkowe, dwuwarstwowa sieć neuronowe}{14}{section.1.5}
+\contentsline {section}{\numberline {1.6}Konwolucyjne sieci neuronowe - CNN}{15}{section.1.6}
+\contentsline {section}{\numberline {1.7}Podsumowanie}{15}{section.1.7}
+\contentsline {chapter}{\numberline {2}Implementacja aplikacji do rozpoznawania tekstu}{16}{chapter.2}
+\contentsline {section}{\numberline {2.1}Xamarin.Android i Xamarin.iOS}{16}{section.2.1}
+\contentsline {section}{\numberline {2.2}Xamarin.Forms}{16}{section.2.2}
+\contentsline {section}{\numberline {2.3}Microsoft Computer Vision API}{16}{section.2.3}
+\contentsline {section}{\numberline {2.4}Microsoft Azure for Machine Learning}{16}{section.2.4}
+\contentsline {section}{\numberline {2.5}Tensorflow}{16}{section.2.5}
 \contentsline {chapter}{\numberline {3}Metryki oraz testy}{17}{chapter.3}
 \contentsline {section}{\numberline {3.1}Testy wydajnościowe}{17}{section.3.1}
 \contentsline {section}{\numberline {3.2}Testy zgodności}{17}{section.3.2}
-\contentsline {section}{\numberline {3.3}Testy użyteczności}{18}{section.3.3}
-\contentsline {section}{\numberline {3.4}Cross Validation}{18}{section.3.4}
-\contentsline {section}{\numberline {3.5}Macierze błedu}{18}{section.3.5}
-\contentsline {section}{\numberline {3.6}Metryki wyliczane z kodu źródłowego}{18}{section.3.6}
-\contentsline {section}{\numberline {3.7}Macierze wyliczane z diagramów}{18}{section.3.7}
-\contentsline {section}{\numberline {3.8}Macierze pomiaru wspólnego kodu}{19}{section.3.8}
-\contentsline {chapter}{\numberline {4}Podsumowanie i wnioski}{21}{chapter.4}
-\contentsline {section}{\numberline {4.1}Wady oraz zalety aplikacji wieloplatformowych}{21}{section.4.1}
-\contentsline {section}{\numberline {4.2}Uczenie maszynowe w aplikacjach mobilnych}{21}{section.4.2}
-\contentsline {section}{\numberline {4.3}Koszt}{22}{section.4.3}
-\contentsline {chapter}{Zakończenie}{23}{chapter*.5}
-\contentsline {chapter}{Oświadczenie}{24}{chapter*.6}
+\contentsline {section}{\numberline {3.3}Testy użyteczności}{17}{section.3.3}
+\contentsline {section}{\numberline {3.4}Cross Validation}{17}{section.3.4}
+\contentsline {section}{\numberline {3.5}Macierze błędu}{17}{section.3.5}
+\contentsline {section}{\numberline {3.6}Metryki wyliczane z kodu źródłowego}{17}{section.3.6}
+\contentsline {section}{\numberline {3.7}Macierze wyliczane z diagramów}{17}{section.3.7}
+\contentsline {section}{\numberline {3.8}Macierze pomiaru wspólnego kodu}{17}{section.3.8}
+\contentsline {chapter}{\numberline {4}Podsumowanie i wnioski}{18}{chapter.4}
+\contentsline {section}{\numberline {4.1}Wady oraz zalety aplikacji wieloplatformowych}{18}{section.4.1}
+\contentsline {section}{\numberline {4.2}Uczenie maszynowe w aplikacjach mobilnych}{18}{section.4.2}
+\contentsline {section}{\numberline {4.3}Koszt}{18}{section.4.3}
+\contentsline {chapter}{Zakończenie}{19}{chapter*.5}
+\contentsline {chapter}{Oświadczenie}{20}{chapter*.6}
