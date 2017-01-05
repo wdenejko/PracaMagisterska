@@ -238,7 +238,12 @@ Analizowanie zachowań klienta w supermarketach
 
 Podstawowym elementem sieci neuronowej jest neuron. Jego schemat zostal opracowany przez McCullocha i Pittsa w roku 1943, zostal on oparty na budowie biologicznej komorki nerwowej.
 
-// schemat sztucznego neuronu.
+\begin{figure}[!tbh]
+\centering
+\includegraphics[width=.8\hsize]{fig/budowaneurona}
+\caption{Schemat sztucznego neuronu}
+\end{figure}
+\newpage
 
 Do wejsc doprowadze sa sygnaly z wejsc sieci lub neuronow warstwy poprzedniej. Kazdy sygnal mnozony jest przez odpowiadajaca mu wartosc liczbowa zwana waga. Wplywa ona na percepcje danego sygnalu wejsciowego i jego udzial w sygnale wyjsciowym przez neuron. Waga moze byc dodania lub ujemna, jezeli nie ma polaczenia miedzy neuronami to waga jest rowna zero. Zsumowane iloczyny wag i sygnalow sa argumentem funkcji zwanej funkcja aktywacji neuronu.
 
@@ -256,37 +261,106 @@ Należy zauważyć, iż jest to podział bardziej formalny niż merytoryczny. R�
 
 Najbardziej popularnym typem sieci neuronowej jest sieć wielowarstwowa (ang. Multi-Layer Neural Network). Jej cecha charakterystyczna jest wystepowanie co najmniej jednej warstwy ukrytej neuronow, posredniczacej w przekazywaniu sygnalow pomiedzy wejsciami a wyjsciami sieci.
 
-// schemat budowy sieci wielowarstwowej
+\begin{figure}[!tbh]
+\centering
+\includegraphics[width=.8\hsize]{fig/budowasieci}
+\caption{Schemat budowy sieci wielowarstwowej}
+\end{figure}
+\newpage
 
 Do rozpoznania polskich znakow pisma odrecznego uzyta zostala siec posiadajaca trzy warstwy.
 
-// schemat sieci
-
+\begin{itemize}
+\item
 Warstwa wejsciowa sieci sklada sie z neuronow zawierajacych informacje na temat kazdego piksela. Zbior treningowy sklada sie z obrazow 28 x 28 pikseli. Zgodnie z tym zalozeniem pierwsza warstwa sieci bedzie skladala sie z 784 neuronow. Kazdy neuron przechowuje wartosc skali szarosci piksela, gdzie 0.0 oznacza kolor bialy, a 1.0 czarny.
-
+\item
 Druga warstwa zawiera liczbe n neuronow, liczba n jest uzywana w kontekscie eksperymentalnym.
-
+\item
 Ostatnia warstwa, zawiera 74 neurony, poniewaz w Polski alfabet sklada sie z 32 liter, rozpatrywane sa zarowno litery wielkie jak i male oraz cyfry. Implementacja sieci:
-
+\end{itemize}
 // kod
 
 \section{Konwolucyjne sieci neuronowe - CNN}
 
 Konwolucyjne sieci neuronowe (ang. Convolutional Neural Networks) sa podobne do klasycznych sieci neuronowych. Aby dokladnie przeanalizowac budowe oraz dzialanie CNN przedstawiony zostanie problem klasyfikacji dwoch liter X i O. Ten przyklad demonstruje charakterystyczne reguly konwolucji.
 
-// x ?= X
-
+\begin{figure}[!tbh]
+\centering
+\includegraphics[width=.8\hsize]{fig/cnn1}
+\caption{Problem klasyfikacji}
+\end{figure}
 CNN porownuje obrazy w kawalkach. Kazda taka czesc nazywana jest cecha (ang. feature), nastepnie oba zdjecia przeszukiwane sa na podobnych pozycjach by uzyskac jak najwiecej cech wspolnych. Sieci konwolucyjne duzo lepiej wspolpracuja na podobienstwach niz na pracy z pelnym obrazem, ktory pasuje do pewnego wzorca.
+\newpage
 
-// x features
+\begin{figure}[!tbh]
+\centering
+\includegraphics[width=.8\hsize]{fig/cnn2}
+\caption{Wybrane cechy i ich odpowiedniki w zdjęciu do klasyfikacji}
+\end{figure}
 
 Kazda ceche mozna scharakteryzowac jako mniejsze zdjecie - dwuwymiarowa tablice wartosci. W przypadku litery X, cechami beda ukosne linie i znak krzyza, w ten sposob uzyskuje sie cechy charakterystyczne danego znaku.
 
-// features zdjecie
+\begin{figure}[!tbh]
+\centering
+\includegraphics[width=.8\hsize]{fig/cnn3}
+\caption{Wartości liczbowe pikseli różnych cech}
+\end{figure}
+\newpage
+
+Kiedy rozpatrywany jest nowy obraz, sieć poszukuje cech zdjęcia w każdej możliwej pozycji. Obliczając wartości pasujące do cech  tworzymy filtr. Działania matematyczne kryjące się za tym działaniem nazywane są konwolucją lub splotem całkowitym. Aby obliczyć parę cech obrazu, należy pomnożyć każdą wartość piksela cechy przez odpowiadający mu piksel danego zdjęcia. Następnie należy dodać wszystkie wyniki z poprzednich operacji i podzielić przez łączną liczbę pikseli cechy. Jeśli oba piksele były białe, a ich wartość była reprezentowana przez 1, wynik wynosi 1 - piksel jest biały, w przeciwnym wypadku piksel jest czarny a jego wartość jest równa -1. Jeżeli wszystkie wartości cechy są takie same, wynikiem dodawania i podzielenia przez liczbe pikseli będzie 1.
+
+\begin{figure}[!tbh]
+\centering
+\includegraphics[width=.8\hsize]{fig/cnn4}
+\caption{Wynik przykładowej operacji splotu}
+\end{figure}
+\newpage
+
+Następnym krokiem jest potwórzenie operacji splotu na kompletnym obrazie używając wszystkich dostępnych cech. Wynikiem jest szereg obrazów z filtrami, na każdym z dostępnych wyników nałożony jest jeden filtr. W konwulsyjnych sieciach neuronowych, warstwa ta nazywana jest warstwą konwolucyjną bądź też splotową (ang. convolution layer).
+
+\begin{figure}[!tbh]
+\centering
+\includegraphics[width=.8\hsize]{fig/cnn5}
+\caption{Wynik operacji splotu danej cechy}
+\end{figure}
+\newpage
+
+Kolejnym narzędziem oferowanym przez CNN jest warstwa sumowania (ang. pooling layer). Pooling daje możliwość zmniejszenia dużych obrazów bez utraty ważnych informacji na ich temat. Operacje wykonywane w tej warstwie to podział zdjęcia z poprzedniej warstwy na mniejsze, a następnie pobranie maksimum z danej części. Operacje te należy powtórzyć na całym zdjęciu.
 
 
+\begin{figure}[!tbh]
+\centering
+\includegraphics[width=.8\hsize]{fig/cnn6}
+\caption{Przykład sumowania}
+\end{figure}
+
+Po sumowaniu, wielkość danego zdjęcia jest cztery razy mniejsza. Ponieważ przetrzymywane są wartości maksymalne z każdego okna, przechowywane zostają najlepsze pasujące wartości danej cechy w oknie. To oznacza, że nie ważne jest gdzie dana cecha pasuje do momentu, aż znajdziemy pasującą odpowiedź w oknie.
+
+Dodatkowym narzędziem jest warstwa normalizacyjna (ang. Rectified Linear Units Layer, ReLU), to krótki, lecz bardzo ważny proces w którym wszystkie ujemne wartości zostają zastąpione zerami. To pomaga w funkcjonowaniu sieci trzymając wszystkie wartości na których wykonywane są operacje by te były równe 0 lub dodatnie.
+
+\begin{figure}[!tbh]
+\centering
+\includegraphics[width=.8\hsize]{fig/cnn7}
+\caption{Przykład normalizacji danych}
+\end{figure}
+\newpage
+
+Ostatnim narzędziem dostępnym do wykorzystania jest warstwa FCL (ang. Fully Connected Layer). Przyjmuje ona przefiltrowane obrazy, a nstępnie tłumaczy je na głosy. W przypadku klasyfikacji znaków pisma odręcznego należy zdecydować do której kategori należy znak X czy O. Kiedy nowy obraz zostaje przekazany do klasyfikacji, wykonywane są operacje na wszystkich wymienionych warstwach, a ostatecznie FCL decyduje do której grupy należy znak.
+
+\begin{figure}[!tbh]
+\centering
+\includegraphics[width=.8\hsize]{fig/cnn8}
+\caption{Przykład klasyfikacji znaku X}
+\end{figure}
+\newpage
 
 \section{Podsumowanie}
+
+Używając zbioru treningowego stworzonego za pomocą narzędzi z sekcji 1.2 i próbuje stworzenia klasyfikatorów problemu rozpoznawania znaków polskiego pisma odręcznego opisanego w sekcji 1.1 przeprowadzone zostały badania wykorzystujące algorytmy wymienione w sekcjach 1.3, 1.4 oraz sieci neuronowe 1.5, 1.6. uzyskane zostały następujące rezultaty:
+
+// tabelka wyników
+
+Według wyników badań, najlepszą metodą klasyfikacji znaków polskiego pisma odręcznego jest wykorzystanie konwolucyjnych sieci neuronowych. Implementacja tej metody zostanie użyta w dalszych badaniach.
 
 \chapter{Implementacja aplikacji do rozpoznawania tekstu}
 
