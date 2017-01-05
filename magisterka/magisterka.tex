@@ -207,9 +207,84 @@ W przypadku elementów niewylosowanych z oryginalnej podpróby, każdy taki i-ty
 
 \section{Jednokierunkowe, dwuwarstwowa sieć neuronowe}
 
-Poprzez nazwę sieci neuronowe określa się najczęściej programowe symulatory modeli matematycznych, realizujące równoległe przetwarzanie informacji, które składa się z wielu wzajemnie połączonych funktorów zwanych poprzez analogie neuronami. Odnosząc się do definicji architektury połączeń i systemów neuromorfologicznych, sieci neuronowe są swoistym systemem inspirowanym przez to, w jaki sposób połączone ze sobą neurony w mózgu odbierają dane docierające w różny sposób.
+Siecią neuronową nazywa się programową lub sprzetową strukturę modeli, realizujaca obliczenia lub przetwarzajaca sygnały poprzez rzędy elementów, zwanych sztucznymi neuronami. Emulują one niektóre spośród zaobserwowanych właściwości biologicznych układów nerwowych. Sztuczne sieci neuronowe są swoistym systemem inspirowanym przez to, w jaki sposób gesto połączone między sobą struktury mózgu, odbierają i przetwarzają dane które docierają w różny sposób z otoczenia. Kluczowytm elementem jest zatem struktura systemu przetwarzania informacji. Sieć taka sklada sie z dużej liczby rozlegle połączonych ze sobą elementów przetwarzajacych, które są powiazane ze sobą ważonymi połaczeniami.
+
+Cechą charakterystyczna sieci neuronowych od algorytmów realizujacych przetwarzanie informacji przy użyciu algorytmów jest umiejetność generalizacji, czyli zdolność uógolniania wiedzy dla nieznanych wczesniej wzorców. Innym atutem jest także zdolność do aproksymacji wartości funkcji wielu zmiennych w przeciwienstwie do interpolacji, która jest możliwa do uzyskania używając przetwarzania algorytmicznego.
+
+Uczenie sieci neronowych zmienia liczbowe wartości wag znajdujacych się pomiędzy neuronami. Nastepuje to poprzez bezposrednią ekspozycje rzeczywistego zestawu danych, gdzie algorytm uczący modeluje wagi polaczeń. Ze względu na opisane powyżej cechy i zalety, obszar zastosowań sieci neuronowych jest rozlegly:
+
+\begin{itemize}
+\item
+Rozpoznawanie wzorców
+\item
+Klasyfikowanie obiektów
+\item
+Prognozowanie i ocena ryzyka ekonomicznego
+\item
+Prognozowanie zmian cen rynkowych
+\item
+Ocena zdolności kredytowej
+\item
+Ocena wniosków ubezpieczeniowych
+\item
+Rozpoznawanie wzorów podpisów
+\item
+Diagnostyka medyczna
+\item
+Prognozowanie sprzedaży
+\item
+Analizowanie zachowań klienta w supermarketach
+\end{itemize}
+
+Podstawowym elementem sieci neuronowej jest neuron. Jego schemat zostal opracowany przez McCullocha i Pittsa w roku 1943, zostal on oparty na budowie biologicznej komorki nerwowej.
+
+// schemat sztucznego neuronu.
+
+Do wejsc doprowadze sa sygnaly z wejsc sieci lub neuronow warstwy poprzedniej. Kazdy sygnal mnozony jest przez odpowiadajaca mu wartosc liczbowa zwana waga. Wplywa ona na percepcje danego sygnalu wejsciowego i jego udzial w sygnale wyjsciowym przez neuron. Waga moze byc dodania lub ujemna, jezeli nie ma polaczenia miedzy neuronami to waga jest rowna zero. Zsumowane iloczyny wag i sygnalow sa argumentem funkcji zwanej funkcja aktywacji neuronu.
+
+Wartość funkcji aktywacji jest wyjściem neurona i propagowana jest do neuronów warstwy następnej. Może ona przybierać jedną z trzech postaci:
+\begin{itemize}
+\item
+- nieliniowa
+\item
+- liniowa
+\item
+- skoku jednostkowego
+\end{itemize}
+
+Należy zauważyć, iż jest to podział bardziej formalny niż merytoryczny. Różnice funkcjonalne między tymi typami raczej nie występują, natomiast można stosować je naprzemiennie w różnych warstwach sieci.
+
+Najbardziej popularnym typem sieci neuronowej jest sieć wielowarstwowa (ang. Multi-Layer Neural Network). Jej cecha charakterystyczna jest wystepowanie co najmniej jednej warstwy ukrytej neuronow, posredniczacej w przekazywaniu sygnalow pomiedzy wejsciami a wyjsciami sieci.
+
+// schemat budowy sieci wielowarstwowej
+
+Do rozpoznania polskich znakow pisma odrecznego uzyta zostala siec posiadajaca trzy warstwy.
+
+// schemat sieci
+
+Warstwa wejsciowa sieci sklada sie z neuronow zawierajacych informacje na temat kazdego piksela. Zbior treningowy sklada sie z obrazow 28 x 28 pikseli. Zgodnie z tym zalozeniem pierwsza warstwa sieci bedzie skladala sie z 784 neuronow. Kazdy neuron przechowuje wartosc skali szarosci piksela, gdzie 0.0 oznacza kolor bialy, a 1.0 czarny.
+
+Druga warstwa zawiera liczbe n neuronow, liczba n jest uzywana w kontekscie eksperymentalnym.
+
+Ostatnia warstwa, zawiera 74 neurony, poniewaz w Polski alfabet sklada sie z 32 liter, rozpatrywane sa zarowno litery wielkie jak i male oraz cyfry. Implementacja sieci:
+
+// kod
 
 \section{Konwolucyjne sieci neuronowe - CNN}
+
+Konwolucyjne sieci neuronowe (ang. Convolutional Neural Networks) sa podobne do klasycznych sieci neuronowych. Aby dokladnie przeanalizowac budowe oraz dzialanie CNN przedstawiony zostanie problem klasyfikacji dwoch liter X i O. Ten przyklad demonstruje charakterystyczne reguly konwolucji.
+
+// x ?= X
+
+CNN porownuje obrazy w kawalkach. Kazda taka czesc nazywana jest cecha (ang. feature), nastepnie oba zdjecia przeszukiwane sa na podobnych pozycjach by uzyskac jak najwiecej cech wspolnych. Sieci konwolucyjne duzo lepiej wspolpracuja na podobienstwach niz na pracy z pelnym obrazem, ktory pasuje do pewnego wzorca.
+
+// x features
+
+Kazda ceche mozna scharakteryzowac jako mniejsze zdjecie - dwuwymiarowa tablice wartosci. W przypadku litery X, cechami beda ukosne linie i znak krzyza, w ten sposob uzyskuje sie cechy charakterystyczne danego znaku.
+
+// features zdjecie
+
+
 
 \section{Podsumowanie}
 
