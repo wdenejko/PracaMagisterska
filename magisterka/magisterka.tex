@@ -23,9 +23,9 @@
 
 % streszczenie
 \begin{abstract}
-  Niniejsza praca ma na celu stworzenie aplikacji rozpoznającej tekst w języku polskim oraz angielskim, charakteryzująca się kompatybilnością z systemami iOS oraz Android. Do wytworzenia aplikacji zostanie użyta platforma Xamarin, która służy do tworzenia aplikacji wieloplatformowych. Zbadane zostaną różne metody połączenia technologi wieloplatformowej z istniejącymi rozwiązaniami OCR. Przedstawiona konwolucyjna sieć neuronowa zaprezentuje klasyfikacje polskiego alfabetu.
+  Niniejsza praca ma na celu stworzenie aplikacji rozpoznającej tekst w języku polskim oraz angielskim, charakteryzującej się kompatybilnością z systemami iOS oraz Android. Do wytworzenia aplikacji zostanie użyte narzędzie Xamarin, które służy do tworzenia aplikacji wieloplatformowych. Zbadane zostaną różne metody połączenia technologii wieloplatformowej z istniejącymi rozwiązaniami OCR. Przedstawiona konwolucyjna sieć neuronowa zaprezentuje klasyfikacje polskiego alfabetu.
   
-  Integralną częścią pracy będzie aplikacja OCRecognizer, w której zaimplementowano metody klasyfikacji obrazów. Program umożliwia zrobienie zdjęcia, a następnie przy użyciu kilku opcji, rozpoznanie tekstu.
+  Integralną częścią pracy jest aplikacja OCRecognizer, w której zaimplementowano metody klasyfikacji obrazów. Program umożliwia zrobienie zdjęcia, a następnie przy użyciu kilku opcji, rozpoznanie tekstu.
   
 \end{abstract}
 
@@ -36,6 +36,7 @@
  Uczenie maszynowe,
  Sieci neuronowe,
  kNN,
+ Random Forest,
  }
 
 % tytuł i spis treści
@@ -58,9 +59,9 @@ OCR (ang. Optical Character Recognition) jest to technika lub część oprogramo
 
 Niegdyś pojęcie rozpoznawania znaków oznaczało samą klasyfikacje ciągów znaków drukowanych, które są łatwiejszym problemem do rozwiązania, dziś również pisma odręczne oraz cechy formatowania, takie jak krój pisma, stopień pisma lub układy tabelaryczne (formularze).
 
-Techniki OCR głównie wykorzystawane są do cyfryzacji zasobów bibliotek, a także jako ułatwienie przy odczytywaniu dokumentacji napisanych pismem odręcznym, w aplikacjach mobilnych rozpoznawanie znaków pomaga w takich zadaniach jak tworzenie notatek, a następnie tłumaczenie ich na tekst drukowany. Niestety, w obu przypadkach istniejące rozwiązania OCR nie są tak skuteczne jak człowiek, zatem w przypadkach trudności z klasyfikacją znaku lub fragmentu tekstu niezbędna jest weryfikacja wyniku przez człowieka celem uniknięcia błędu.
+Techniki OCR są głównie wykorzystywane do cyfryzacji zasobów bibliotek, a także jako ułatwienie przy odczytywaniu dokumentacji napisanych pismem odręcznym, w aplikacjach mobilnych rozpoznawanie znaków pomaga w takich zadaniach jak tworzenie notatek, a następnie tłumaczenie ich na tekst drukowany. Niestety, w obu przypadkach istniejące rozwiązania OCR nie są tak skuteczne jak człowiek, zatem w przypadkach trudności z klasyfikacją znaku lub fragmentu tekstu niezbędna jest weryfikacja wyniku przez człowieka celem uniknięcia błędu.
 
-Postęp w metodach OCR jest bardzo widoczny gdyż w obecnych czasach produkty potrafią rozpoznawać mało dokładne skany, wykonane telefonami komórkowymi z szumami na obrazkach, z tekstem napisanym pod nienaturalnymi kątami w wielu językach, pozostaje jednak problem rozpoznawania znaków pisma odęcznego.
+Postęp w metodach OCR jest bardzo widoczny gdyż w obecnych czasach produkty potrafią rozpoznawać mało dokładne skany, wykonane telefonami komórkowymi z szumami na obrazkach, z tekstem napisanym pod nienaturalnymi kątami w wielu językach, pozostaje jednak problem rozpoznawania znaków pisma odręcznego.
 
 Rozpoznawanie pisma jest możliwe dzięki zastosowaniu metod z dziedziny rozpoznawania wzorców, czyli pola badawczego w obrębie uczenia maszynowego. Metoda ta może być definiowana jako działanie polegające na pobieraniu danych i podejmowaniu dalszych czynności zależnych od kategorii do której należą te dane. By odpowiednio wyodrębnić poszczególne znaki z obrazu używane są biblioteki pozwalające na profesjonalną obróbkę zdjęć pod zastosowania w celach uczenia maszynowego. Przykładem takiej biblioteki jest OpenCV. Następnie po wyodrębnieniu potrzebnych informacji na temat danego znaku obrazy są klasyfikowane jako poszczególne litery. Zwykle w tym procesie używane są sieci neuronowe.
 
@@ -82,7 +83,7 @@ Wsród istniejących rozwiązań mogących służyć jako narzędzie potrzebne d
 
 Dostępne biblioteki na rynku, takie jak TesseractAPI oraz Microsoft Computer Vision API oferują wysoką skuteczność w rozpoznawaniu polskich oraz angielskich obrazów tekstu drukowanego lecz zarazem brak możliwości rozpoznawania pisma odręcznego. Wymagane jest więc stworzenie systemu rozpoznawania wzorców, który pozwalałby na skuteczną klasyfikacje znaków pisma odręcznego.
 
-Kolejnym problemem są znacząco ograniczone zasoby urządzeń mobilnych. Systemy rozpoznawania wzorców wymagają mocy obliczeniowej potrzebnej do przekształcenia obrazów w postać pozwalającą na wyodrebnienie cech, a następnie przeprowadzenie procesu klasyfikacji. Rozwiązaniem tego problemu jest wykorzystanie systemu rozpoznawania wzorców jako serwisu internetowego działającego w oparciu o architekture REST.
+Kolejnym problemem są znacząco ograniczone zasoby urządzeń mobilnych. Systemy rozpoznawania wzorców wymagają mocy obliczeniowej potrzebnej do przekształcenia obrazów w postać pozwalającą na wyodrębnianie cech, a następnie przeprowadzenie procesu klasyfikacji. Rozwiązaniem tego problemu jest wykorzystanie systemu rozpoznawania wzorców jako serwisu internetowego działającego w oparciu o architekturę REST.
 
 \section{Sposób wytworzenia zbioru treningowego}
 
@@ -121,7 +122,7 @@ Każda kolumna w zbiorze treningowym ma ustawioną nazwę pixelx, gdzie x jest l
 756 757 758 759 ... 782 783 
 \end{lstlisting} 
 
-Aplikacją generującą zbiór treningowy jest program TrainingSetGenerator, kod przeprowadzający transformacje oraz komentarze załączony jest poniżej:
+Aplikacją generującą zbiór treningowy jest program TrainingSetGenerator, kod przeprowadzający transformacje załączony jest poniżej:
 
 \begin{lstlisting}
 using System;
@@ -394,13 +395,13 @@ label = "Predicted: {0}, Actual: {1}".format(predic, actual)
 plot_digit(pixels, label)
 \end{lstlisting}
 
-\section{Jednokierunkowe, dwuwarstwowa sieć neuronowe}
+\section{Wielowarstwowe sieci neuronowe}
 
-Siecią neuronową nazywa się programową lub sprzetową strukturę modeli, realizujaca obliczenia lub przetwarzajaca sygnały poprzez rzędy elementów, zwanych sztucznymi neuronami. Emulują one niektóre spośród zaobserwowanych właściwości biologicznych układów nerwowych. Sztuczne sieci neuronowe są swoistym systemem inspirowanym przez to, w jaki sposób gesto połączone między sobą struktury mózgu, odbierają i przetwarzają dane które docierają w różny sposób z otoczenia. Kluczowytm elementem jest zatem struktura systemu przetwarzania informacji. Sieć taka sklada sie z dużej liczby rozlegle połączonych ze sobą elementów przetwarzajacych, które są powiazane ze sobą ważonymi połaczeniami.
+Siecią neuronową nazywa się programową lub sprzętową strukturę modeli, realizującą obliczenia lub przetwarzającą sygnały poprzez rzędy elementów, zwanych sztucznymi neuronami. Emulują one niektóre spośród zaobserwowanych właściwości biologicznych układów nerwowych. Sztuczne sieci neuronowe są swoistym systemem inspirowanym przez to, w jaki sposób gęsto połączone między sobą struktury mózgu, odbierają i przetwarzają dane które docierają w różny sposób z otoczenia. Kluczowym elementem jest zatem struktura systemu przetwarzania informacji. Sieć taka składa się z dużej liczby rozlegle połączonych ze sobą elementów przetwarzających, które są powiązane ze sobą ważonymi połączeniami.
 
-Cechą charakterystyczna sieci neuronowych od algorytmów realizujacych przetwarzanie informacji przy użyciu algorytmów jest umiejetność generalizacji, czyli zdolność uógolniania wiedzy dla nieznanych wczesniej wzorców. Innym atutem jest także zdolność do aproksymacji wartości funkcji wielu zmiennych w przeciwienstwie do interpolacji, która jest możliwa do uzyskania używając przetwarzania algorytmicznego.
+Cechą charakterystyczna sieci neuronowych od algorytmów realizujących przetwarzanie informacji przy użyciu algorytmów jest umiejetność generalizacji, czyli zdolność uogólniania wiedzy dla nieznanych wcześniej wzorców. Innym atutem jest także zdolność do aproksymacji wartości funkcji wielu zmiennych w przeciwieństwie do interpolacji, która jest możliwa do uzyskania używając przetwarzania algorytmicznego.
 
-Uczenie sieci neronowych zmienia liczbowe wartości wag znajdujacych się pomiędzy neuronami. Nastepuje to poprzez bezposrednią ekspozycje rzeczywistego zestawu danych, gdzie algorytm uczący modeluje wagi polaczeń. Ze względu na opisane powyżej cechy i zalety, obszar zastosowań sieci neuronowych jest rozlegly:
+Uczenie sieci neuronowych zmienia liczbowe wartości wag znajdujących się pomiędzy neuronami. Następuje to poprzez bezpośrednią ekspozycje rzeczywistego zestawu danych, gdzie algorytm uczący modeluje wagi polaczeń. Ze względu na opisane powyżej cechy i zalety, obszar zastosowań sieci neuronowych jest rozległy:
 
 \begin{itemize}
 \item
@@ -425,7 +426,7 @@ Prognozowanie sprzedaży
 Analizowanie zachowań klienta w supermarketach
 \end{itemize}
 
-Podstawowym elementem sieci neuronowej jest neuron. Jego schemat zostal opracowany przez McCullocha i Pittsa w roku 1943, zostal on oparty na budowie biologicznej komorki nerwowej.
+Podstawowym elementem sieci neuronowej jest neuron. Jego schemat został opracowany przez McCullocha i Pittsa w roku 1943, został on oparty na budowie biologicznej komórki nerwowej.
 
 \begin{figure}[!tbh]
 \centering
@@ -434,21 +435,21 @@ Podstawowym elementem sieci neuronowej jest neuron. Jego schemat zostal opracowa
 \end{figure}
 \newpage
 
-Do wejsc doprowadze sa sygnaly z wejsc sieci lub neuronow warstwy poprzedniej. Kazdy sygnal mnozony jest przez odpowiadajaca mu wartosc liczbowa zwana waga. Wplywa ona na percepcje danego sygnalu wejsciowego i jego udzial w sygnale wyjsciowym przez neuron. Waga moze byc dodania lub ujemna, jezeli nie ma polaczenia miedzy neuronami to waga jest rowna zero. Zsumowane iloczyny wag i sygnalow sa argumentem funkcji zwanej funkcja aktywacji neuronu.
+Do wejść doprowadzane są sygnały z wejść sieci lub neuronów warstwy poprzedniej. Każdy sygnał mnożony jest przez odpowiadającą mu wartość liczbowa zwana waga. Wpływa ona na percepcje danego sygnału wejściowego i jego udział w sygnale wyjściowym przez neuron. Waga może być dodania lub ujemna, jeżeli nie ma polaczenia miedzy neuronami to waga jest równa zero. Zsumowane iloczyny wag i sygnałów są argumentem funkcji zwanej funkcja aktywacji neuronu.
 
-Wartość funkcji aktywacji jest wyjściem neurona i propagowana jest do neuronów warstwy następnej. Może ona przybierać jedną z trzech postaci:
+Wartość funkcji aktywacji jest wyjściem neuronu i propagowana jest do neuronów warstwy następnej. Może ona przybierać jedną z trzech postaci:
 \begin{itemize}
 \item
-- nieliniowa
+nieliniowa
 \item
-- liniowa
+liniowa
 \item
-- skoku jednostkowego
+skoku jednostkowego
 \end{itemize}
 
 Należy zauważyć, iż jest to podział bardziej formalny niż merytoryczny. Różnice funkcjonalne między tymi typami raczej nie występują, natomiast można stosować je naprzemiennie w różnych warstwach sieci.
 
-Najbardziej popularnym typem sieci neuronowej jest sieć wielowarstwowa (ang. Multi-Layer Neural Network). Jej cecha charakterystyczna jest wystepowanie co najmniej jednej warstwy ukrytej neuronow, posredniczacej w przekazywaniu sygnalow pomiedzy wejsciami a wyjsciami sieci.
+Najbardziej popularnym typem sieci neuronowej jest sieć wielowarstwowa (ang. Multi-Layer Neural Network). Jej cecha charakterystyczna jest występowanie co najmniej jednej warstwy ukrytej neuronów, pośredniczącej w przekazywaniu sygnałów pomiędzy wejściami a wyjściami sieci.
 
 \begin{figure}[!tbh]
 \centering
@@ -457,15 +458,15 @@ Najbardziej popularnym typem sieci neuronowej jest sieć wielowarstwowa (ang. Mu
 \end{figure}
 \newpage
 
-Do rozpoznania polskich znakow pisma odrecznego uzyta zostala siec posiadajaca trzy warstwy.
+Do rozpoznania polskich znaków pisma odręcznego użyta została sieć posiadająca trzy warstwy.
 
 \begin{itemize}
 \item
-Warstwa wejsciowa sieci sklada sie z neuronow zawierajacych informacje na temat kazdego piksela. Zbior treningowy sklada sie z obrazow 28 x 28 pikseli. Zgodnie z tym zalozeniem pierwsza warstwa sieci bedzie skladala sie z 784 neuronow. Kazdy neuron przechowuje wartosc skali szarosci piksela, gdzie 0.0 oznacza kolor bialy, a 1.0 czarny.
+Warstwa wejściowa sieci składa się z neuronów zawierających informacje na temat każdego piksela. Zbiór treningowy składa się z obrazów 28 x 28 pikseli. Zgodnie z tym założeniem pierwsza warstwa sieci składa się z 784 neuronów. Każdy z nich przechowuje wartość skali szarości piksela, gdzie 0.0 oznacza kolor biały, a 1.0 czarny.
 \item
-Druga warstwa zawiera liczbe n neuronow, liczba n jest uzywana w kontekscie eksperymentalnym.
+Druga warstwa zawiera n neuronów, liczba n jest używana w kontekscie eksperymentalnym.
 \item
-Ostatnia warstwa, zawiera 74 neurony, poniewaz w Polski alfabet sklada sie z 32 liter, rozpatrywane sa zarowno litery wielkie jak i male oraz cyfry. Implementacja sieci:
+Ostatnia warstwa, zawiera 74 neurony, ponieważ w Polski alfabet składa się z 32 liter, rozpatrywane są zarówno litery wielkie jak i małe oraz cyfry. Implementacja sieci:
 \end{itemize}
 
 \begin{lstlisting}
@@ -486,7 +487,7 @@ def plot_digit(pixels, label):
     plt.title(label)
     plt.show()
 
-split = 39000
+split = 50000
 x0 = x[:split]; x1 = x[split:]
 y0 = y[:split]; y1 = y[split:]
 mlp = MLPClassifier(solver='sgd', activation='relu',
@@ -509,14 +510,15 @@ plot_digit(x[100], label)
 
 \section{Konwolucyjne sieci neuronowe - CNN}
 
-Konwolucyjne sieci neuronowe (ang. Convolutional Neural Networks) sa podobne do klasycznych sieci neuronowych. Aby dokladnie przeanalizowac budowe oraz dzialanie CNN przedstawiony zostanie problem klasyfikacji dwoch liter X i O. Ten przyklad demonstruje charakterystyczne reguly konwolucji.
+Konwolucyjne sieci neuronowe (ang. Convolutional Neural Networks) są podobne do klasycznych sieci neuronowych. Aby dokładnie przeanalizować budowę oraz działanie CNN przedstawiony zostanie problem klasyfikacji dwóch liter X i O. Ten przykład demonstruje charakterystyczne reguły konwolucji.
 
 \begin{figure}[!tbh]
 \centering
 \includegraphics[width=.8\hsize]{fig/cnn1}
 \caption{Problem klasyfikacji}
 \end{figure}
-CNN porownuje obrazy w kawalkach. Kazda taka czesc nazywana jest cecha (ang. feature), nastepnie oba zdjecia przeszukiwane sa na podobnych pozycjach by uzyskac jak najwiecej cech wspolnych. Sieci konwolucyjne duzo lepiej wspolpracuja na podobienstwach niz na pracy z pelnym obrazem, ktory pasuje do pewnego wzorca.
+
+CNN porównuje obrazy w kawałkach. Każda część nazywana jest cecha (ang. feature). Następnie zdjęcia przeszukiwane są na podobnych pozycjach by uzyskać maksymalną liczbę cech wspólnych. Sieci konwolucyjne wspolpracuja na podobieństwach niż na obrazie o pełnym rozmiarze.
 \newpage
 
 \begin{figure}[!tbh]
@@ -525,7 +527,7 @@ CNN porownuje obrazy w kawalkach. Kazda taka czesc nazywana jest cecha (ang. fea
 \caption{Wybrane cechy i ich odpowiedniki w zdjęciu do klasyfikacji}
 \end{figure}
 
-Kazda ceche mozna scharakteryzowac jako mniejsze zdjecie - dwuwymiarowa tablice wartosci. W przypadku litery X, cechami beda ukosne linie i znak krzyza, w ten sposob uzyskuje sie cechy charakterystyczne danego znaku.
+Każdą cechę można scharakteryzować jako mniejsze zdjęcie lub dwuwymiarową tablice wartości. W przypadku litery X, cechami beda ukośne linie i znak krzyża.
 
 \begin{figure}[!tbh]
 \centering
@@ -534,7 +536,7 @@ Kazda ceche mozna scharakteryzowac jako mniejsze zdjecie - dwuwymiarowa tablice 
 \end{figure}
 \newpage
 
-Kiedy rozpatrywany jest nowy obraz, sieć poszukuje cech zdjęcia w każdej możliwej pozycji. Obliczając wartości pasujące do cech  tworzymy filtr. Działania matematyczne kryjące się za tym działaniem nazywane są konwolucją lub splotem całkowitym. Aby obliczyć parę cech obrazu, należy pomnożyć każdą wartość piksela cechy przez odpowiadający mu piksel danego zdjęcia. Następnie należy dodać wszystkie wyniki z poprzednich operacji i podzielić przez łączną liczbę pikseli cechy. Jeśli oba piksele były białe, a ich wartość była reprezentowana przez 1, wynik wynosi 1 - piksel jest biały, w przeciwnym wypadku piksel jest czarny a jego wartość jest równa -1. Jeżeli wszystkie wartości cechy są takie same, wynikiem dodawania i podzielenia przez liczbe pikseli będzie 1.
+Kiedy rozpatrywany jest nowy obraz, sieć poszukuje cech zdjęcia w każdej możliwej pozycji. Obliczając wartości pasujące do cech tworzymy filtr. Działania matematyczne kryjące się za tym działaniem nazywane są splotem całkowitym. Aby obliczyć parę cech obrazu, należy pomnożyć każdą wartość piksela cechy przez odpowiadający mu piksel danego zdjęcia. Następnie należy dodać wszystkie wyniki z poprzednich operacji i podzielić przez łączną liczbę pikseli cechy. Jeśli oba piksele były białe, a ich wartość była reprezentowana przez 1, wynik wynosi 1 - piksel jest biały, w przeciwnym wypadku piksel jest czarny a jego wartość jest równa -1. Jeżeli wszystkie wartości cechy są takie same, wynikiem dodawania i podzielenia przez liczbę pikseli będzie 1.
 
 \begin{figure}[!tbh]
 \centering
@@ -543,7 +545,7 @@ Kiedy rozpatrywany jest nowy obraz, sieć poszukuje cech zdjęcia w każdej moż
 \end{figure}
 \newpage
 
-Następnym krokiem jest potwórzenie operacji splotu na kompletnym obrazie używając wszystkich dostępnych cech. Wynikiem jest szereg obrazów z filtrami, na każdym z dostępnych wyników nałożony jest jeden filtr. W konwulsyjnych sieciach neuronowych, warstwa ta nazywana jest warstwą konwolucyjną bądź też splotową (ang. convolution layer).
+Następnym krokiem jest powtórzenie operacji splotu na kompletnym obrazie używając wszystkich dostępnych cech. Wynikiem jest szereg obrazów z filtrami, na każdym z dostępnych wyników nałożony jest jeden filtr. W konwulsyjnych sieciach neuronowych, warstwa ta nazywana jest warstwą konwolucyjną bądź też splotową (ang. convolution layer).
 
 \begin{figure}[!tbh]
 \centering
@@ -569,7 +571,7 @@ Kolejnym narzędziem oferowanym przez CNN jest warstwa sumowania (ang. pooling l
 
 Po sumowaniu, wielkość danego zdjęcia jest cztery razy mniejsza. Ponieważ przetrzymywane są wartości maksymalne z każdego okna, przechowywane zostają najlepsze pasujące wartości danej cechy w oknie. To oznacza, że nie ważne jest gdzie dana cecha pasuje do momentu, aż znajdziemy pasującą odpowiedź w oknie.
 
-Dodatkowym narzędziem jest warstwa normalizacyjna (ang. Rectified Linear Units Layer, ReLU), to krótki, lecz bardzo ważny proces w którym wszystkie ujemne wartości zostają zastąpione zerami. To pomaga w funkcjonowaniu sieci trzymając wszystkie wartości na których wykonywane są operacje by te były równe 0 lub dodatnie.
+Dodatkowym narzędziem jest warstwa normalizacyjna (ang. Rectified Linear Units Layer, ReLU), to ważny proces w którym wszystkie ujemne wartości zostają zastąpione zerami. Wspomaga to funkcjonowaniu sieci trzymając wszystkie wartości na których wykonywane są operacje by te były równe 0 lub dodatnie.
 
 \begin{figure}[!tbh]
 \centering
@@ -578,7 +580,7 @@ Dodatkowym narzędziem jest warstwa normalizacyjna (ang. Rectified Linear Units 
 \end{figure}
 \newpage
 
-Ostatnim narzędziem dostępnym do wykorzystania jest warstwa FCL (ang. Fully Connected Layer). Przyjmuje ona przefiltrowane obrazy, a nstępnie tłumaczy je na głosy. W przypadku klasyfikacji znaków pisma odręcznego należy zdecydować do której kategori należy znak X czy O. Kiedy nowy obraz zostaje przekazany do klasyfikacji, wykonywane są operacje na wszystkich wymienionych warstwach, a ostatecznie FCL decyduje do której grupy należy znak.
+Ostatnim narzędziem dostępnym do wykorzystania jest warstwa FCL (ang. Fully Connected Layer). Przyjmuje ona przefiltrowane obrazy, a następnie tłumaczy je na głosy. W przypadku klasyfikacji znaków pisma odręcznego należy zdecydować do której kategorii należy znak X czy O. Kiedy nowy obraz zostaje przekazany do klasyfikacji, wykonywane są operacje na wszystkich wymienionych warstwach, a ostatecznie FCL decyduje do której grupy należy znak.
 
 \begin{figure}[!tbh]
 \centering
@@ -589,7 +591,7 @@ Ostatnim narzędziem dostępnym do wykorzystania jest warstwa FCL (ang. Fully Co
 
 \section{Podsumowanie}
 
-Używając zbioru treningowego stworzonego za pomocą narzędzi z sekcji 1.2 i próbuje stworzenia klasyfikatorów problemu rozpoznawania znaków polskiego pisma odręcznego opisanego w sekcji 1.1 przeprowadzone zostały badania wykorzystujące algorytmy wymienione w sekcjach 1.3, 1.4 oraz sieci neuronowe 1.5, 1.6. uzyskane zostały następujące rezultaty:
+Używając zbioru treningowego stworzonego za pomocą narzędzi z sekcji 1.2 i stworzenia klasyfikatorów problemu rozpoznawania znaków polskiego pisma odręcznego opisanego w sekcji 1.1 przeprowadzone zostały badania wykorzystujące algorytmy wymienione w sekcjach 1.3, 1.4 oraz sieci neuronowe 1.5, 1.6. uzyskane zostały następujące rezultaty:
 
 \begin{table}[!htb]
 \begin{tabular}{|l|l|l|} \hline
@@ -600,7 +602,6 @@ Nazwa & Dokładność      & Czas \\ \hline
 \texttt{CNN}     & 85\% &  3969s \\ \hline
 \end{tabular}
 \caption{Wyniki poszczególnych klasyfikatorów}
-\source{Opracowanie własne}
 \end{table}
 
 Według wyników badań, najlepszą metodą klasyfikacji znaków polskiego pisma odręcznego jest wykorzystanie konwolucyjnych sieci neuronowych. Implementacja tej metody zostanie użyta w dalszych badaniach.

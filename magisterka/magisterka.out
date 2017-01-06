@@ -4,7 +4,7 @@
 \BOOKMARK [1][-]{section.1.2}{Sposób wytworzenia zbioru treningowego}{chapter.1}% 4
 \BOOKMARK [1][-]{section.1.3}{Algorytm\040k-NN}{chapter.1}% 5
 \BOOKMARK [1][-]{section.1.4}{Random\040Forest}{chapter.1}% 6
-\BOOKMARK [1][-]{section.1.5}{Jednokierunkowe, dwuwarstwowa sieć neuronowe}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.5}{Wielowarstwowe\040sieci\040neuronowe}{chapter.1}% 7
 \BOOKMARK [1][-]{section.1.6}{Konwolucyjne\040sieci\040neuronowe\040-\040CNN}{chapter.1}% 8
 \BOOKMARK [1][-]{section.1.7}{Podsumowanie}{chapter.1}% 9
 \BOOKMARK [0][-]{chapter.2}{Implementacja\040aplikacji\040do\040rozpoznawania\040tekstu}{}% 10
