@@ -158,7 +158,44 @@ Dla k = 3, niewiadoma oznaczona zielonym punktem będzie sklasyfikowana jako cze
 \includegraphics[width=.8\hsize]{fig/knn-wzor}
 \end{figure}
 
-// kod
+\lstset{language=Python} 
+\begin{lstlisting}
+from sklearn.neighbors import KNeighborsClassifier
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+import random
+
+
+def plot_digit(pixels, label):
+    img = pixels.reshape((28,28))
+    plt.imshow(img,cmap='gray')
+    plt.title(label)
+    plt.show()
+
+labeled_images = pd.read_csv('output.csv')
+images = labeled_images.iloc[0:5000,1:]
+labels = labeled_images.iloc[0:5000,:1]
+train_images, test_images, train_labels, test_labels = train_test_split(images, labels, train_size=0.8, random_state=0)
+
+knn = KNeighborsClassifier(n_neighbors=10, algorithm="kd_tree")
+knn.fit(train_images, train_labels.values.ravel())
+print knn.score(test_images,test_labels)
+
+
+def test_prediction(index):
+    predic = knn.predict(test_images.iloc[index:index+1])[0]
+    actual = test_labels.iloc[index]['label']
+    return (predic, actual)
+
+index = random.randint(0, len(test_images)-1)
+predic, actual = test_prediction(index)
+
+pixels = test_images.iloc[index].as_matrix()
+label = "Predicted: {0}, Actual: {1}".format(predic, actual)
+
+plot_digit(pixels, label)
+\end{lstlisting}
 
 \section{Random Forest}
 
@@ -203,7 +240,43 @@ W przypadku elementów niewylosowanych z oryginalnej podpróby, każdy taki i-ty
 \end{figure}
 \newpage
 
-//kod
+\begin{lstlisting}
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+import random
+
+
+def plot_digit(pixels, label):
+    img = pixels.reshape((28,28))
+    plt.imshow(img,cmap='gray')
+    plt.title(label)
+    plt.show()
+
+labeled_images = pd.read_csv('output.csv')
+images = labeled_images.iloc[0:5000,1:]
+labels = labeled_images.iloc[0:5000,:1]
+train_images, test_images, train_labels, test_labels = train_test_split(images, labels, train_size=0.8, random_state=0)
+
+clf = RandomForestClassifier(n_jobs=2)
+clf.fit(train_images, train_labels.values.ravel())
+print clf.score(test_images,test_labels)
+
+
+def test_prediction(index):
+    predic = clf.predict(test_images.iloc[index:index+1])[0]
+    actual = test_labels.iloc[index]['label']
+    return (predic, actual)
+
+index = random.randint(0, len(test_images)-1)
+predic, actual = test_prediction(index)
+
+pixels = test_images.iloc[index].as_matrix()
+label = "Predicted: {0}, Actual: {1}".format(predic, actual)
+
+plot_digit(pixels, label)
+\end{lstlisting}
 
 \section{Jednokierunkowe, dwuwarstwowa sieć neuronowe}
 
@@ -278,7 +351,45 @@ Druga warstwa zawiera liczbe n neuronow, liczba n jest uzywana w kontekscie eksp
 \item
 Ostatnia warstwa, zawiera 74 neurony, poniewaz w Polski alfabet sklada sie z 32 liter, rozpatrywane sa zarowno litery wielkie jak i male oraz cyfry. Implementacja sieci:
 \end{itemize}
-// kod
+
+\begin{lstlisting}
+import numpy as np
+import pandas as pd
+from sklearn.neural_network import MLPClassifier
+import matplotlib.pyplot as plt
+
+train = pd.read_csv('output.csv')
+y = np.array(train.pop('label'))
+x = np.array(train)/255.
+plt.imshow(x[10].reshape(28,28), cmap='Greys', interpolation='nearest')
+
+
+def plot_digit(pixels, label):
+    img = pixels.reshape((28,28))
+    plt.imshow(img,cmap='gray')
+    plt.title(label)
+    plt.show()
+
+split = 39000
+x0 = x[:split]; x1 = x[split:]
+y0 = y[:split]; y1 = y[split:]
+mlp = MLPClassifier(solver='sgd', activation='relu',
+                    hidden_layer_sizes=(100,30),
+                    learning_rate_init=0.3, learning_rate='adaptive', alpha=0.1,
+                    momentum=0.9, nesterovs_momentum=True,
+                    tol=1e-4, max_iter=200,
+                    shuffle=True, batch_size=300,
+                    early_stopping = False, validation_fraction = 0.15,
+                    verbose=True)
+mlp.fit(x0,y0)
+y_val = mlp.predict(x1)
+accuracy = np.mean(y1 == y_val)
+print accuracy
+
+label = "Predicted: {0}, Actual: {1}".format(y1[100], y_val[100])
+
+plot_digit(x[100], label)
+\end{lstlisting}
 
 \section{Konwolucyjne sieci neuronowe - CNN}
 
@@ -358,7 +469,17 @@ Ostatnim narzędziem dostępnym do wykorzystania jest warstwa FCL (ang. Fully Co
 
 Używając zbioru treningowego stworzonego za pomocą narzędzi z sekcji 1.2 i próbuje stworzenia klasyfikatorów problemu rozpoznawania znaków polskiego pisma odręcznego opisanego w sekcji 1.1 przeprowadzone zostały badania wykorzystujące algorytmy wymienione w sekcjach 1.3, 1.4 oraz sieci neuronowe 1.5, 1.6. uzyskane zostały następujące rezultaty:
 
-// tabelka wyników
+\begin{table}[!htb]
+\begin{tabular}{|l|l|l|} \hline
+Nazwa & Dokładność      & Czas \\ \hline
+\texttt{kNN} & 38\% & 12.3s \\ \hline
+\texttt{Random Forest}        & 28\% & 9.0s \\ \hline
+\texttt{Sieć neuronowa}     & 73\% & 159s \\ \hline
+\texttt{CNN}     & 85\% &  3969s \\ \hline
+\end{tabular}
+\caption{Publicznie dostępne procesory XLST\label{zest:proces:xslt}}
+\source{Opracowanie własne}
+\end{table}
 
 Według wyników badań, najlepszą metodą klasyfikacji znaków polskiego pisma odręcznego jest wykorzystanie konwolucyjnych sieci neuronowych. Implementacja tej metody zostanie użyta w dalszych badaniach.
 

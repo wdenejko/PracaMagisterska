@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.1.2)  5 JAN 2017 22:17
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.1.2)  6 JAN 2017 17:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -847,75 +847,146 @@ File: fig/knn.png Graphic file (type QTm)
 
 <use  "fig/knn.png" > [11]
 File: fig/knn-wzor.png Graphic file (type QTm)
- <use  "fig/knn-wzor.png" > [12]
+ <use  "fig/knn-wzor.png" >
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+) [12]
+Overfull \hbox (466.80872pt too wide) in paragraph at lines 179--181
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (63.60461pt too wide) in paragraph at lines 181--182
+[][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (42.0044pt too wide) in paragraph at lines 187--188
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (42.0044pt too wide) in paragraph at lines 195--197
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \vbox (badness 1590) has occurred while \output is active []
+
+ [13]
 File: fig/randomforest.png Graphic file (type QTm)
 
-<use  "fig/randomforest.png" > [13] [14]
-Overfull \hbox (1.84888pt too wide) in paragraph at lines 212--213
+<use  "fig/randomforest.png" > [14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15]
+Overfull \hbox (466.80872pt too wide) in paragraph at lines 260--262
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (42.0044pt too wide) in paragraph at lines 268--269
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (42.0044pt too wide) in paragraph at lines 276--278
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[16]
+Overfull \hbox (1.84888pt too wide) in paragraph at lines 285--286
 []\EU1/MinionPro(0)/m/n/12 Cechą charakterystyczna sieci neuronowych od algoryt
 mów realizujacych prze-
  []
 
 File: fig/budowaneurona.png Graphic file (type QTm)
-<use  "fig/budowaneurona.png" > [15]
-Overfull \hbox (2.17691pt too wide) in paragraph at lines 262--263
+<use  "fig/budowaneurona.png" > [17] [18]
+Overfull \hbox (2.17691pt too wide) in paragraph at lines 335--336
 []\EU1/MinionPro(0)/m/n/12 Najbardziej popularnym typem sieci neuronowej jest s
 ieć wielowarstwowa (ang.
  []
 
 File: fig/budowasieci.png Graphic file (type QTm)
-<use  "fig/budowasieci.png" > [16] [17]
-File: fig/cnn1.png Graphic file (type QTm)
- <use  "fig/cnn1.png" > [18]
-File: fig/cnn2.png Graphic file (type QTm)
+<use  "fig/budowasieci.png" > [19] [20]
+Overfull \hbox (121.2052pt too wide) in paragraph at lines 364--367
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
 
-<use  "fig/cnn2.png" >
+
+Overfull \hbox (186.00586pt too wide) in paragraph at lines 378--379
+[][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.60425pt too wide) in paragraph at lines 379--380
+[][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (121.2052pt too wide) in paragraph at lines 382--383
+[][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [21]
+Overfull \hbox (78.00476pt too wide) in paragraph at lines 389--391
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+File: fig/cnn1.png Graphic file (type QTm)
+<use  "fig/cnn1.png" > [22]
+File: fig/cnn2.png Graphic file (type QTm)
+ <use  "fig/cnn2.png" >
 File: fig/cnn3.png Graphic file (type QTm)
- <use  "fig/cnn3.png" > [19]
+ <use  "fig/cnn3.png" >
+[23]
 File: fig/cnn4.png Graphic file (type QTm)
- <use  "fig/cnn4.png" >
-[20]
+ <use  "fig/cnn4.png" > [24]
 File: fig/cnn5.png Graphic file (type QTm)
- <use  "fig/cnn5.png" > [21]
+ <use  "fig/cnn5.png" > [25]
 File: fig/cnn6.png Graphic file (type QTm)
- <use  "fig/cnn6.png" >
+
+<use  "fig/cnn6.png" >
 File: fig/cnn7.png Graphic file (type QTm)
- <use  "fig/cnn7.png" >
-[22]
+ <use  "fig/cnn7.png" > [26]
 File: fig/cnn8.png Graphic file (type QTm)
- <use  "fig/cnn8.png" > [23] [24]
+ <use  "fig/cnn8.png" >
+[27] [28] [29]
 Rozdział 2.
-[25
+[30
 
 ]
 Rozdział 3.
-[26
+[31
 
 ]
 Rozdział 4.
-[27
+[32
 
 ]
 No file magisterka.bbl.
-[28
+[33
 
-] [29
+] [34
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 412.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 412.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 533.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 533.
  (./magisterka.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 412.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 412.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 412.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 533.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 533.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 533.
  ) 
 Here is how much of TeX's memory you used:
- 22671 strings out of 493638
- 405161 string characters out of 6146797
- 428149 words of memory out of 5000000
- 25863 multiletter control sequences out of 15000+600000
+ 22949 strings out of 493638
+ 408463 string characters out of 6146797
+ 460655 words of memory out of 5000000
+ 26137 multiletter control sequences out of 15000+600000
  7921 words of font info for 61 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 55i,12n,61p,10410b,852s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,12n,72p,10410b,1780s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on magisterka.pdf (29 pages).
+Output written on magisterka.pdf (34 pages).

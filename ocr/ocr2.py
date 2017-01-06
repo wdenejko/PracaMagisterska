@@ -306,8 +306,6 @@ saver = tf.train.Saver(max_to_keep=5)
 sess = tf.Session()
 sess.run(tf.initialize_all_variables())
 ckpt = tf.train.get_checkpoint_state('.')
-ckpt.model_checkpoint_path
-saver.restore(sess, './model-7100')
 
 # read test data from CSV file
 test_images = pd.read_csv('test.csv').values

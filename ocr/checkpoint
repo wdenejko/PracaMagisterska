@@ -1,2 +1,2 @@
-model_checkpoint_path: "convolutional.ckpt"
-all_model_checkpoint_paths: "convolutional.ckpt"
+model_checkpoint_path: "/home/wdenejko/PracaMagisterska-Github/ocr/convolutional.ckpt"
+all_model_checkpoint_paths: "/home/wdenejko/PracaMagisterska-Github/ocr/convolutional.ckpt"

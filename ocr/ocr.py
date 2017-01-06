@@ -4,14 +4,15 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import os
-from subprocess import check_output
+import time
 
+start = time.time()
 # Learning rate for learning algorithm
-LEARNING_RATE = 1e-4
+LEARNING_RATE = 5e-4
 
 # number of training iterations
-TRAINING_ITERATIONS = 1000
-ITERATIONS_PER_RUN = 100
+TRAINING_ITERATIONS = 20000
+ITERATIONS_PER_RUN = 7200
 
 # dropout. Dropout is an extremely effective and simple regularization technique
 # based on keeping a neuron active with some probability p (a hyperparameter, here is DROPOUT),
@@ -26,7 +27,7 @@ BATCH_SIZE = 200
 VALIDATION_SIZE = 2000
 
 # image number to output
-IMAGE_TO_DISPLAY = 25
+IMAGE_TO_DISPLAY = 263
 
 # Strutified shuffle is used insted of simple shuffle in order to achieve sample balancing
     # or equal number of examples in each of 10 classes.
@@ -336,3 +337,47 @@ if(VALIDATION_SIZE):
                                                    y_: validation_labels,
                                                    keep_prob: 1.0})
     print('validation_accuracy => %.4f'%validation_accuracy)
+
+end = time.time()
+print(end - start)
+
+
+# read test data from CSV file
+test_images = pd.read_csv('test.csv').values
+test_images = test_images.astype(np.float)
+
+# convert from [0:255] => [0.0:1.0]
+test_images = np.multiply(test_images, 1.0 / 255.0)
+print('test_images({0[0]},{0[1]})'.format(test_images.shape))
+
+# predict test set
+#predicted_lables = predict.eval(feed_dict={x: test_images, keep_prob: 1.0})
+
+# using batches is more resource efficient
+predicted_lables = np.zeros(test_images.shape[0])
+for i in range(0,test_images.shape[0]//BATCH_SIZE):
+    predicted_lables[i*BATCH_SIZE : (i+1)*BATCH_SIZE] = predict.eval(
+        session=sess, feed_dict={x: test_images[i*BATCH_SIZE : (i+1)*BATCH_SIZE],
+                                 keep_prob: 1.0})
+
+print('predicted_lables({0})'.format(len(predicted_lables)))
+
+# output test image and prediction
+display(test_images[IMAGE_TO_DISPLAY])
+print ('predicted_lables[{0}] => {1}'.format(IMAGE_TO_DISPLAY,predicted_lables[IMAGE_TO_DISPLAY]))
+
+# save results
+file_name = 'submission_softmax_%s.csv' % global_step.eval(sess)
+np.savetxt(file_name,
+           np.c_[range(1,len(test_images)+1),predicted_lables],
+           delimiter=',',
+           header = 'ImageId,Label',
+           comments = '',
+           fmt='%d')
+print('saved: %s' % file_name)
+
+layer1_grid = layer1.eval(session=sess, feed_dict={x: test_images[IMAGE_TO_DISPLAY:IMAGE_TO_DISPLAY+1],
+                                                   keep_prob: 1.0})
+plt.axis('off')
+plt.imshow(layer1_grid[0], cmap=cm.seismic )
+plt.show()
