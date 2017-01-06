@@ -1,7 +1,11 @@
 \documentclass[brudnopis]{xmgr}
-\usepackage{listings}
+
 \setmainfont[Numbers=OldStyle,Mapping=tex-text]{Minion Pro}
 \setsansfont[Numbers=OldStyle,Mapping=tex-text]{Myriad Pro}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstdefinestyle{sharpc}{language=[Sharp]C, frame=lr, rulecolor=\color{blue!80!black}}
 
 \wersja   {wersja wstępna [\ymdtoday]}
 
@@ -119,7 +123,119 @@ Każda kolumna w zbiorze treningowym ma ustawioną nazwę pixelx, gdzie x jest l
 
 Aplikacją generującą zbiór treningowy jest program TrainingSetGenerator, kod przeprowadzający transformacje oraz komentarze załączony jest poniżej:
 
-// kod
+\begin{lstlisting}
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Emgu.CV;
+using Emgu.CV.CvEnum;
+using Emgu.CV.Structure;
+
+namespace ImageResizer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            const string imagesPath = @"IMAGEPATH";
+            const string csvFilePath = @"CSVFILEPATH";
+            var dirInfo = new DirectoryInfo(imagesPath)
+            .GetDirectories("*", SearchOption.AllDirectories);
+
+            var csv3 = new StringBuilder();
+            csv3.Append("label");
+            csv3.Append(',');
+            for (int i = 0; i < 784; i++)
+            {
+                csv3.Append("pixel" + i);
+                csv3.Append(',');
+            }
+
+            File.AppendAllText(csvFilePath, csv3 + "\n");
+
+
+
+            foreach (var directoryInfo in dirInfo)
+            {
+                var files = directoryInfo
+                .GetFiles("*", SearchOption.AllDirectories);
+                Console.WriteLine("In folder : " 
+                + directoryInfo.FullName);
+                for (int i = 0; i < 1920; i++)
+                {
+                    var csv = new StringBuilder();
+                    var csv2 = new StringBuilder();
+                    var fileName = files[i]
+                    .DirectoryName
+                    .Replace(imagesPath + @"\", string.Empty);
+                    csv.Append(fileName);
+                    csv.Append(',');
+                    var originalImage = 
+                    new Image<Gray, byte>(files[i].FullName)
+                    .Not();
+                    var img = originalImage
+                    .Resize(28, 28, Inter.Linear);
+                    for (var k = 0; k < img.Height; k++)
+                    {
+                        for (var j = 0; j < img.Width; j++)
+                        {
+                            csv.Append(img[k, j].Intensity);
+                            csv.Append(',');
+                        }
+                    }
+
+                    csv2.AppendLine(csv.ToString());
+                    File.AppendAllText(csvFilePath, csv2
+                    .ToString());
+                }
+            }
+
+            Console.WriteLine("DONE!");
+            Console.ReadLine();
+
+        }
+    }
+
+    public class CsvRow : List<string>
+    {
+        public string LineText { get; set; }
+    }
+
+    public class CsvFileWriter : StreamWriter
+    {
+        public CsvFileWriter(Stream stream)
+            : base(stream)
+        {
+        }
+
+        public CsvFileWriter(string filename)
+            : base(filename)
+        {
+        }
+
+        public void WriteRow(CsvRow row)
+        {
+            StringBuilder builder = new StringBuilder();
+            bool firstColumn = true;
+            foreach (string value in row)
+            {
+                if (!firstColumn)
+                    builder.Append(',');
+                if (value.IndexOfAny(new char[] { '"', ',' }) != -1)
+                    builder.AppendFormat("\"{0}\"", value.Replace("\"", "\"\""));
+                else
+                    builder.Append(value);
+                firstColumn = false;
+            }
+            row.LineText = builder.ToString();
+            WriteLine(row.LineText);
+        }
+    }
+}
+\end{lstlisting}
 
 \section{Algorytm k-NN}
 
@@ -434,6 +550,12 @@ Następnym krokiem jest potwórzenie operacji splotu na kompletnym obrazie używ
 \includegraphics[width=.8\hsize]{fig/cnn5}
 \caption{Wynik operacji splotu danej cechy}
 \end{figure}
+
+\begin{figure}[!tbh]
+\centering
+\includegraphics[width=.8\hsize]{fig/figure_1}
+\caption{Przykład warstwy konwolucyjnej dla litery k}
+\end{figure}
 \newpage
 
 Kolejnym narzędziem oferowanym przez CNN jest warstwa sumowania (ang. pooling layer). Pooling daje możliwość zmniejszenia dużych obrazów bez utraty ważnych informacji na ich temat. Operacje wykonywane w tej warstwie to podział zdjęcia z poprzedniej warstwy na mniejsze, a następnie pobranie maksimum z danej części. Operacje te należy powtórzyć na całym zdjęciu.
@@ -463,7 +585,7 @@ Ostatnim narzędziem dostępnym do wykorzystania jest warstwa FCL (ang. Fully Co
 \includegraphics[width=.8\hsize]{fig/cnn8}
 \caption{Przykład klasyfikacji znaku X}
 \end{figure}
-\newpage
+\clearpage
 
 \section{Podsumowanie}
 
@@ -477,7 +599,7 @@ Nazwa & Dokładność      & Czas \\ \hline
 \texttt{Sieć neuronowa}     & 73\% & 159s \\ \hline
 \texttt{CNN}     & 85\% &  3969s \\ \hline
 \end{tabular}
-\caption{Publicznie dostępne procesory XLST\label{zest:proces:xslt}}
+\caption{Wyniki poszczególnych klasyfikatorów}
 \source{Opracowanie własne}
 \end{table}
 
