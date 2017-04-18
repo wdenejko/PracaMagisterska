@@ -8,11 +8,11 @@ import time
 
 start = time.time()
 # Learning rate for learning algorithm
-LEARNING_RATE = 5e-4
+LEARNING_RATE = 1e-4
 
 # number of training iterations
 TRAINING_ITERATIONS = 20000
-ITERATIONS_PER_RUN = 7200
+ITERATIONS_PER_RUN = 5000
 
 # dropout. Dropout is an extremely effective and simple regularization technique
 # based on keeping a neuron active with some probability p (a hyperparameter, here is DROPOUT),
