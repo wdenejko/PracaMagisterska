@@ -5,9 +5,11 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import os
 import model
+import graphlab.numpy
+from graphlab import SFrame
 
-TRAINING_ITERATIONS = 20000
-ITERATIONS_PER_RUN = 10000
+TRAINING_ITERATIONS = 10000
+ITERATIONS_PER_RUN = 20000
 
 DROPOUT = 0.5
 BATCH_SIZE = 50
@@ -16,10 +18,9 @@ VALIDATION_SIZE = 2000
 
 IMAGE_TO_DISPLAY = 263
 
-dataset = pd.read_csv("output.csv")
-
-images = dataset.iloc[:, 1:].values
-images = images.astype(np.float)
+dataset = pd.read_csv('file3.csv')
+images = dataset.iloc[:, 1:785].values.astype(np.float)
+labels_flat = dataset[[0]].values.ravel()
 
 images = np.multiply(images, 1.0 / 255.0)
 print('data size: (%g, %g)' % images.shape)
@@ -36,10 +37,8 @@ def display(img):
     plt.axis('off')
     plt.imshow(one_image, cmap=cm.binary)
 
+#display(images[IMAGE_TO_DISPLAY])
 
-display(images[IMAGE_TO_DISPLAY])
-
-labels_flat = dataset[[0]].values.ravel()
 print('length of one image ({0})'.format(len(labels_flat)))
 print ('label of image [{0}] => {1}'.format(IMAGE_TO_DISPLAY, labels_flat[IMAGE_TO_DISPLAY]))
 
@@ -79,10 +78,10 @@ with tf.variable_scope("convolutional"):
 num_examples = train_images.shape[0]
 
 def stratified_shuffle(labels, num_classes):
-    ix = np.argsort(labels).reshape((num_classes,-1))
+    ix = np.argsort(labels).reshape((num_classes,-1), len(ix))
     for i in range(len(ix)):
         np.random.shuffle(ix[i])
-    return ix.T.reshape((-1))
+    return ix.T.reshape((-1), len(ix))
 
 epochs_completed = 0
 index_in_epoch = 0
@@ -110,9 +109,9 @@ def next_batch(batch_size):
         # finished epoch
         epochs_completed += 1
         # shuffle the data
-        # perm = np.arange(num_examples)
-        # np.random.shuffle(perm)
-        perm = stratified_shuffle(train_labels_flat, 10)
+        perm = np.arange(num_examples)
+        np.random.shuffle(perm)
+        #perm = stratified_shuffle(train_labels_flat, 35)
         train_images = train_images[perm]
         train_labels = train_labels[perm]
         train_labels_flat = train_labels_flat[perm]
@@ -138,7 +137,8 @@ def check_progress(sess, accuracy, batch_xs, batch_ys, i):
     return (train_accuracy, validation_accuracy)
 
 # train
-y_ = tf.placeholder(tf.float32, [None, 62])
+
+y_ = tf.placeholder(tf.float32, [None, 36])
 cross_entropy = -tf.reduce_sum(y_ * tf.log(y))
 global_step = tf.Variable(0, name='global_step', trainable=False)
 train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy, global_step=global_step)
