@@ -5,8 +5,6 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import os
 import model
-import graphlab.numpy
-from graphlab import SFrame
 
 TRAINING_ITERATIONS = 30000
 ITERATIONS_PER_RUN = 30000
