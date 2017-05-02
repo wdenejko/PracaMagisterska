@@ -8,8 +8,8 @@ import model
 import graphlab.numpy
 from graphlab import SFrame
 
-TRAINING_ITERATIONS = 10000
-ITERATIONS_PER_RUN = 20000
+TRAINING_ITERATIONS = 30000
+ITERATIONS_PER_RUN = 30000
 
 DROPOUT = 0.5
 BATCH_SIZE = 50
