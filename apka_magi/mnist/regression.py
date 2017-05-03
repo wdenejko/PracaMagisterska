@@ -16,7 +16,7 @@ VALIDATION_SIZE = 2000
 
 IMAGE_TO_DISPLAY = 263
 
-dataset = pd.read_csv('file3.csv')
+dataset = pd.read_csv('test7500.csv')
 images = dataset.iloc[:, 1:785].values.astype(np.float)
 labels_flat = dataset[[0]].values.ravel()
 
@@ -120,7 +120,7 @@ def next_batch(batch_size):
     return train_images[start:end], train_labels[start:end]
 
 global_step = tf.Variable(0, name='global_step', trainable=False)
-y_ = tf.placeholder("float", [None, 36])
+y_ = tf.placeholder("float", [None, 26])
 cross_entropy = -tf.reduce_sum(y_ * tf.log(y))
 train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
 correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
@@ -130,7 +130,7 @@ saver = tf.train.Saver(variables)
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
     start_step = global_step.eval(sess)
-    for i in range(start_step, min(start_step + ITERATIONS_PER_RUN, TRAINING_ITERATIONS)):
+    for _ in range(10000):
         batch_xs, batch_ys = next_batch(BATCH_SIZE)
         sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 

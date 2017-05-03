@@ -16,7 +16,7 @@ VALIDATION_SIZE = 2000
 
 IMAGE_TO_DISPLAY = 263
 
-dataset = pd.read_csv('file3.csv')
+dataset = pd.read_csv('test5000.csv')
 images = dataset.iloc[:, 1:785].values.astype(np.float)
 labels_flat = dataset[[0]].values.ravel()
 
@@ -136,7 +136,7 @@ def check_progress(sess, accuracy, batch_xs, batch_ys, i):
 
 # train
 
-y_ = tf.placeholder(tf.float32, [None, 36])
+y_ = tf.placeholder(tf.float32, [None, 26])
 cross_entropy = -tf.reduce_sum(y_ * tf.log(y))
 global_step = tf.Variable(0, name='global_step', trainable=False)
 train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy, global_step=global_step)
