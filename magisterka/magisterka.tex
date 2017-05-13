@@ -2,6 +2,7 @@
 
 \setmainfont[Numbers=OldStyle,Mapping=tex-text]{Minion Pro}
 \setsansfont[Numbers=OldStyle,Mapping=tex-text]{Myriad Pro}
+
 \usepackage{listings}
 \usepackage{xcolor}
 
@@ -23,9 +24,9 @@
 
 % streszczenie
 \begin{abstract}
-  Niniejsza praca ma na celu stworzenie aplikacji rozpoznającej tekst w języku polskim oraz angielskim, charakteryzującej się kompatybilnością z systemami iOS oraz Android. Do wytworzenia aplikacji zostanie użyte narzędzie Xamarin, które służy do tworzenia aplikacji wieloplatformowych. Zbadane zostaną różne metody połączenia technologii wieloplatformowej z istniejącymi rozwiązaniami OCR. Przedstawiona konwolucyjna sieć neuronowa zaprezentuje klasyfikacje polskiego alfabetu.
+  Niniejsza praca ma na celu stworzenie aplikacji rozpoznającej litery oraz cyfry pisane odręcznie, która charakteryzuje się kompatybilnością z systemami iOS oraz Android. Do wytworzenia aplikacji zostanie użyte narzędzie Xamarin, które służy do tworzenia aplikacji wieloplatformowych. Zbadane zostaną różne metody połączenia technologii wieloplatformowej z istniejącymi rozwiązaniami OCR. Przedstawiona konwolucyjna sieć neuronowa zaprezentuje klasyfikacje liter alfabetu oraz cyfr oraz zostaną przeprowadzone badania pokazujące przewagę konwolucyjnych sieci neoronowych nad innymi algorytmami służącymi do uczenia maszynowego.
   
-  Integralną częścią pracy jest aplikacja OCRecognizer, w której zaimplementowano metody klasyfikacji obrazów. Program umożliwia zrobienie zdjęcia, a następnie przy użyciu kilku opcji, rozpoznanie tekstu.
+  Integralną częścią pracy jest aplikacja ImageResizer, która pozwala na przygotowanie modelu danych z podzielonego na poszczególne znaki oraz cyfry zbioru danych.
   
 \end{abstract}
 
@@ -45,36 +46,38 @@
 % wstęp
 \introduction
 
-	Xamarin to platforma deweloperska służąca do tworzenia natywnych aplikacji mobilnych dla systemów iOS, Android oraz Windows, za pomocą wspólnej technologii .NET i języka C\# . Dzięki temu możliwe jest uzyskanie do stu procent wspólnego kodu między różnymi platformami. Aplikacje napisane przy użyciu technologii Xamarin i C\# mają pełny dostęp do interfejsów, API oraz możliwość tworzenia natywnych interfejsów użytkownika.
+	Xamarin to platforma deweloperska służąca do tworzenia natywnych aplikacji mobilnych dla systemów iOS, Android oraz Windows, za pomocą wspólnej technologii .NET i języka C\# . Dzięki temu możliwe jest uzyskanie do stu procent wspólnego kodu między platformami Android oraz iOS. Aplikacje napisane przy użyciu technologii Xamarin i C\# mają pełny dostęp do interfejsów, API oraz możliwość tworzenia natywnych interfejsów użytkownika.
   
   Ze względu na dynamiczny rozwój rynku IT, uczenie maszynowe staje się coraz bardziej popularne a algorytmy zyskują lepszą skuteczność dzięki dostępności danych oraz szybszych podzespołów komputerowych. 
   
-  Urządzenia przenośne mają stosunkowo ograniczone zasoby w związku z tym istnieje problem powiązania tych dwóch dziedzin. Algorytmy systemów uczących się wymagają dużej mocy obliczeniowej. Aplikacje wieloplatformowe pozwalają zaoszczędzić czas na implementacji oraz skuteczniej tworzyć funkcjonalności rozpoznawania tekstu. Połączenie tej technologi z algorytmem służącym do klasyfikacji znaków w obrazie jest bardziej optymalne niż ich natywne odpowiedniki.
+  Urządzenia przenośne mają stosunkowo ograniczone zasoby w związku z tym istnieje problem wykorzystania technologii uczenia maszynowego z aplikacjami mobilnymi. Algorytmy systemów uczących się wymagają dużej mocy obliczeniowej. Aplikacje wieloplatformowe pozwalają zaoszczędzić czas na implementacji oraz skuteczniej tworzyć funkcjonalności rozpoznawania tekstu. Połączenie tej technologi z algorytmem służącym do klasyfikacji znaków w obrazie jest bardziej optymalne niż ich natywne odpowiedniki.
   
-  Celem pracy jest  zbadanie istniejących rozwiązań służących do rozpoznawania tekstu oraz stworzenie sieci neuronowej pozwalającej na klasyfikację znaków pisanych charakterystycznych dla współczesnego języka polskiego. Ponieważ pozyskanie danych z polskimi znakami potrzebnych do trenowania sieci neuronowej stanowi problem, zostało stworzone narzędzie do odczytywania znaków z kartki papieru, a następnie zapisanie ich w formie obrazu 32x32 piksele, w skali szarości.
+  Celem pracy jest  zbadanie istniejących rozwiązań służących do rozpoznawania tekstu oraz stworzenie sieci neuronowej pozwalającej na klasyfikację znaków pisanych charakterystycznych dla współczesnego języka polskiego. Dane pozwalające na przeprowadzenie wymaganego treningu sieci neoronowego zostały udostępnione przez portal NIST.GOV. Zbiór Special Database 19 zawiera podzielone na klasy grupy liter od A do Z oraz cyfry od 0 do 9, następnie zostało swtorzone narzędzie do odczytywania znaków i zapisania ich jako model danych.
 
 \chapter{Rozpoznawanie tekstu w aplikacjach wieloplatformowych}
 
-OCR (ang. Optical Character Recognition) jest to technika lub część oprogramowania służąca do rozpoznawania znaków oraz całych tekstów w pliku graficznym prezentowanym za pomocą pionowo-poziomej siatki odpowiednio kolorowanych pikseli. Przykładem takiej grafiki jest zdjęcie z aparatu cyfrowego. 
+OCR (ang. Optical Character Recognition) jest to technika lub część oprogramowania służąca do rozpoznawania znaków oraz całych tekstów zapisanych w pliku graficznym prezentowanym za pomocą pionowo-poziomej siatki odpowiednio kolorowanych pikseli. Przykładem takiej grafiki jest zdjęcie z aparatu cyfrowego. 
 
-Niegdyś pojęcie rozpoznawania znaków oznaczało samą klasyfikacje ciągów znaków drukowanych, które są łatwiejszym problemem do rozwiązania, dziś również pisma odręczne oraz cechy formatowania, takie jak krój pisma, stopień pisma lub układy tabelaryczne (formularze).
+Niegdyś pojęcie rozpoznawania znaków oznaczało samą klasyfikacje ciągów znaków drukowanych, które są łatwiejszym problemem do rozwiązania, dziś również pisma odręczne oraz cechy formatowania, takie jak krój pisma lub układy tabelaryczne (formularze).
 
 Techniki OCR są głównie wykorzystywane do cyfryzacji zasobów bibliotek, a także jako ułatwienie przy odczytywaniu dokumentacji napisanych pismem odręcznym, w aplikacjach mobilnych rozpoznawanie znaków pomaga w takich zadaniach jak tworzenie notatek, a następnie tłumaczenie ich na tekst drukowany. Niestety, w obu przypadkach istniejące rozwiązania OCR nie są tak skuteczne jak człowiek, zatem w przypadkach trudności z klasyfikacją znaku lub fragmentu tekstu niezbędna jest weryfikacja wyniku przez człowieka celem uniknięcia błędu.
 
-Postęp w metodach OCR jest bardzo widoczny gdyż w obecnych czasach produkty potrafią rozpoznawać mało dokładne skany, wykonane telefonami komórkowymi z szumami na obrazkach, z tekstem napisanym pod nienaturalnymi kątami w wielu językach, pozostaje jednak problem rozpoznawania znaków pisma odręcznego.
+Postęp w metodach OCR jest bardzo widoczny gdyż w obecnych czasach produkty potrafią rozpoznawać mało dokładne skany.
 
-Rozpoznawanie pisma jest możliwe dzięki zastosowaniu metod z dziedziny rozpoznawania wzorców, czyli pola badawczego w obrębie uczenia maszynowego. Metoda ta może być definiowana jako działanie polegające na pobieraniu danych i podejmowaniu dalszych czynności zależnych od kategorii do której należą te dane. By odpowiednio wyodrębnić poszczególne znaki z obrazu używane są biblioteki pozwalające na profesjonalną obróbkę zdjęć pod zastosowania w celach uczenia maszynowego. Przykładem takiej biblioteki jest OpenCV. Następnie po wyodrębnieniu potrzebnych informacji na temat danego znaku obrazy są klasyfikowane jako poszczególne litery. Zwykle w tym procesie używane są sieci neuronowe.
+Wykonane telefonami komórkowymi z szumami na obrazkach, z tekstem napisanym pod nienaturalnymi kątami w wielu językach, pozostaje jednak problem rozpoznawania znaków pisma odręcznego.
 
-Kompletny system rozpoznawania wzorców składa się z:
+Rozpoznawanie pisma jest możliwe dzięki zastosowaniu metod z dziedziny rozpoznawania wzorców, czyli pola badawczego w obrębie uczenia maszynowego. Metoda ta może być definiowana jako działanie polegające na pobieraniu danych i podejmowaniu dalszych czynności zależnych od kategorii, do której należą te dane. By odpowiednio wyodrębnić poszczególne znaki z obrazu używane są biblioteki pozwalające na profesjonalną obróbkę zdjęć pod zastosowania w celach uczenia maszynowego. Przykładem takiej biblioteki jest OpenCV. Po wyodrębnieniu potrzebnych informacji na temat danego znaku obrazy są klasyfikowane jako poszczególne litery. Zwykle w tym procesie używane są sieci neuronowe.
+
+Kompletny system rozpoznawania wzorców składa się:
 \begin{itemize}
 \item
-zbioru danych, które oferują możliwość klasyfikacji lub opisu
+Zbioru danych, które oferują możliwość klasyfikacji lub opisu
 \item
-mechanizmu wydobywania cech, które najlepiej charakteryzują i separują daną klase, do której dany element zbioru danych należy
+Mechanizmu wydobywania cech, które najlepiej charakteryzują i separują daną klasę, do której dany element zbioru danych należy
 \item
-mechanizmu przekształcenia elementu zbioru w symboliczną informacje, łatwiejszą do wykorzystania przez algorytm
+Mechanizmu przekształcenia elementu zbioru w symboliczną informację, łatwiejszą do wykorzystania przez algorytm
 \item
-schematu decyzyjnego lub schematu opisu, który realizuje właściwą część procesu klasyfikacji w oparciu o wydobyte i przekształcone cechy obiektu.
+Schematu decyzyjnego lub schematu opisu, który realizuje właściwą część procesu klasyfikacji w oparciu o wydobyte i przekształcone cechy obiektu.
 \end{itemize}
 
 \section{Przedstawienie problemu}
@@ -115,128 +118,39 @@ Rezultatem działania programu do konwersji zdjęć jest plik train.csv. Zawiera
 Każda kolumna w zbiorze treningowym ma ustawioną nazwę pixelx, gdzie x jest liczbą między 0 a 783. By znaleźć dany piksel na obrazie, należy rozłożyć x jako x = a * 28 + b, gdzie a i b to liczby między 0 a 27. Wtedy pixelx jest umieszczony w a-tym rzędzie b-tej kolumnie w macierzy 28 x 28, indeksowanej od zera. Na przykład, pixel31 wskazuje na to, piksel w czwartej kolumnie od lewej i drugim wierszu od góry. Tak jak pokazane na diagramie poniżej:
 
 \begin{lstlisting}
-000 001 002 003 ... 026 027
-028 029 030 031 ... 054 055
- |   |   |   |  ...  |   |
-728 729 730 731 ... 754 755
-756 757 758 759 ... 782 783 
+000 001 002 003 ... 026  027
+028 029 030 031 ... 054  055
+ |   |   |   |  ...  |    |
+728 729 730 731 ... 754  755
+956 957 958 959 ... 1022 1023 
 \end{lstlisting} 
 
-Aplikacją generującą zbiór treningowy jest program TrainingSetGenerator, kod przeprowadzający transformacje załączony jest poniżej:
+Fragment aplikacji pozwalającej na stworzenie modelu danych załączony poniżej:
 
 \begin{lstlisting}
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Emgu.CV;
-using Emgu.CV.CvEnum;
-using Emgu.CV.Structure;
-
-namespace ImageResizer
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            const string imagesPath = @"IMAGEPATH";
-            const string csvFilePath = @"CSVFILEPATH";
-            var dirInfo = new DirectoryInfo(imagesPath)
-            .GetDirectories("*", SearchOption.AllDirectories);
-
-            var csv3 = new StringBuilder();
-            csv3.Append("label");
-            csv3.Append(',');
-            for (int i = 0; i < 784; i++)
-            {
-                csv3.Append("pixel" + i);
-                csv3.Append(',');
-            }
-
-            File.AppendAllText(csvFilePath, csv3 + "\n");
-
-
-
-            foreach (var directoryInfo in dirInfo)
-            {
-                var files = directoryInfo
-                .GetFiles("*", SearchOption.AllDirectories);
-                Console.WriteLine("In folder : " 
-                + directoryInfo.FullName);
-                for (int i = 0; i < 1920; i++)
-                {
-                    var csv = new StringBuilder();
-                    var csv2 = new StringBuilder();
-                    var fileName = files[i]
-                    .DirectoryName
-                    .Replace(imagesPath + @"\", string.Empty);
-                    csv.Append(fileName);
-                    csv.Append(',');
-                    var originalImage = 
-                    new Image<Gray, byte>(files[i].FullName)
+var csv = new StringBuilder();
+var csv2 = new StringBuilder();
+var fileName = files[i].DirectoryName
+               .Replace(imagesPath + @"\", string.Empty);
+csv.Append(fileName);
+csv.Append(',');
+var originalImage = new Image<Gray, byte>(files[i].FullName)
                     .Not();
-                    var img = originalImage
-                    .Resize(28, 28, Inter.Linear);
-                    for (var k = 0; k < img.Height; k++)
-                    {
-                        for (var j = 0; j < img.Width; j++)
-                        {
-                            csv.Append(img[k, j].Intensity);
-                            csv.Append(',');
-                        }
-                    }
-
-                    csv2.AppendLine(csv.ToString());
-                    File.AppendAllText(csvFilePath, csv2
-                    .ToString());
-                }
-            }
-
-            Console.WriteLine("DONE!");
-            Console.ReadLine();
-
-        }
-    }
-
-    public class CsvRow : List<string>
+var img = originalImage.Resize(28, 28, Inter.Linear);
+for (var k = 0; k < img.Height; k++)
+{
+    for (var j = 0; j < img.Width; j++)
     {
-        public string LineText { get; set; }
-    }
-
-    public class CsvFileWriter : StreamWriter
-    {
-        public CsvFileWriter(Stream stream)
-            : base(stream)
-        {
-        }
-
-        public CsvFileWriter(string filename)
-            : base(filename)
-        {
-        }
-
-        public void WriteRow(CsvRow row)
-        {
-            StringBuilder builder = new StringBuilder();
-            bool firstColumn = true;
-            foreach (string value in row)
-            {
-                if (!firstColumn)
-                    builder.Append(',');
-                if (value.IndexOfAny(new char[] { '"', ',' }) != -1)
-                    builder.AppendFormat("\"{0}\"", value.Replace("\"", "\"\""));
-                else
-                    builder.Append(value);
-                firstColumn = false;
-            }
-            row.LineText = builder.ToString();
-            WriteLine(row.LineText);
-        }
+       csv.Append(img[k, j].Intensity);
+       csv.Append(',');
     }
 }
+
+csv2.AppendLine(csv.ToString());
+File.AppendAllText(csvFilePath, csv2.ToString());
 \end{lstlisting}
+
+Pełna wersja programu znajduje się w dołączonej dokumentacji w solucji pod nazwą ImageResizer
 
 \section{Algorytm k-NN}
 
@@ -247,7 +161,7 @@ Założenia:
 \item
 Dany jest zbiór teningowy, który stworzony został w oparciu o narzędzie TraningSetGenerator.
 \item
-Dana jest obserwacja C, zawierająca wektor zmiennych pixel0 ... pixel783, dla której chcemy prognozować wartość zmiennej objaśnianej label.
+Dana jest obserwacja C, zawierająca wektor zmiennych pixel0 ... pixel1024, dla której chcemy prognozować wartość zmiennej objaśnianej label.
 \end{itemize}	
 
    Ilustracja przedstawiająca przykład działania algorytmu k najbliższych sąsiadów:
@@ -257,12 +171,15 @@ Algorytm działa następująco:
 \item
 Porównaj wartości zmiennych objaśniających dla obserwacji C, z każdym wektorem w zbiorze treningowy.
 \item
-Wyborze k (ustalonej z góry liczby) najbliższych do C obserwacji ze zbioru treningowego.
+Wybierz k (ustalonej z góry liczby) najbliższych do C obserwacji ze zbioru treningowego.
 \item
 Uśrednieniu wartości zmiennej objaśnianej dla wybranych obserwacji, w wyniku czego uzyskujemy prognozę.	
 \end{itemize}	
      
 \begin{figure}[!tbh]
+
+Powyższy przykład demonstrukcje problem klasyfikacji przy użyciu algorytmu kNN, obiekt zaznaczony kołem dla k najbliższych sąsiadów równe 2, zostanie sklasyfikowany jako trójkąt, natomiast jeżeli do klasyfikacji zostanie użytych 3 najbliższych sąsiadów obiekt zostanie sklasyfikowany jako kwadrat.
+
 \centering
 \includegraphics[width=.6\hsize]{fig/knn}
 \caption{Przykład problemu k-NN}
@@ -275,61 +192,40 @@ Dla k = 3, niewiadoma oznaczona zielonym punktem będzie sklasyfikowana jako cze
 \includegraphics[width=.8\hsize]{fig/knn-wzor}
 \end{figure}
 
+Fragment przykładowej implementacji powyższego algorytmu, który klasyfikuje przykładowy znak alfabetu dla k = 3 znajduje się poniżej:
+
 \lstset{language=Python} 
 \begin{lstlisting}
-from sklearn.neighbors import KNeighborsClassifier
-import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-import random
-
-
-def plot_digit(pixels, label):
-    img = pixels.reshape((28,28))
-    plt.imshow(img,cmap='gray')
-    plt.title(label)
-    plt.show()
-
 labeled_images = pd.read_csv('output.csv')
 images = labeled_images.iloc[0:5000,1:]
 labels = labeled_images.iloc[0:5000,:1]
 train_images, test_images, train_labels, test_labels = train_test_split(images, labels, train_size=0.8, random_state=0)
-
-knn = KNeighborsClassifier(n_neighbors=10, algorithm="kd_tree")
+knn = KNeighborsClassifier(n_neighbors=3, algorithm="kd_tree")
 knn.fit(train_images, train_labels.values.ravel())
 print knn.score(test_images,test_labels)
-
-
-def test_prediction(index):
-    predic = knn.predict(test_images.iloc[index:index+1])[0]
-    actual = test_labels.iloc[index]['label']
-    return (predic, actual)
-
-index = random.randint(0, len(test_images)-1)
-predic, actual = test_prediction(index)
-
-pixels = test_images.iloc[index].as_matrix()
-label = "Predicted: {0}, Actual: {1}".format(predic, actual)
-
-plot_digit(pixels, label)
 \end{lstlisting}
 
-\section{Random Forest}
+Pełna implementacja algorytmu k najbliższych sąsiadów jest dołączona w dokumentacji.
 
-Algorytm Random Forest to metoda klasyfikacji polegająca na tworzeniu wielu drzew decyzyjnych na podstawie zestawu danych. Idea tego klasyfikatora polega na zbudowaniu zgromadzeniu najlepszych z losowych drzew decyzyjnych, w klasycznych drzewach decyzji, losowe drzewa budowane są na zasadzie podzbiorów analizowanych cech w węźle, które dobierane są losowo.
+\section{Random Forest}
+Drzewa decyzyjne to graficzna metoda wspomagania procesu decyzyjnego. Algorytm drzew decyzyjnych jest również stosowany w uczeniu maszynowym do pozyskiwania wiedzy na podstawie przykładów.
+
+Koncepcja Bugging polega na budowie ekspertów dla podzbioru zadań. W tym przypadku, ze wszystkich problemów do rozwiązania losowany jest jeden ze zwracaniem podzbioru problemów, a następnie dla tego podzbioru szukany jest ekspert. W algorytmie tym z całego zbioru danych uczących losowany jest podzbiór - przez losowanie ze zwracaniem - i dla tego podzbioru budowany jest model predykcyjny. Następnie po raz kolejny ze zwracaniem losowany jest inny podzbiór wektorów i dla niego budowany jest kolejny model. Całość powtarzana jest k krotnie a na koniec wszystkie zbudowane modele użyte są do głosowania.
+
+Algorytm Random Forest to metoda klasyfikacji polegająca na połączeniu drzew decyzyjnych oraz koncepcji bugging, tworzy ona wiele drzew decyzyjnych na podstawie losowego zestawu danych. Ideą tego algorytmu polega na zbudowaniu rady ekspertów z losowych drzew decyzyjnych, gdzie w odróżnieniu od klasycznych drzew decyzji, losowe drzewa budowane są na zasadzie, iż zbiór analizowanych cech w węźle dobierany jest losowo. Ponadto, poszczególne drzewa z losowych lasów drzew budowane są zgodnie z koncepcją Bugging.
 
 Cechy algorytmu Random Forest:
 \begin{itemize}
 \item
-działa skutecznie na dużych zbiorach treningowych
+Działa skutecznie na dużych zbiorach treningowych
 \item
-utrzymuje dokładność w przypadku gdy dane są nie kompletne lub jest ich mało
+Utrzymuje dokładność w przypadku braku danych
 \item
-daje oszacowanie, które zmienne są istotne w klasyfikacji
+Daje oszacowanie, które zmienne są istotne w klasyfikacji
 \item
-lasy drzew mogą być zapisane i wykorzystane w przyszłości dla innego zbioru danych
+Lasy drzew mogą być zapisane i wykorzystane w przyszłości dla innego zbioru danych
 \item
-nie jest podany na przeuczenie (ang. overfitting)
+Nie wymaga wiedzy eksperckiej
 \end{itemize}
 
 Algorytm działa następująco:
@@ -357,43 +253,19 @@ W przypadku elementów niewylosowanych z oryginalnej podpróby, każdy taki i-ty
 \end{figure}
 \newpage
 
+Fragment przykładowej implementacji powyższego algorytmu, który klasyfikuje przykładowy znak alfabetu znajduje się poniżej:
+
 \begin{lstlisting}
-import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-import random
-
-
-def plot_digit(pixels, label):
-    img = pixels.reshape((28,28))
-    plt.imshow(img,cmap='gray')
-    plt.title(label)
-    plt.show()
-
 labeled_images = pd.read_csv('output.csv')
 images = labeled_images.iloc[0:5000,1:]
 labels = labeled_images.iloc[0:5000,:1]
 train_images, test_images, train_labels, test_labels = train_test_split(images, labels, train_size=0.8, random_state=0)
-
 clf = RandomForestClassifier(n_jobs=2)
 clf.fit(train_images, train_labels.values.ravel())
 print clf.score(test_images,test_labels)
-
-
-def test_prediction(index):
-    predic = clf.predict(test_images.iloc[index:index+1])[0]
-    actual = test_labels.iloc[index]['label']
-    return (predic, actual)
-
-index = random.randint(0, len(test_images)-1)
-predic, actual = test_prediction(index)
-
-pixels = test_images.iloc[index].as_matrix()
-label = "Predicted: {0}, Actual: {1}".format(predic, actual)
-
-plot_digit(pixels, label)
 \end{lstlisting}
+
+Pełna implementacja algorytmu random forrest jest dołączona w dokumentacji.
 
 \section{Wielowarstwowe sieci neuronowe}
 
@@ -401,29 +273,17 @@ Siecią neuronową nazywa się programową lub sprzętową strukturę modeli, re
 
 Cechą charakterystyczna sieci neuronowych od algorytmów realizujących przetwarzanie informacji przy użyciu algorytmów jest umiejetność generalizacji, czyli zdolność uogólniania wiedzy dla nieznanych wcześniej wzorców. Innym atutem jest także zdolność do aproksymacji wartości funkcji wielu zmiennych w przeciwieństwie do interpolacji, która jest możliwa do uzyskania używając przetwarzania algorytmicznego.
 
-Uczenie sieci neuronowych zmienia liczbowe wartości wag znajdujących się pomiędzy neuronami. Następuje to poprzez bezpośrednią ekspozycje rzeczywistego zestawu danych, gdzie algorytm uczący modeluje wagi polaczeń. Ze względu na opisane powyżej cechy i zalety, obszar zastosowań sieci neuronowych jest rozległy:
+Uczenie sieci neuronowych zmienia liczbowe wartości wag znajdujących się pomiędzy neuronami. Następuje to poprzez bezpośrednią ekspozycje rzeczywistego zestawu danych, gdzie algorytm uczący modeluje wagi polaczeń. W dziecinie nauk technicznych sieci neuronowe wykorzystuje się do rozwiązywania między innymi problemów:
 
 \begin{itemize}
 \item
-Rozpoznawanie wzorców
+Aproksymacji, prognozowania
 \item
-Klasyfikowanie obiektów
+Klasyfikacji i rozpoznawania
 \item
-Prognozowanie i ocena ryzyka ekonomicznego
+Kojarzenia danych, sieci neuronowe pozwalają zautomatyzować procesy wnioskowania i pomagają wykrywać istotne powiązania między danymi
 \item
-Prognozowanie zmian cen rynkowych
-\item
-Ocena zdolności kredytowej
-\item
-Ocena wniosków ubezpieczeniowych
-\item
-Rozpoznawanie wzorów podpisów
-\item
-Diagnostyka medyczna
-\item
-Prognozowanie sprzedaży
-\item
-Analizowanie zachowań klienta w supermarketach
+Analizy danych czyli poszukiwania związków między danymi
 \end{itemize}
 
 Podstawowym elementem sieci neuronowej jest neuron. Jego schemat został opracowany przez McCullocha i Pittsa w roku 1943, został on oparty na budowie biologicznej komórki nerwowej.
@@ -435,7 +295,7 @@ Podstawowym elementem sieci neuronowej jest neuron. Jego schemat został opracow
 \end{figure}
 \newpage
 
-Do wejść doprowadzane są sygnały z wejść sieci lub neuronów warstwy poprzedniej. Każdy sygnał mnożony jest przez odpowiadającą mu wartość liczbowa zwana waga. Wpływa ona na percepcje danego sygnału wejściowego i jego udział w sygnale wyjściowym przez neuron. Waga może być dodania lub ujemna, jeżeli nie ma polaczenia miedzy neuronami to waga jest równa zero. Zsumowane iloczyny wag i sygnałów są argumentem funkcji zwanej funkcja aktywacji neuronu.
+Do wejść doprowadzane są sygnały z wejść sieci lub neuronów warstwy poprzedniej. Każdy sygnał mnożony jest przez odpowiadającą mu wartość liczbowa zwaną wagą. Wpływa ona na percepcje danego sygnału wejściowego i jego udział w sygnale wyjściowym przez neuron. Waga może być dodania lub ujemna, jeżeli nie ma połączenia miedzy neuronami to waga jest równa zero. Zsumowane iloczyny wag i sygnałów są argumentem funkcji zwanej funkcją aktywacji neuronu.
 
 Wartość funkcji aktywacji jest wyjściem neuronu i propagowana jest do neuronów warstwy następnej. Może ona przybierać jedną z trzech postaci:
 \begin{itemize}
@@ -458,36 +318,18 @@ Najbardziej popularnym typem sieci neuronowej jest sieć wielowarstwowa (ang. Mu
 \end{figure}
 \newpage
 
-Do rozpoznania polskich znaków pisma odręcznego użyta została sieć posiadająca trzy warstwy.
+Do rozpoznania polskich znaków pisma odręcznego użyta została sieć posiadająca trzy warstwy:
 
 \begin{itemize}
 \item
-Warstwa wejściowa sieci składa się z neuronów zawierających informacje na temat każdego piksela. Zbiór treningowy składa się z obrazów 28 x 28 pikseli. Zgodnie z tym założeniem pierwsza warstwa sieci składa się z 784 neuronów. Każdy z nich przechowuje wartość skali szarości piksela, gdzie 0.0 oznacza kolor biały, a 1.0 czarny.
+Warstwa wejściowa sieci składa się z neuronów zawierających informacje na temat każdego piksela. Zbiór treningowy składa się z obrazów 32 x 32 pikseli. Zgodnie z tym założeniem pierwsza warstwa sieci składa się z 1024 neuronów. Każdy z nich przechowuje wartość skali szarości piksela, gdzie 0.0 oznacza kolor biały, a 1.0 czarny.
 \item
 Druga warstwa zawiera n neuronów, liczba n jest używana w kontekscie eksperymentalnym.
 \item
-Ostatnia warstwa, zawiera 74 neurony, ponieważ w Polski alfabet składa się z 32 liter, rozpatrywane są zarówno litery wielkie jak i małe oraz cyfry. Implementacja sieci:
+Ostatnia warstwa, zawiera 36 neurony, ponieważ w alfabet składa się z 26 liter, rozpatrywane są zarówno litery oraz cyfry. Implementacja sieci:
 \end{itemize}
 
 \begin{lstlisting}
-import numpy as np
-import pandas as pd
-from sklearn.neural_network import MLPClassifier
-import matplotlib.pyplot as plt
-
-train = pd.read_csv('output.csv')
-y = np.array(train.pop('label'))
-x = np.array(train)/255.
-plt.imshow(x[10].reshape(28,28), cmap='Greys', interpolation='nearest')
-
-
-def plot_digit(pixels, label):
-    img = pixels.reshape((28,28))
-    plt.imshow(img,cmap='gray')
-    plt.title(label)
-    plt.show()
-
-split = 50000
 x0 = x[:split]; x1 = x[split:]
 y0 = y[:split]; y1 = y[split:]
 mlp = MLPClassifier(solver='sgd', activation='relu',
@@ -499,14 +341,9 @@ mlp = MLPClassifier(solver='sgd', activation='relu',
                     early_stopping = False, validation_fraction = 0.15,
                     verbose=True)
 mlp.fit(x0,y0)
-y_val = mlp.predict(x1)
-accuracy = np.mean(y1 == y_val)
-print accuracy
-
-label = "Predicted: {0}, Actual: {1}".format(y1[100], y_val[100])
-
-plot_digit(x[100], label)
 \end{lstlisting}
+
+Kompletny skrypt implementujący sieć, dostępny jest w dokumentacji.
 
 \section{Konwolucyjne sieci neuronowe - CNN}
 
@@ -518,7 +355,7 @@ Konwolucyjne sieci neuronowe (ang. Convolutional Neural Networks) są podobne do
 \caption{Problem klasyfikacji}
 \end{figure}
 
-CNN porównuje obrazy w kawałkach. Każda część nazywana jest cecha (ang. feature). Następnie zdjęcia przeszukiwane są na podobnych pozycjach by uzyskać maksymalną liczbę cech wspólnych. Sieci konwolucyjne wspolpracuja na podobieństwach niż na obrazie o pełnym rozmiarze.
+CNN porównuje obrazy w kawałkach. Każda część nazywana jest cecha (ang. feature). Następnie zdjęcia przeszukiwane są na podobnych pozycjach by uzyskać maksymalną liczbę cech wspólnych. Sieci konwolucyjne wykorzystują podobieństwa na obrazach.
 \newpage
 
 \begin{figure}[!tbh]
@@ -527,7 +364,7 @@ CNN porównuje obrazy w kawałkach. Każda część nazywana jest cecha (ang. fe
 \caption{Wybrane cechy i ich odpowiedniki w zdjęciu do klasyfikacji}
 \end{figure}
 
-Każdą cechę można scharakteryzować jako mniejsze zdjęcie lub dwuwymiarową tablice wartości. W przypadku litery X, cechami beda ukośne linie i znak krzyża.
+Każdą cechę można scharakteryzować jako mniejsze zdjęcie lub dwuwymiarową tablice wartości. W przypadku litery X, cechami będą ukośne linie i znak krzyża.
 
 \begin{figure}[!tbh]
 \centering
@@ -545,7 +382,7 @@ Kiedy rozpatrywany jest nowy obraz, sieć poszukuje cech zdjęcia w każdej moż
 \end{figure}
 \newpage
 
-Następnym krokiem jest powtórzenie operacji splotu na kompletnym obrazie używając wszystkich dostępnych cech. Wynikiem jest szereg obrazów z filtrami, na każdym z dostępnych wyników nałożony jest jeden filtr. W konwulsyjnych sieciach neuronowych, warstwa ta nazywana jest warstwą konwolucyjną bądź też splotową (ang. convolution layer).
+Następnym krokiem jest powtórzenie operacji splotu na kompletnym obrazie używając wszystkich dostępnych cech. Wynikiem jest szereg obrazów z filtrami, na każdym z dostępnych wyników nałożony jest jeden filtr. W konwolucyjnych sieciach neuronowych, warstwa ta nazywana jest warstwą konwolucyjną bądź też splotową (ang. convolution layer).
 
 \begin{figure}[!tbh]
 \centering
@@ -571,7 +408,7 @@ Kolejnym narzędziem oferowanym przez CNN jest warstwa sumowania (ang. pooling l
 
 Po sumowaniu, wielkość danego zdjęcia jest cztery razy mniejsza. Ponieważ przetrzymywane są wartości maksymalne z każdego okna, przechowywane zostają najlepsze pasujące wartości danej cechy w oknie. To oznacza, że nie ważne jest gdzie dana cecha pasuje do momentu, aż znajdziemy pasującą odpowiedź w oknie.
 
-Dodatkowym narzędziem jest warstwa normalizacyjna (ang. Rectified Linear Units Layer, ReLU), to ważny proces w którym wszystkie ujemne wartości zostają zastąpione zerami. Wspomaga to funkcjonowaniu sieci trzymając wszystkie wartości na których wykonywane są operacje by te były równe 0 lub dodatnie.
+Dodatkowym narzędziem jest warstwa normalizacyjna (ang. Rectified Linear Units Layer, ReLU), użycie tej funkcji pozwala ustawić wszystkie ujemne wartości liczbowe na zero. Jeśli wartość jest większa od zero, funkcja ReLU zwróci jeden. To ważny proces w którym wszystkie ujemne wartości zostają zastąpione zerami. Wspomaga to funkcjonowaniu sieci trzymając wszystkie wartości na których wykonywane są operacje by te były równe 0 lub dodatnie.
 
 \begin{figure}[!tbh]
 \centering
@@ -580,76 +417,272 @@ Dodatkowym narzędziem jest warstwa normalizacyjna (ang. Rectified Linear Units 
 \end{figure}
 \newpage
 
-Ostatnim narzędziem dostępnym do wykorzystania jest warstwa FCL (ang. Fully Connected Layer). Przyjmuje ona przefiltrowane obrazy, a następnie tłumaczy je na głosy. W przypadku klasyfikacji znaków pisma odręcznego należy zdecydować do której kategorii należy znak X czy O. Kiedy nowy obraz zostaje przekazany do klasyfikacji, wykonywane są operacje na wszystkich wymienionych warstwach, a ostatecznie FCL decyduje do której grupy należy znak.
+Ostatnim narzędziem dostępnym do wykorzystania jest warstwa FCL (ang. Fully Connected Layer). Przyjmuje ona przefiltrowane obrazy, a następnie tłumaczy je na wartości z przedziału od 0 do 1. W przypadku klasyfikacji znaków pisma odręcznego należy zdecydować do której kategorii należy znak X czy O. Kiedy nowy obraz zostaje przekazany do klasyfikacji, wykonywane są operacje na wszystkich wymienionych warstwach, a ostatecznie FCL decyduję ,do której grupy należy znak.
 
-\begin{figure}[!tbh]
-\centering
-\includegraphics[width=.8\hsize]{fig/cnn8}
-\caption{Przykład klasyfikacji znaku X}
-\end{figure}
-\clearpage
-
-\section{Podsumowanie}
-
-Używając zbioru treningowego stworzonego za pomocą narzędzi z sekcji 1.2 i stworzenia klasyfikatorów problemu rozpoznawania znaków polskiego pisma odręcznego opisanego w sekcji 1.1 przeprowadzone zostały badania wykorzystujące algorytmy wymienione w sekcjach 1.3, 1.4 oraz sieci neuronowe 1.5, 1.6. uzyskane zostały następujące rezultaty:
-
-\begin{table}[!htb]
-\begin{tabular}{|l|l|l|} \hline
-Nazwa & Dokładność      & Czas \\ \hline
-\texttt{kNN} & 38\% & 12.3s \\ \hline
-\texttt{Random Forest}        & 28\% & 9.0s \\ \hline
-\texttt{Sieć neuronowa}     & 73\% & 159s \\ \hline
-\texttt{CNN}     & 85\% &  3969s \\ \hline
-\end{tabular}
-\caption{Wyniki poszczególnych klasyfikatorów}
-\end{table}
-
-Według wyników badań, najlepszą metodą klasyfikacji znaków polskiego pisma odręcznego jest wykorzystanie konwolucyjnych sieci neuronowych. Implementacja tej metody zostanie użyta w dalszych badaniach.
-
-\chapter{Implementacja aplikacji do rozpoznawania tekstu}
-
-\section{Xamarin.Android i Xamarin.iOS}
-
-\section{Xamarin.Forms}
+\chapter{Przegląd bibliotek uczenia maszynowego}
+Aby dobrze zobrazować problem rozpoznawania pisma odręcznego w aplikacjach mobilnych, wykorzystanych zostało kilka technologii oraz bibliotek dostępnych w językach programowania Python oraz C\#. Jednocześnie wybrane przykłady demonstrują gotowe implementacje algorytmów, które pozwalają wykorzystywać uczenie maszynowe do własnych potrzeb bez koniecznej wiedzy z zakresu uczenia maszynowego, takimi technologiami są Microsoft Computer Vision oraz TesseractAPI. Drugim przykładem są biblioteki dostępne do użycia dla programistów uczenia maszynowego, pozwalające na precyzyjne skonfigurowanie dostępnych algorytmów do własnych potrzeb, są to biblioteki Scikit-learn oraz Tensorflow. Dodatkowo, wykorzystana została biblioteka EmguCV pozwalająca na wykrywanie znaków na zdjęciach oraz odpowiednie formatowanie go na potrzeby stworzenia modelu danych do treningu.
 
 \section{Microsoft Computer Vision API}
 
-\section{Microsoft Azure for Machine Learning}
+Usługi Microsoft Cognitive Services umożliwiają kompilowanie aplikacji z zaawansowanymi algorytmami przy użyciu zaledwie kilku wierszy kodu. Działają one na różnych urządzeniach i platformach, takich jak systemy iOS, Android i Windows, wciąż są ulepszane i łatwo je skonfigurować. Usług uruchomionych w ramach tego API jest dokładnie 22. Począwszy od lokalizowania twarzy na zdjęciach, rozpoznawania ich emocji, skończywszy na usłudze wykrywania tekstu na fotografiach, konwertowania mowy na tekst lub autosugestii wprowadzanego tekstu prosto z wyszukiwarki Bing.
 
-\section{Tensorflow}
+Computer Vision API, jest system bazowanym na rozwiązaniach Azure, dostarcza deweloperom dostęp do algorytmów pozwalających na przetwarzanie obrazów i zwracanie informacji na ich temat. Poprzez wysłanie obrazu do serwera algorytmy umieszczone w chmurze firmy Microsoft są w stanie zanalizować kontekst wizualny w wielu różnych sposobach na podstawie wyborów użytkowników.
 
-\chapter{Metryki oraz testy}
+Między innymi technologia zawiera narzędzia do rozpoznawania znaków oraz całych tekstów. Działa ona w 21 językach, dostępny jest również język polski. Usługa posiada możliwość dostosowania kątu nachylenia tekstu, horyzontalnego obrotu osią by rozpoznania dawały lepszy efekt. 
 
-\section{Testy wydajnościowe}
+Skuteczność rozpoznanego tekstu zależy od jakości zdjęcia. Nie dokładne rozpoznania mogą być spowodowane dostarczeniem zdjęcia które:
 
-\section{Testy zgodności}
+\begin{itemize}
+\item
+Jest rozmazane
+\item
+Zawiera odręczne pismo
+\item
+Czcionka tekstu jest rzadko spotykana
+\item
+Posiada złożone tła, cienie, odbicia na tekscie
+\end{itemize}
 
-\section{Testy użyteczności}
+Od marca 2017r. technologia ta pozwala na rozpoznawanie ręcznie pisanego tekstu w języku angielskim, dostępna jest ona w wersji demonstracyjnej i rozpoznaje jedynie zdjęcia w języku angielskim.
 
-\section{Cross Validation}
+\section{TesseractAPI}
 
-\section{Macierze błędu}
+Tesseract jest open source'owym silnikiem służącym do rozpoznawania znaków, dostępny jest on na githubie\cite{1} . Może być on używany bezpośrednio lub używając API by wyodrębnić napisane odręcznie bądź też drukowane znaki ze zdjęć. Obsługuje on ponad 20 języków w tym też Polski.
 
-\section{Metryki wyliczane z kodu źródłowego}
+Zaletą dostępnego API jest prosta obsługa, brak konieczności posiadania wiedzy z zakresu modelowania algorytmów do uczenia maszynowego oraz gotowe modele języka, które dostępne są do pobrania na stronie projektu.
 
-\section{Macierze wyliczane z diagramów}
+Wadami tego systemu jest brak możliwości ingerencji w model danych którymi dysponuje API, nie ma możliwości modyfikacji algorytmów, które wykorzystywane są do rozpoznawania znaków. Skutkuje to niską skutecznością rozpoznania znaków pisma odręcznego.
 
-\section{Macierze pomiaru wspólnego kodu}
+\section{TensorFlow}
+
+Najważniejsze komponenty TensorFlow, stworzonej przez Google biblioteki sztucznej inteligencji, która głównie wykorzystywana jest do rozpoznawania obrazów i mowy, maszynowych tłumaczeń oraz dostarczania lepszych wyników wyszukiwania w danych, technolgoia ta jest otwarta i udostępniona na wolnej licencji Apache 2.0.
+
+Działanie TensorFlow przypomina sposób wykonywania obliczeń za pomocą grafu skierowanego, w którym wierzchołki to matematyczne operacje lub punkty, w których dochodzi do wymiany danych, zaś krawędzie opisują relacje wejścia i wyjścia pomiędzy węzłami, przedstawione w formie dynamicznych wielowymiarowych macierzy danych, czyli tensorów.
+
+ZDJĘCIE!
+
+Biblioteka oferowana przez firmę Google pozwala na obliczenia numeryczne z wykorzystywaniem takich grafów. Można tu korzystać z ogromnych klastrów superkomputerowych, stacji roboczych z wieloma procesorami graficznymi, a nawet wielordzeniowych mobilnych procesorów w smartfonach.
+
+W badaniach nad problemem rozpoznawania znaków, biblioteka TensorFlow została użyta by stworzyć Splotową  Sieć Neuronową, ponieważ sposób wykonywania operacji na macierzach, elastyczność oraz bogata dokumentacja pozwalają na proste zamodelowanie sieci, która przy dużej skuteczności potrafi rozpoznać litery i cyfry pisane odręcznie.
+
+\section{Scikit-learn}
+
+Scikit-learn is biblioteką dostępną w języku Python, służy ona do uczenia maszynowego, oferuje ona szereg algorytmów uczenia szynowego. Biblioteka zbudowana jest na podstawie SciPy, który jest wymaganym elementem do instalacji i używania scikit-learn. W stos SciPy wchodzą biblioteki:
+
+\begin{itemize}
+\item
+NumPy - dostarcza on n-wymiarowe tablice
+\item
+SciPy - służy do wykonywania obliczeń naukowych
+\item
+Matplotlib - narzędzie do rysowania grafów 2D/3D
+\item
+Pandas - struktury oraz analiza danych
+\end{itemize}
+
+Celem autorów biblioteki było dostarczenie solidnego i dobrze wspomaganego przez społeczność zestawu narzędzi, które działałyby na systemach produkcyjnych. To oznacza,  prostota, jakość kodu, dokumentacja oraz wydajność biblioteki jest bardzo wysoka.
+
+Scikit-learn oferuje dużą liczbe klasyfikatorów takich jak:
+\begin{itemize}
+\item
+Algorytm k najbliższych sąsiadów
+\item
+Drzewa decyzyjne
+\item
+Random forrest
+\item
+Regresja liniowa
+\item
+Sieci neuronowe
+\end{itemize}
+
+Na ten moment, biblioteka nie oferuje wsparcia dla własnych modeli sieci neuronowych oraz wykorzystywania klastrów procesorów graficznych.
+
+\section{EmguCV}
+
+Emgu CV jest wieloplatformową implementacją biblioteki OpenCV służącą do przetwarzania zdjęć. Pozwala ona na wywoływanie funkcji OpenCV z poziomu .NET i językami, które są wspierane takie jak C\#, VC++, IronPython czy F\#. Implementacja ta może być skompilowana z poziomu Visual Studio, Xamarin Studio oraz Unity. Działa na platformach Windows, Linux, Mac OS X, iOS, Android oraz Windows Phone.
+
+Zaletami użycia EmguCV jest przedewszystkim możliwość implementacji na wielu platformach używając jednej technologi, gdyż EmguCV jest napisna w języku C\#. To oznacza że może być kompilowana za pomocą Mono, czyli kompilatora C\# dostępnego pod platformami Linux oraz Mac OS X. Dzięki temu, przy użyciu platformy Xamarin oraz EmguCV, wszystkie operacje związane z obróbką zdjęcia i przygotowaniem go do klasyfikacji, mogą zostać wykonane z poziomu aplikacji, jest to ważny aspekt, gdyż w wypadku ograniczonych zasobów, koszt przygotowania zdjęcia do klasyfikacji jest duży.
+
+\chapter{Przeprowadzone badania}
+
+Aby przeprowadzić badania wskazujące czy przedstawiona propozycja konwolucyjnej sieci neuronowej autora rezultuje lepszymi wynikami rozpoznania od innych, istniejących rozwiązań, stworzona została wieloplatformowa aplikacja mobilna, która po narysowaniu dowolnego znaku lub cyfry podejmuje próbę rozpoznania.
+Porównane zostaną implementacje Microsoft Computer Vision API, TesseractAPI oraz Webservice'u stworzonego przez autora, który rozpoznanie określa na podstawie modelu sieci CNN.
+
+Podjęta zostanie również próba porównania treningu modeli o różnym rozmiarze jednej cechy, punktem wejściowym do pomiaru będzie pełny model danych, ok. 1.5mln zdjęć cyfr i liter, przedstawione zostaną warianty tego modelu posiadające inna liczbe elementów, bądź inny rozmiar zdjęć.
+
+\section{Xamarin}
+
+Xamarin pozwala na tworzenie natywnych aplikacji Android/iOS z wykorzystaniem języka C\# i platformy .NET. Same aplikacje tworzymy w Visual Studio lub Xamarin Studio, a możemy do tego podejść na dwa sposoby: Xamarin.Native lub Xamarin.Forms (więcej o tych dwóch podejściach będzie w dalszej części posta). Xamarin od zeszłego roku jest dostępny dla wszystkich zainteresowanych, dzięki jego przejęciu przez Microsoft. Natomiast, sam kod źródłowy Xamarina został udostępniony na GitHub.
+
+Kompilator Xamarin.iOS kompiluje AOT(Ahead of time) aplikacje do natywnego kodu dla ARM, który jest uruchamiany bezpośrednio na iPhone’ach.
+Natomiast kompilator Xamarin.Android kompiluje do języka IL (Intermediate Language), następnie by uruchomić aplikację, korzysta z JIT (Just in time).
+Dzięki tym zabiegom, Xamarin jest transparentny dla docelowych systemów mobilnych, tworząc natywne, w pełni funkcjonalne aplikacje.
+
+W Xamarin.Forms można pisać kod na dwa sposoby, w tzw. code behind w C\# lub za pomocą XAML. Drugi sposób dla osób z doświadczeniem w WPF jest bardzo wygodnym rozwiązaniem. Xamarin.Forms tzw. warpery na natywne kontrolki. Oznacza to, że np. odwołując się do kontrolki Label w Formsa-ch odwołujemy się do ich natywnych odpowiedników w poszczególnych platformach pisząc tylko jeden kod. Ponadto kontrolki Xamarin.Forms są w pełni edytowalne i konfigurowalne tzn. w przypadku gdy czegoś brakuje, można poszukać gotowego rozwiązania lub stworzyć własne.
+
+\begin{figure}[!tbh]
+\centering
+\includegraphics[width=1\hsize]{fig/xamarin}
+\caption{architektura platformy Xamarin}
+\end{figure}
+\newpage
+
+\section{Zbiór testowy}
+
+W uczeniu maszynowym istnieje wiele metod testowania skuteczności klasyfikatorów. W pracy zawarto metodę losowego podziału na zbiory treningowe i testowe. Oznacza to, iż zbiór danych jest dzielony na dwie części. Uczenie klasyfikatora przebiega z wykorzystaniem zbioru treningowego, natomiast w celu sprawdzenia generalizacji klasyfikatora wykorzystywana jest testowa część danych. Metoda ta wydaje się być najbardziej zbliżona do rzeczywistości. Wadą w tym wypadku jest ograniczenie ilości danych treningowych, co w przypadku, gdy do dyspozycji jest niewielka liczba próbek lub występują ograniczenia sprzętowe, prowadzi do pogorszenia skuteczności klasyfikatora.
+
+\section{Skuteczność klasyfikacji}
+
+Używając zbioru treningowego stworzonego za pomocą narzędzia przedstawionego w sekcji 1.2 oraz klasyfikatorów problemu rozpoznania znaków pisma odręcznego wybranych w rodziale 1 przeprowadzone zostaną badania wykorzystujące algorytmy wymienione w sekcjach 1.3, 1.4 oraz sieci neuronowe 1.5, 1.6. Badanie zostało oparte o zbiór testowy zawierający 3600 elementów, uzyskane zostały  nastepujące rezulataty: 
+
+\begin{table}[!htb]
+\begin{tabular}{|l|l|} \hline
+Nazwa & Dokładność \\ \hline
+\texttt{kNN} & 38\% \\ \hline
+\texttt{Random Forest} & 28\% \\ \hline
+\texttt{Sieć neuronowa} & 73\% \\ \hline
+\texttt{CNN}     & 85\% \\ \hline
+\end{tabular}
+\caption{Wyniki badań skuteczności klasyfikatorów}
+\end{table}
+
+Następnie używając zbioru testowego z poprzednich badań wykonane zostało porównanie rozpoznań aplikacji korzystających z gotowych bibliotek
+
+\begin{table}[!htb]
+\begin{tabular}{|l|l|} \hline
+Nazwa & Dokładność \\ \hline
+\texttt Computer Vision API & 29\% \\ \hline
+\texttt Tesseract API & 32\% \\ \hline
+\end{tabular}
+\caption{Wyniki badań skuteczności klasyfikatorów}
+\end{table}
+
+Według wyników badań, najlepszą metodą klasyfikacji znaków pisma odręcznego jest wykorzystanie konwolucyjnych sieci neuronowych proponowanych przez autora.
+
+\section{Czas treningu}
+
+Używając zbioru treningowego stworzonego za pomocą narzędzia przedstawionego w sekcji 1.2 oraz klasyfikatorów problemu rozpoznania znaków pisma odręcznego wybranych w rodziale 1 przeprowadzone zostaną badania wykorzystujące algorytmy wymienione w sekcjach 1.3, 1.4 oraz sieci neuronowe 1.5, 1.6. Badanie zostało oparte o zbiór testowy zawierający 3600 elementów, uzyskane zostały nastepujące rezulataty: 
+
+\begin{table}[!htb]
+\begin{tabular}{|l|l|l|} \hline
+Nazwa & Czas \\ \hline
+\texttt{kNN} & 12.3s \\ \hline
+\texttt{Random Forest} & 9.0s \\ \hline
+\texttt{Sieć neuronowa} & 159s \\ \hline
+\texttt{CNN}     & 3969s \\ \hline
+\end{tabular}
+\caption{Wyniki badań czasu treningu klasyfikatorów}
+\end{table}
+
+Badanie bibliotek uczenia maszynowego zostało pominięte ze względu na to, iż w procesie nie występuje etap treningu.
+
+\section{Porównanie modeli danych}
+
+W celu przeprowadzenia porównania modeli danych treningowych problemu rozpoznawania polskich znaków pisanych zostało stworzonych 5 różnych zbiorów danych, każdy z nich posiada konkretną ilość elementów każdego znaku oraz rozdzielczość w jakiej zapisano poszczególne obrazy. Badanie ma na celu sprawdzenie czy w warunkach mocno ograniczających przeprowadzanie treningu modelu, np. na urządzeniach mobilnych, istnieje znacząca różnica w wynikach danych. Trening przeprowadzono korzystając proponowaną przez autora splotową sieć neuronowa, ponieważ rezultaty w poprzednich badaniach pokazały, iż pokazuje ona najlepsze parametry wymagane do przeprowadzenia takiego testu.
+
+\begin{table}[!htb]
+\begin{tabular}{|l|l|l|} \hline
+Model & Ilość elementów & Rozdzielczość  \\ \hline
+\texttt 1 & 72000 & 28 x 28 pikseli \\ \hline
+\texttt 2 & 250000 & 28 x 28 pikseli \\ \hline
+\texttt 3 & 500000 & 28 x 28 pikseli \\ \hline
+\texttt 4 & 750000 & 28 x 28 pikseli \\ \hline
+\texttt 5 & 125000 & 32 x 32 pikseli \\ \hline
+\end{tabular}
+\caption{Dane wejściowe - porównanie modeli danych}
+\end{table}
+
+Wyniki treningu poszczególnych modeli, dla liczby iteracji równej 5000, do testu skuteczności został użyty zbiór testowy używany w poprzednich badaniach.
+
+\begin{table}[!htb]
+\begin{tabular}{|l|l|l|} \hline
+Model & Skuteczność & Czas treningu  \\ \hline
+\texttt 1 & 90\% & 1h 32m \\ \hline
+\texttt 2 & 88\% & 4h 51m \\ \hline
+\texttt 3 & 94\% & 6h 02m \\ \hline
+\texttt 4 & --- & --- \\ \hline 
+\texttt 5 & 92\% & 2h 42m \\ \hline
+\end{tabular}
+\caption{Wyniki - porównanie modeli danych}
+\end{table}
+
+Badanie bibliotek uczenia maszynowego zostało pominięte ze względu na to, iż w procesie nie występuje etap treningu.
+
+\section{Rozmiar modelu, a skuteczność terningu}
+
+Z przeprowadzonych badań wynika, iż skuteczność treningu w jakimś stopniu zależna jest od wielkości modelu treningowego. Wszystkie porównania przeprowadzane były w warunkach domowych co oznacza duże ograniczenia zasobów pamięci RAM, CPU oraz GPU. Trening na największym zbiorze danych nie był w stanie uruchomić się na środowisku testowym ponieważ zasoby potrzebne na operacje na macierzach wykonywane są w pamięci RAM, która jest znacznie ograniczona. 
+
+Jednak z obserwacji wynika, iż im bardziej precyzyjne zawarte są dane w modelu, trening sieci neuronowych resultuje lepszym wynikiem końcowym. Małe modele idealne są do celów sprawdzenia czy istnieje poprawa jakości wyodrębnionych cech poszczególnych obrazów i czy klasyfikacja zbioru testowego pokaże lepsze wyniki.
 
 \chapter{Podsumowanie i wnioski}
 
-\section{Wady oraz zalety aplikacji wieloplatformowych}
+\section{Zalety aplikacji wieloplatformowych}
+
+\begin{itemize}
+\item
+Xamarin bazowo unifikuje przede wszystkim backendową część aplikacji. Jeśli tworzysz aplikacje z rozbudowaną logiką biznesową, to warto ją pisać tylko raz. Xamarin na pewno w tym pomoże
+\item
+Jeśli layout aplikacji opiera się o standardowe elementy i wzorce, to warto pokusić się o użycie Xamarin.Forms, który obsługuje kilkadziesiąt kontrolek, które później mapowane są na natywne rozwiązania
+\item
+Jeśli martwi Cię konieczność posiadania osobnego zestawu programistów na każdą platformę, to również warto dać szansę Xamarinowi. Nawet podejście native można w całości ograć w języku C\#. Xamarin mapuje 100\% API z Androida oraz iOS
+\item
+Nawet jeśli znasz rozwiązania natywne, wciąż możesz poczuć się jak w domu, używając Xamarina. Dla przykładu, w Androidzie wciąż można używać Activity, kod layoutu pisać w plikach AXML, a aplikację konfigurować w Manifeście. Jednocześnie przy okazji łatwo jest napisać kawał kodu, który można użyć na dowolnej inne platformie. Bajka? Niekoniecznie. Xamarin
+\item
+Jeśli pracowałeś z jakąkolwiek technologią operującą na XAMLu (WPF, Silverlight, Universal Apps, UWP), to również w tej sytuacji nie powinieneś mieć problemów by się odnaleźć w temacie
+\item
+Pod Xamarina można programować w Visual Studio [Community] dla Windows lub Xamarin Studio dla OS X
+\item
+Kod źródłowy całego rozwiązania dostępny jest na GitHubie!
+\end{itemize}
+
+\section{Wady aplikacji wieloplatformowych}
+
+\begin{itemize}
+\item
+Podejście Forms zazwyczaj nie pozwala na napisanie całej aplikacji. Część kodu i tak musi być pisania z użyciem dedykowanych konstrukcji warunkowych, a w przypadku złożonych interfejsów, może to być większa część kodu
+\item
+Do pracy z Xamarinem wymagana jest również przynajmniej bazowa znajomość C\#. W podejściu Xamarin.Forms, trzeba się również nauczyć XAMLa.
+\item
+Ponadto przy wydaniu każdej nowej wersji wspieranych systemów, musimy czekać na wrappery. Oczywiście w chwili obecnej pojawiają się one praktycznie natychmiast, ale pytanie czy tak będzie zawsze?
+\item
+Xamarin bywa również niestabilny. Zdarzają się wersje lepsze i gorsze. Czasami pojawiają się problemy w sytuacji gdy odpalamy solucję przygotowaną w Visual Studio na Macu i odwrotnie. Zdarzają się również inne błędy.
+\item
+Ta technologia ma jeszcze jedno ryzyko. Obecnie jej właścicielem jest Microsoft, który czasem bywa nieprzewidywalny. Na szczęście tak jak pisałem wcześniej kod źródłowy Xamarina jest otwarty i można go znaleźć na GitHubie
+
+\end{itemize}
 
 \section{Uczenie maszynowe w aplikacjach mobilnych}
+
+Wykorzystywanie technik uczenia maszynowego, czy to są algorytmy typu random forrest, czy też sieci neuronowe, wymagają olbżymich zasobów sprzętowych, w związku z tym urządzenia mobilne, których moc obliczeniowa nie może równać się z komputerami klasy PC czy klastrów procesorów graficznych nie nadają się do treningów. Istniejące gotowe rozwiązania jak na przykład przedstawione w pracu usługi Cognitive Services od firmy Microsoft idealnie pasują do rynku aplikacji mobilnych, ponieważ wszystkie obliczenia związane z klasyfikacją znajdują się po stronie serwera, wadą tego rozwiązania jest natomiast brak ingerencji w modele danych oraz brak jakiejkolwiek personalizacji, który mógłby pomóc w rozwiązaniu problemu.
+
+Idealnym rozwiązaniem, również wykorzystanym w tej pracy przez autora jest połączenie mocy obliczeniowej komputerów PC lub laptopów by wytrenować odpowiedni model danych realizujący problem, a następnie stworzenie aplikacji webowej, która implementowałaby określony interfejst, tak aby była możliwość konsumowania go po stronie aplikacji mobilnej. W ten sposób zyskujemy nie zawodność po stronie mobilnej oraz personalizacje i wgląd w model danych po stronie serwera.
+
+\section{Najlepsza metoda rozpoznawania pisma odręcznego}
+
+
 
 \section{Koszt}
 
 % zakończenie
 \summary
 
+Celem pracy autora było zaprezentowanie istniejących rozwiązań pozwalających szybkie przeprowadzenie rozpoznania znaków oraz przedstawienie własnej implementacji sieci neuronowej, która rozwiązuje problem należący do tej samej klasy. 
+
 % literatura (obowiązkowo):
 \bibliographystyle{unsrt}
 \bibliography{xml}
+
+\begin{thebibliography}{9}
+
+\bibitem{1}
+  Leslie Lamport,
+  \emph{\LaTeX: a document preparation system},
+  Addison Wesley, Massachusetts,
+  2nd edition,
+  1994.
+
+\end{thebibliography}
 
 \oswiadczenie
 

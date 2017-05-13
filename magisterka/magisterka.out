@@ -6,25 +6,25 @@
 \BOOKMARK [1][-]{section.1.4}{Random\040Forest}{chapter.1}% 6
 \BOOKMARK [1][-]{section.1.5}{Wielowarstwowe\040sieci\040neuronowe}{chapter.1}% 7
 \BOOKMARK [1][-]{section.1.6}{Konwolucyjne\040sieci\040neuronowe\040-\040CNN}{chapter.1}% 8
-\BOOKMARK [1][-]{section.1.7}{Podsumowanie}{chapter.1}% 9
-\BOOKMARK [0][-]{chapter.2}{Implementacja\040aplikacji\040do\040rozpoznawania\040tekstu}{}% 10
-\BOOKMARK [1][-]{section.2.1}{Xamarin.Android\040i\040Xamarin.iOS}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.2}{Xamarin.Forms}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.3}{Microsoft\040Computer\040Vision\040API}{chapter.2}% 13
-\BOOKMARK [1][-]{section.2.4}{Microsoft\040Azure\040for\040Machine\040Learning}{chapter.2}% 14
-\BOOKMARK [1][-]{section.2.5}{Tensorflow}{chapter.2}% 15
-\BOOKMARK [0][-]{chapter.3}{Metryki\040oraz\040testy}{}% 16
-\BOOKMARK [1][-]{section.3.1}{Testy wydajnościowe}{chapter.3}% 17
-\BOOKMARK [1][-]{section.3.2}{Testy zgodności}{chapter.3}% 18
-\BOOKMARK [1][-]{section.3.3}{Testy użyteczności}{chapter.3}% 19
-\BOOKMARK [1][-]{section.3.4}{Cross\040Validation}{chapter.3}% 20
-\BOOKMARK [1][-]{section.3.5}{Macierze błędu}{chapter.3}% 21
-\BOOKMARK [1][-]{section.3.6}{Metryki wyliczane z kodu źródłowego}{chapter.3}% 22
-\BOOKMARK [1][-]{section.3.7}{Macierze wyliczane z diagramów}{chapter.3}% 23
-\BOOKMARK [1][-]{section.3.8}{Macierze pomiaru wspólnego kodu}{chapter.3}% 24
-\BOOKMARK [0][-]{chapter.4}{Podsumowanie\040i\040wnioski}{}% 25
-\BOOKMARK [1][-]{section.4.1}{Wady\040oraz\040zalety\040aplikacji\040wieloplatformowych}{chapter.4}% 26
-\BOOKMARK [1][-]{section.4.2}{Uczenie\040maszynowe\040w\040aplikacjach\040mobilnych}{chapter.4}% 27
-\BOOKMARK [1][-]{section.4.3}{Koszt}{chapter.4}% 28
-\BOOKMARK [0][-]{chapter*.5}{Zakończenie}{}% 29
-\BOOKMARK [0][-]{chapter*.6}{Oświadczenie}{}% 30
+\BOOKMARK [0][-]{chapter.2}{Przegląd bibliotek uczenia maszynowego}{}% 9
+\BOOKMARK [1][-]{section.2.1}{Microsoft\040Computer\040Vision\040API}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.2}{TesseractAPI}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.3}{TensorFlow}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.4}{Scikit-learn}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.5}{EmguCV}{chapter.2}% 14
+\BOOKMARK [0][-]{chapter.3}{Przeprowadzone\040badania}{}% 15
+\BOOKMARK [1][-]{section.3.1}{Xamarin}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.2}{Zbiór testowy}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.3}{Skuteczność klasyfikacji}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.4}{Czas\040treningu}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.5}{Porównanie modeli danych}{chapter.3}% 20
+\BOOKMARK [1][-]{section.3.6}{Rozmiar modelu, a skuteczność terningu}{chapter.3}% 21
+\BOOKMARK [0][-]{chapter.4}{Podsumowanie\040i\040wnioski}{}% 22
+\BOOKMARK [1][-]{section.4.1}{Zalety\040aplikacji\040wieloplatformowych}{chapter.4}% 23
+\BOOKMARK [1][-]{section.4.2}{Wady\040aplikacji\040wieloplatformowych}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.3}{Uczenie\040maszynowe\040w\040aplikacjach\040mobilnych}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.4}{Najlepsza metoda rozpoznawania pisma odręcznego}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.5}{Koszt}{chapter.4}% 27
+\BOOKMARK [0][-]{chapter*.5}{Zakończenie}{}% 28
+\BOOKMARK [0][-]{chapter*.6}{Bibliografia}{}% 29
+\BOOKMARK [0][-]{chapter*.7}{Oświadczenie}{}% 30

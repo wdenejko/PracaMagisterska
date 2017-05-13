@@ -1,17 +1,16 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.12.31)  15 APR 2017 10:55
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.1.2)  13 MAY 2017 21:43
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
 **magisterka.tex
 (./magisterka.tex
-LaTeX2e <2016/03/31>
-Babel <3.9r> and hyphenation patterns for 22 language(s) loaded.
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
 (./xmgr.cls
 Document Class: xmgr 2009/12/12 v2.0.0 (W. Bzyl)
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/base/report.cls
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/base/size12.clo
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -27,10 +26,10 @@ File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/base/ifthen.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip43
 \f@ncyO@elh=\skip44
 \f@ncyO@erh=\skip45
@@ -41,20 +40,20 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \f@ncyO@olf=\skip50
 \f@ncyO@orf=\skip51
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/fontspec/fontspec.sty
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2016/05/18 v6512 L3 programming layer (loader) 
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2016/01/19 v6377 L3 programming layer (loader) 
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/l3kernel/expl3-code.tex
-Package: expl3 2016/05/18 v6512 L3 programming layer (code)
-L3 Module: l3bootstrap 2016/02/12 v6412 L3 Bootstrap code
-L3 Module: l3names 2016/03/11 v6433 L3 Namespace for primitives
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+Package: expl3 2016/01/19 v6377 L3 programming layer (code)
+L3 Module: l3bootstrap 2016/01/01 v6339 L3 Bootstrap code
+L3 Module: l3names 2015/12/21 v6328 L3 Namespace for primitives
 L3 Module: l3basics 2015/11/22 v6315 L3 Basic definitions
 L3 Module: l3expan 2015/09/10 v5983 L3 Argument expansion
-L3 Module: l3tl 2016/03/26 v6465 L3 Token lists
-L3 Module: l3str 2016/03/24 v6441 L3 Strings
+L3 Module: l3tl 2015/09/29 v6121 L3 Token lists
+L3 Module: l3str 2016/01/03 v6357 L3 Strings
 L3 Module: l3seq 2015/08/05 v5777 L3 Sequences and stacks
-L3 Module: l3int 2016/03/24 v6441 L3 Integers
+L3 Module: l3int 2016/01/05 v6366 L3 Integers
 \c_max_int=\count88
 \l_tmpa_int=\count89
 \l_tmpb_int=\count90
@@ -64,10 +63,10 @@ L3 Module: l3quark 2015/08/17 v5855 L3 Quarks
 L3 Module: l3prg 2015/11/01 v6216 L3 Control structures
 \g__prg_map_int=\count93
 L3 Module: l3clist 2015/09/02 v5901 L3 Comma separated lists
-L3 Module: l3token 2016/04/03 v6470 L3 Experimental token manipulation
+L3 Module: l3token 2015/11/11 v6249 L3 Experimental token manipulation
 L3 Module: l3prop 2016/01/05 v6366 L3 Property lists
-L3 Module: l3msg 2016/03/26 v6464 L3 Messages
-L3 Module: l3file 2016/03/25 v6458 L3 File and I/O operations
+L3 Module: l3msg 2015/09/28 v6113 L3 Messages
+L3 Module: l3file 2015/12/03 v6317 L3 File and I/O operations
 \l_iow_line_count_int=\count94
 \l__iow_target_count_int=\count95
 \l__iow_current_line_int=\count96
@@ -95,7 +94,7 @@ L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
 L3 Module: l3keys 2015/11/17 v6284 L3 Key-value interfaces
 \g__keyval_level_int=\count99
 \l_keys_choice_int=\count100
-L3 Module: l3fp 2016/03/26 v6465 L3 Floating points
+L3 Module: l3fp 2015/08/25 v5890 L3 Floating points
 \c__fp_leading_shift_int=\count101
 \c__fp_middle_shift_int=\count102
 \c__fp_trailing_shift_int=\count103
@@ -111,7 +110,7 @@ L3 Module: l3box 2015/08/09 v5822 L3 Experimental boxes
 \l_tmpb_box=\box28
 \g_tmpa_box=\box29
 \g_tmpb_box=\box30
-L3 Module: l3coffins 2016/05/17 v6508 L3 Coffin code layer
+L3 Module: l3coffins 2015/08/06 v5789 L3 Coffin code layer
 \l__coffin_internal_box=\box31
 \l__coffin_internal_dim=\dimen109
 \l__coffin_offset_x_dim=\dimen110
@@ -133,7 +132,7 @@ L3 Module: l3coffins 2016/05/17 v6508 L3 Coffin code layer
 \l__coffin_display_y_dim=\dimen118
 L3 Module: l3color 2014/08/23 v5354 L3 Experimental color support
 L3 Module: l3sys 2015/09/25 v6087 L3 Experimental system/runtime functions
-L3 Module: l3candidates 2016/05/13 v6484 L3 Experimental additions to l3kernel
+L3 Module: l3candidates 2016/01/14 v6376 L3 Experimental additions to l3kernel
 \l__box_top_dim=\dimen119
 \l__box_bottom_dim=\dimen120
 \l__box_left_dim=\dimen121
@@ -150,14 +149,13 @@ L3 Module: l3candidates 2016/05/13 v6484 L3 Experimental additions to l3kernel
 \l__coffin_top_corner_dim=\dimen131
 \l__coffin_scaled_total_height_dim=\dimen132
 \l__coffin_scaled_width_dim=\dimen133
-L3 Module: l3luatex 2016/03/26 v6465 L3 Experimental LuaTeX-specific functions
+L3 Module: l3luatex 2015/11/11 v6250 L3 Experimental LuaTeX-specific functions
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/l3kernel/l3xdvipdfmx.def
-File: l3xdvidpfmx.def 2016/03/26 v6465 L3 Experimental driver: xdvipdfmx
-\l__driver_tmp_box=\box41
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3xdvipdfmx.def
+File: l3xdvidpfmx.def 2015/11/11 v6250 L3 Experimental driver: xdvipdfmx
 ))
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2016/05/18 v6512 L3 Experimental document command parser
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2016/01/19 v6377 L3 Experimental document command parser
 \l__xparse_current_arg_int=\count110
 \l__xparse_m_args_int=\count111
 \l__xparse_mandatory_args_int=\count112
@@ -166,7 +164,7 @@ Package: xparse 2016/05/18 v6512 L3 Experimental document command parser
 )
 Package: fontspec 2016/02/01 v2.5a Font selection for XeLaTeX and LuaLaTeX
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
 Package: fontspec-xetex 2016/02/01 v2.5a Font selection for XeLaTeX and LuaLaTe
 X
 \l_fontspec_script_int=\count115
@@ -177,61 +175,61 @@ X
 \l__fontspec_tmpc_dim=\dimen136
 \g__file_internal_ior=\read1
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/euenc/eu1enc.def
+(/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1enc.def
 File: eu1enc.def 2010/05/27 v0.1h Experimental Unicode font encodings
 )
 LaTeX Font Info:    Try loading font information for EU1+lmr on input line 105.
 
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/euenc/eu1lmr.fd
+(/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1lmr.fd
 File: eu1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
-(/usr/local/texlive/2016basic/texmf-dist/tex/xelatex/xunicode/xunicode.sty
+(/usr/share/texlive/texmf-dist/tex/xelatex/xunicode/xunicode.sty
 File: xunicode.sty 2011/09/09 v0.981 provides access to latin accents and many 
 other characters in Unicode lower plane
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/tipa/t3enc.def
+(/usr/share/texmf/tex/latex/tipa/t3enc.def
 File: t3enc.def 2001/12/31 T3 encoding
 LaTeX Font Info:    Try loading font information for EU1+lmss on input line 357
 .
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/euenc/eu1lmss.fd
+(/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1lmss.fd
 File: eu1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
 \tipaTiiicode=\count118
 \tipasavetokens=\toks14
 \tipachecktokens=\toks15
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/graphics/keyval.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/graphics/trig.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: xetex.def on input line 96.
+Package graphics Info: Driver file: xetex.def on input line 95.
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/xelatex/xetex-def/xetex.def
-File: xetex.def 2016/04/06 v4.08 LaTeX color/graphics driver for XeTeX (TeX Liv
+(/usr/share/texlive/texmf-dist/tex/xelatex/xetex-def/xetex.def
+File: xetex.def 2015/09/11 v4.06 LaTeX color/graphics driver for XeTeX (TeX Liv
 e/RRM/JK)
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )))
 \Gin@req@height=\dimen137
 \Gin@req@width=\dimen138
@@ -343,7 +341,7 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 .................................................
 \l__fontspec_tmp_int=\count119
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/fontspec/fontspec.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg)
 LaTeX Info: Redefining \itshape on input line 2705.
 LaTeX Info: Redefining \slshape on input line 2710.
 LaTeX Info: Redefining \scshape on input line 2715.
@@ -364,17 +362,17 @@ LaTeX Info: Redefining \- on input line 2746.
 . Defining command \liningnums with sig. 'm' on line 2845.
 .................................................
 ))
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/xltxtra/xltxtra.sty
+(/usr/share/texlive/texmf-dist/tex/latex/xltxtra/xltxtra.sty
 Package: xltxtra 2016/01/21 v0.6 Improvements for the "XeLaTeX" format
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/realscripts/realscripts.sty
+(/usr/share/texlive/texmf-dist/tex/latex/realscripts/realscripts.sty
 Package: realscripts 2016/02/13 v0.3d Access OpenType subscripts and superscrip
 ts
 .................................................
@@ -418,7 +416,8 @@ ts
 . Defining command \textsupersubscript with sig. 'sO{l}mm' on line 143.
 .................................................
 \subsupersep=\dimen139
-) (/usr/local/texlive/2016basic/texmf-dist/tex/latex/metalogo/metalogo.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/metalogo/metalogo.sty
 Package: metalogo 2010/05/29 v0.12 Extended TeX logo macros
 \xl@everylogo=\toks17
 \xl@@everylogo=\toks18
@@ -426,112 +425,112 @@ LaTeX Info: Redefining \TeX on input line 193.
 LaTeX Info: Redefining \LaTeX on input line 202.
 LaTeX Info: Redefining \LaTeXe on input line 219.
 )
-\l__xetex_show_hyphens_wrapping_box=\box42
-\l__xetex_show_hyphens_temp_box=\box43
-\l__xetex_show_hyphens_final_box=\box44
-\g__xetex_show_hyphens_word_box=\box45
+\l__xetex_show_hyphens_wrapping_box=\box41
+\l__xetex_show_hyphens_temp_box=\box42
+\l__xetex_show_hyphens_final_box=\box43
+\g__xetex_show_hyphens_word_box=\box44
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2016/05/09 v1.1c Standard LaTeX Color (DPC)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/01/03 v1.1b Standard LaTeX Color (DPC)
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package color Info: Driver file: xetex.def on input line 144.
+Package color Info: Driver file: xetex.def on input line 143.
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2016/05/05 v6.83n Hypertext links for LaTeX
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.s
-ty
-Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
 
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/generic/oberdiek/hobsub-generic.st
-y
-Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
-Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
 Package hobsub Info: Skipping package `infwarerr' (already loaded).
 Package hobsub Info: Skipping package `ltxcmds' (already loaded).
 Package hobsub Info: Skipping package `ifluatex' (already loaded).
-Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
-Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
-Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is not detected.
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: pdfTeX >= 1.30 not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode not found.
-Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
-Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
 )
-Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
-Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
 )
 Package hobsub Info: Skipping package `hobsub' (already loaded).
-Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
-Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
-Package: xcolor-patch 2016/05/16 xcolor patch
-Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
-Package: atbegshi 2016/05/16 v1.17 At begin shipout hook (HO)
-Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
-Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
-) (/usr/local/texlive/2016basic/texmf-dist/tex/latex/oberdiek/auxhook.sty
-Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
 \@linkdim=\dimen140
 \Hy@linkcounter=\count122
 \Hy@pagecounter=\count123
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2016/05/05 v6.83n Hyperref: PDFDocEncoding definition (HO)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 )
 \Hy@SavedSpaceFactor=\count124
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Hyper figures OFF on input line 4446.
-Package hyperref Info: Link nesting OFF on input line 4451.
-Package hyperref Info: Hyper index ON on input line 4454.
-Package hyperref Info: Plain pages OFF on input line 4461.
-Package hyperref Info: Backreferencing OFF on input line 4466.
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4691.
+Package hyperref Info: Bookmarks ON on input line 4688.
 \c@Hy@tempcnt=\count125
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/url/url.sty
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5044.
+LaTeX Info: Redefining \url on input line 5041.
 \XeTeXLinkMargin=\dimen141
 \Fld@menulength=\count126
 \Field@Width=\dimen142
 \Fld@charsize=\dimen143
-Package hyperref Info: Hyper figures OFF on input line 6298.
-Package hyperref Info: Link nesting OFF on input line 6303.
-Package hyperref Info: Hyper index ON on input line 6306.
-Package hyperref Info: backreferencing OFF on input line 6313.
-Package hyperref Info: Link coloring OFF on input line 6318.
-Package hyperref Info: Link coloring with OCG OFF on input line 6323.
-Package hyperref Info: PDF/A mode OFF on input line 6328.
-LaTeX Info: Redefining \ref on input line 6368.
-LaTeX Info: Redefining \pageref on input line 6372.
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring OFF on input line 6315.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
 \Hy@abspage=\count127
 \c@Item=\count128
 \c@Hfootnote=\count129
@@ -539,24 +538,24 @@ LaTeX Info: Redefining \pageref on input line 6372.
 
 Package hyperref Message: Driver (autodetected): hxetex.
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/hyperref/hxetex.def
-File: hxetex.def 2016/05/05 v6.83n Hyperref driver for XeTeX
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2012/11/06 v6.83m Hyperref driver for XeTeX
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2016/05/05 v6.83n Hyperref: PDF Unicode definition (HO)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2012/11/06 v6.83m Hyperref: PDF Unicode definition (HO)
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/generic/oberdiek/stringenc.sty
-Package: stringenc 2016/05/16 v1.11 Convert strings between diff. encodings (HO
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/stringenc.sty
+Package: stringenc 2011/12/02 v1.10 Convert strings between diff. encodings (HO
 )
 )
-\pdfm@box=\box46
+\pdfm@box=\box45
 \c@Hy@AnnotLevel=\count130
 \HyField@AnnotCount=\count131
 \Fld@listcount=\count132
 \c@bookmark@seq@number=\count133
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
-Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package rerunfilecheck Info: Feature \pdfmdfivesum is not available
 (rerunfilecheck)             (e.g. pdfTeX or LuaTeX with package `pdftexcmds').
 
@@ -572,22 +571,22 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 26.
 Package hyperref Warning: Option `bookmarks' has already been used,
 (hyperref)                setting the option has no effect on input line 26.
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/polyglossia/polyglossia.sty
-Package: polyglossia 2015/03/25 v1.42.4 Alternative to Babel for XeLaTeX and Lu
+(/usr/share/texlive/texmf-dist/tex/latex/polyglossia/polyglossia.sty
+Package: polyglossia 2015/08/06 v1.42.0 Alternative to Babel for XeLaTeX and Lu
 aLaTeX
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count134
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/makecmds/makecmds.sty
+(/usr/share/texlive/texmf-dist/tex/latex/makecmds/makecmds.sty
 Package: makecmds 2009/09/03 v1.0a extra command making commands
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/generic/xkeyval/xkeyval.tex
-(/usr/local/texlive/2016basic/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks19
 \XKV@tempa@toks=\toks20
 )
@@ -596,30 +595,15 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 \xpg@normalclass=\XeTeXcharclass1
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/polyglossia/gloss-polish.ldf
+(/usr/share/texlive/texmf-dist/tex/latex/polyglossia/gloss-polish.ldf
 File: gloss-polish.ldf polyglossia: module for polish
 )
 Package polyglossia Info: Default language is polish.
 \authornumber=\count136
 \count@@=\count137
-\abspagebox=\box47
+\abspagebox=\box46
 )
 \g__fontspec_family_MinionPro_int=\count138
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font Minion Pro/BI (it probably doesn't exist).
-.................................................
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font Minion Pro/B (it probably doesn't exist).
-.................................................
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font Minion Pro/I (it probably doesn't exist).
-.................................................
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -632,24 +616,27 @@ Package polyglossia Info: Default language is polish.
 ing=tex-text;"
 . - 'small caps'  (m/sc) with NFSS spec.: <->"Minion
 . Pro/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;+onum;mapp
-ing=tex-text;+smcp;"
+ing=tex-text;+smcp;"-
+. 'bold' (bx/n) with NFSS spec.: <->"Minion
+. Pro/B/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;+onum;ma
+pping=tex-text;"
+. - 'bold small caps'  (bx/sc) with NFSS spec.: <->"Minion
+. Pro/B/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;+onum;ma
+pping=tex-text;+smcp;"-
+. 'italic' (m/it) with NFSS spec.: <->"Minion
+. Pro/I/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;+onum;ma
+pping=tex-text;"
+. - 'italic small caps'  (m/itsc) with NFSS spec.: <->"Minion
+. Pro/I/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;+onum;ma
+pping=tex-text;+smcp;"-
+. 'bold italic' (bx/it) with NFSS spec.: <->"Minion
+. Pro/BI/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;+onum;m
+apping=tex-text;"
+. - 'bold italic small caps'  (bx/itsc) with NFSS spec.: <->"Minion
+. Pro/BI/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;+onum;m
+apping=tex-text;+smcp;"
 .................................................
 \g__fontspec_family_MyriadPro_int=\count139
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font Myriad Pro/BI (it probably doesn't exist).
-.................................................
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font Myriad Pro/B (it probably doesn't exist).
-.................................................
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font Myriad Pro/I (it probably doesn't exist).
-.................................................
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -660,11 +647,24 @@ ing=tex-text;+smcp;"
 . - 'normal' (m/n) with NFSS spec.: <->"Myriad
 . Pro/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;+onum;mapp
 ing=tex-text;"
-. - 'small caps'  (m/sc) with NFSS spec.: 
+. - 'small caps'  (m/sc) with NFSS spec.: - 'bold' (bx/n) with NFSS spec.:
+. <->"Myriad
+. Pro/B/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;+onum;ma
+pping=tex-text;"
+. - 'bold small caps'  (bx/sc) with NFSS spec.: - 'italic' (m/it) with NFSS
+. spec.: <->"Myriad
+. Pro/I/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;+onum;ma
+pping=tex-text;"
+. - 'italic small caps'  (m/itsc) with NFSS spec.: - 'bold italic' (bx/it)
+. with NFSS spec.: <->"Myriad
+. Pro/BI/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;+onum;m
+apping=tex-text;"
+. - 'bold italic small caps'  (bx/itsc) with NFSS spec.: 
 .................................................
- (/usr/local/texlive/2016basic/texmf-dist/tex/latex/listings/listings.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count140
-\lst@gtempboxa=\box48
+\lst@gtempboxa=\box47
 \lst@token=\toks21
 \lst@length=\count141
 \lst@currlwidth=\dimen144
@@ -676,62 +676,61 @@ ing=tex-text;"
 \lst@lineno=\count145
 \lst@maxwidth=\dimen147
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/listings/lstmisc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count146
 \lst@skipnumbers=\count147
-\lst@framebox=\box49
+\lst@framebox=\box48
 )
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/listings/listings.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package xcolor Info: Driver file: xetex.def on input line 225.
-LaTeX Info: Redefining \color on input line 709.
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `RGB' extended on input line 1364.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+LaTeX Info: Redefining \color on input line 702.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
 (./magisterka.aux)
 \openout1 = `magisterka.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 22.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 22.
-
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/tipa/t3cmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 23.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 23.
+ (/usr/share/texmf/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 .................................................
 . fontspec info: "setup-math"
 . 
@@ -739,100 +738,95 @@ LaTeX Font Info:    ... okay on input line 22.
 .................................................
 \symlegacymaths=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 22.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 22.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 22.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 22.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 22.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 22.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 22.
-LaTeX Font Info:    Redeclaring math accent \check on input line 22.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 22.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 22.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \colon on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 22.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 22.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 22.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 23.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 23.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 23.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 23.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 23.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 23.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 23.
+LaTeX Font Info:    Redeclaring math accent \check on input line 23.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 23.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 23.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \colon on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 23.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 23.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 23.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
-(Font)              `operators' in the math version `normal' on input line 22.
+(Font)              `operators' in the math version `normal' on input line 23.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> EU1/MinionPro(0)/m/n on input line 22.
+(Font)                  OT1/cmr/m/n --> EU1/MinionPro(0)/m/n on input line 23.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
-(Font)              `operators' in the math version `bold' on input line 22.
+(Font)              `operators' in the math version `bold' on input line 23.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> EU1/MinionPro(0)/m/n on input line 22.
+(Font)                  OT1/cmr/bx/n --> EU1/MinionPro(0)/m/n on input line 23.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  EU1/MinionPro(0)/m/n --> EU1/MinionPro(0)/m/n on input 
-line 22.
+line 23.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> EU1/MinionPro(0)/m/it on input line 22
+(Font)                  OT1/cmr/m/it --> EU1/MinionPro(0)/m/it on input line 23
 .
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> EU1/MinionPro(0)/bx/n on input line 22
+(Font)                  OT1/cmr/bx/n --> EU1/MinionPro(0)/bx/n on input line 23
 .
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> EU1/MyriadPro(0)/m/n on input line 22.
+(Font)                  OT1/cmss/m/n --> EU1/MyriadPro(0)/m/n on input line 23.
 
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> EU1/lmtt/m/n on input line 22.
+(Font)                  OT1/cmtt/m/n --> EU1/lmtt/m/n on input line 23.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  EU1/MinionPro(0)/m/n --> EU1/MinionPro(0)/bx/n on input
- line 22.
+ line 23.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> EU1/MinionPro(0)/bx/it on input line 
-22.
+23.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> EU1/MyriadPro(0)/bx/n on input line 2
-2.
+3.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> EU1/lmtt/bx/n on input line 22.
-\AtBeginShipoutBox=\box50
-Package hyperref Info: Link coloring ON on input line 22.
+(Font)                  OT1/cmtt/m/n --> EU1/lmtt/bx/n on input line 23.
+\AtBeginShipoutBox=\box49
+Package hyperref Info: Link coloring ON on input line 23.
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/generic/oberdiek/gettitlestring.st
-y
-Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count148
 )
-LaTeX Info: Redefining \ref on input line 22.
-LaTeX Info: Redefining \pageref on input line 22.
-LaTeX Info: Redefining \nameref on input line 22.
- (./magisterka.out) (./magisterka.out)
+LaTeX Info: Redefining \ref on input line 23.
+LaTeX Info: Redefining \pageref on input line 23.
+LaTeX Info: Redefining \nameref on input line 23.
+
+(./magisterka.out) (./magisterka.out)
 \@outlinefile=\write3
 \openout3 = `magisterka.out'.
 
 \c@lstlisting=\count149
-
-
-LaTeX Font Warning: Font shape `EU1/MinionPro(0)/bx/n' undefined
-(Font)              using `EU1/MinionPro(0)/m/n' instead on input line 25.
-
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 43.
+(Font)              <14.4> on input line 44.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 43.
+(Font)              <7> on input line 44.
 
-(/usr/local/texlive/2016basic/texmf-dist/tex/generic/oberdiek/se-ascii-print.de
-f
-File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
+File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
-) [1
+)
+[1
 
 ] [2
 
@@ -941,246 +935,157 @@ Package xcolor Warning: Incompatible color definition on input line 31.
 \tf@toc=\write4
 \openout4 = `magisterka.toc'.
 
-LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 46.
+LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 47.
 
- (/usr/local/texlive/2016basic/texmf-dist/tex/latex/euenc/eu1lmtt.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1lmtt.fd
 File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [5]
-[6
+) [5] [6
 
 ]
 Rozdział 1.
 [7
 
-]
-
-LaTeX Font Warning: Font shape `EU1/MinionPro(0)/m/it' undefined
-(Font)              using `EU1/MinionPro(0)/m/n' instead on input line 88.
-
-[8]
+] [8]
 File: fig/ą.png Graphic file (type QTm)
  <use  "fig/ą.png" > [9] [10]
-Overfull \hbox (6.00403pt too wide) in paragraph at lines 146--147
-[][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (56.40454pt too wide) in paragraph at lines 147--149
-[][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (20.40417pt too wide) in paragraph at lines 158--162
+Overfull \hbox (20.40417pt too wide) in paragraph at lines 134--135
 [][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [11]
-Overfull \hbox (42.0044pt too wide) in paragraph at lines 165--166
-[][][][][][][][][][][][] 
+Overfull \hbox (42.0044pt too wide) in paragraph at lines 137--138
+[][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
-Overfull \hbox (56.40454pt too wide) in paragraph at lines 174--175
-[][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (42.0044pt too wide) in paragraph at lines 178--179
-[][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (13.2041pt too wide) in paragraph at lines 182--183
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (34.80432pt too wide) in paragraph at lines 184--185
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (42.0044pt too wide) in paragraph at lines 186--187
-[][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (13.2041pt too wide) in paragraph at lines 192--193
-[][][][][][][][][][][][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12]
-Overfull \hbox (13.2041pt too wide) in paragraph at lines 222--223
-[][][][][][][][][][][][][][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13]
-Overfull \hbox (99.60498pt too wide) in paragraph at lines 228--229
-[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (193.20593pt too wide) in paragraph at lines 229--230
-[][][][][][][][][][][][][][][] 
- []
-
-[14]
+[11]
 File: fig/knn.png Graphic file (type QTm)
- <use  "fig/knn.png" > [15]
+ <use  "fig/knn.png" > [12]
 File: fig/knn-wzor.png Graphic file (type QTm)
  <use  "fig/knn-wzor.png" >
-(/usr/local/texlive/2016basic/texmf-dist/tex/latex/listings/lstlang1.sty
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-Overfull \hbox (466.80872pt too wide) in paragraph at lines 296--298
+Overfull \hbox (466.80872pt too wide) in paragraph at lines 202--203
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (63.60461pt too wide) in paragraph at lines 298--299
+Overfull \hbox (56.40454pt too wide) in paragraph at lines 203--204
 [][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (42.0044pt too wide) in paragraph at lines 304--305
-[][][][][][][][][][][][][][][][][][][][] 
+Overfull \hbox (4.32893pt too wide) in paragraph at lines 215--216
+[]\EU1/MinionPro(0)/m/n/12 Algorytm Random Forest to metoda klasyfikacji polega
+jąca na połączeniu drzew
+ []
+
+[13]
+File: fig/randomforest.png Graphic file (type QTm)
+ <use  "fig/randomforest.png" > [14]
+Overfull \hbox (466.80872pt too wide) in paragraph at lines 262--263
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[15]
+Overfull \hbox (1.84888pt too wide) in paragraph at lines 274--275
+[]\EU1/MinionPro(0)/m/n/12 Cechą charakterystyczna sieci neuronowych od algoryt
+mów realizujących prze-
+ []
+
+
+Overfull \hbox (8.22278pt too wide) in paragraph at lines 284--286
+[]\EU1/MinionPro(0)/m/n/12 Kojarzenia danych, sieci neuronowe pozwalają zautoma
+tyzować procesy wnio-
  []
 
 [16]
-Overfull \hbox (42.0044pt too wide) in paragraph at lines 312--314
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[17]
-File: fig/randomforest.png Graphic file (type QTm)
- <use  "fig/randomforest.png" > [18]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [19]
-Overfull \hbox (466.80872pt too wide) in paragraph at lines 377--379
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (42.0044pt too wide) in paragraph at lines 385--386
-[][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (42.0044pt too wide) in paragraph at lines 393--395
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[20]
-Overfull \hbox (1.90889pt too wide) in paragraph at lines 402--403
-[]\EU1/MinionPro(0)/m/it/12 Cechą charakterystyczna sieci neuronowych od algory
-tmów realizujących prze-
- []
-
 File: fig/budowaneurona.png Graphic file (type QTm)
-<use  "fig/budowaneurona.png" > [21] [22]
-Overfull \hbox (2.3209pt too wide) in paragraph at lines 452--453
-[]\EU1/MinionPro(0)/m/it/12 Najbardziej popularnym typem sieci neuronowej jest 
-sieć wielowarstwowa (ang.
+ <use  "fig/budowaneurona.png" > [17]
+Overfull \hbox (2.17691pt too wide) in paragraph at lines 312--313
+[]\EU1/MinionPro(0)/m/n/12 Najbardziej popularnym typem sieci neuronowej jest s
+ieć wielowarstwowa (ang.
  []
 
 File: fig/budowasieci.png Graphic file (type QTm)
-<use  "fig/budowasieci.png" > [23] [24]
-Overfull \hbox (121.2052pt too wide) in paragraph at lines 481--484
-[][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (186.00586pt too wide) in paragraph at lines 495--496
+<use  "fig/budowasieci.png" > [18] [19]
+Overfull \hbox (186.00586pt too wide) in paragraph at lines 337--338
 [][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (27.60425pt too wide) in paragraph at lines 496--497
+Overfull \hbox (27.60425pt too wide) in paragraph at lines 338--339
 [][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (121.2052pt too wide) in paragraph at lines 499--500
+Overfull \hbox (121.2052pt too wide) in paragraph at lines 341--342
 [][][][][][][][][][][][][][][][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25]
-Overfull \hbox (78.00476pt too wide) in paragraph at lines 506--508
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
 File: fig/cnn1.png Graphic file (type QTm)
-<use  "fig/cnn1.png" > [26]
+<use  "fig/cnn1.png" > [20]
 File: fig/cnn2.png Graphic file (type QTm)
  <use  "fig/cnn2.png" >
 File: fig/cnn3.png Graphic file (type QTm)
  <use  "fig/cnn3.png" >
-[27]
+[21]
 File: fig/cnn4.png Graphic file (type QTm)
- <use  "fig/cnn4.png" > [28]
+ <use  "fig/cnn4.png" > [22]
 File: fig/cnn5.png Graphic file (type QTm)
  <use  "fig/cnn5.png" >
 File: fig/figure_1.png Graphic file (type QTm)
 
-<use  "fig/figure_1.png" > [29]
+<use  "fig/figure_1.png" > [23]
 File: fig/cnn6.png Graphic file (type QTm)
  <use  "fig/cnn6.png" >
 File: fig/cnn7.png Graphic file (type QTm)
  <use  "fig/cnn7.png" >
-[30]
-File: fig/cnn8.png Graphic file (type QTm)
- <use  "fig/cnn8.png" > [31] [32] [33
-
-]
+[24] [25]
 Rozdział 2.
-[34
+[26
 
-]
+] [27] [28] [29] [30]
 Rozdział 3.
-[35
+
+Underfull \vbox (badness 2080) has occurred while \output is active []
+
+ [31
 
 ]
+File: fig/xamarin.png Graphic file (type QTm)
+
+<use  "fig/xamarin.png" > [32] [33] [34]
+Underfull \vbox (badness 2134) has occurred while \output is active []
+
+ [35]
+[36]
 Rozdział 4.
-[36
-
-]
-No file magisterka.bbl.
 [37
 
-] [38
+] [38] [39]
+No file magisterka.bbl.
+[40
+
+] [41
+
+] [42
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 656.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 656.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 689.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 689.
  (./magisterka.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 656.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 656.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 656.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 689.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 689.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 689.
  ) 
 Here is how much of TeX's memory you used:
- 23393 strings out of 495086
- 414218 string characters out of 6174757
- 465589 words of memory out of 5000000
- 26509 multiletter control sequences out of 15000+600000
- 7817 words of font info for 48 fonts, out of 8000000 for 9000
- 319 hyphenation exceptions out of 8191
- 55i,12n,72p,10389b,1776s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 23320 strings out of 493638
+ 412828 string characters out of 6146797
+ 460836 words of memory out of 5000000
+ 26500 multiletter control sequences out of 15000+600000
+ 7929 words of font info for 62 fonts, out of 8000000 for 9000
+ 1328 hyphenation exceptions out of 8191
+ 55i,12n,72p,10389b,1668s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on magisterka.pdf (38 pages).
+Output written on magisterka.pdf (42 pages).
