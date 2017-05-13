@@ -9,23 +9,22 @@
 \contentsline {section}{\numberline {1.6}Konwolucyjne sieci neuronowe - CNN}{20}{section.1.6}
 \contentsline {chapter}{\numberline {2}Przegląd bibliotek uczenia maszynowego}{26}{chapter.2}
 \contentsline {section}{\numberline {2.1}Microsoft Computer Vision API}{26}{section.2.1}
-\contentsline {section}{\numberline {2.2}TesseractAPI}{27}{section.2.2}
+\contentsline {section}{\numberline {2.2}TesseractAPI}{28}{section.2.2}
 \contentsline {section}{\numberline {2.3}TensorFlow}{28}{section.2.3}
-\contentsline {section}{\numberline {2.4}Scikit-learn}{28}{section.2.4}
-\contentsline {section}{\numberline {2.5}EmguCV}{29}{section.2.5}
-\contentsline {chapter}{\numberline {3}Przeprowadzone badania}{31}{chapter.3}
-\contentsline {section}{\numberline {3.1}Xamarin}{31}{section.3.1}
-\contentsline {section}{\numberline {3.2}Zbiór testowy}{33}{section.3.2}
-\contentsline {section}{\numberline {3.3}Skuteczność klasyfikacji}{33}{section.3.3}
-\contentsline {section}{\numberline {3.4}Czas treningu}{34}{section.3.4}
-\contentsline {section}{\numberline {3.5}Porównanie modeli danych}{34}{section.3.5}
-\contentsline {section}{\numberline {3.6}Rozmiar modelu, a skuteczność terningu}{36}{section.3.6}
-\contentsline {chapter}{\numberline {4}Podsumowanie i wnioski}{37}{chapter.4}
-\contentsline {section}{\numberline {4.1}Zalety aplikacji wieloplatformowych}{37}{section.4.1}
+\contentsline {section}{\numberline {2.4}Scikit-learn}{30}{section.2.4}
+\contentsline {section}{\numberline {2.5}EmguCV}{31}{section.2.5}
+\contentsline {chapter}{\numberline {3}Przeprowadzone badania}{32}{chapter.3}
+\contentsline {section}{\numberline {3.1}Xamarin}{32}{section.3.1}
+\contentsline {section}{\numberline {3.2}Zbiór testowy}{34}{section.3.2}
+\contentsline {section}{\numberline {3.3}Skuteczność klasyfikacji}{34}{section.3.3}
+\contentsline {section}{\numberline {3.4}Czas treningu}{35}{section.3.4}
+\contentsline {section}{\numberline {3.5}Porównanie modeli danych}{35}{section.3.5}
+\contentsline {section}{\numberline {3.6}Rozmiar modelu, a skuteczność terningu}{37}{section.3.6}
+\contentsline {chapter}{\numberline {4}Podsumowanie i wnioski}{38}{chapter.4}
+\contentsline {section}{\numberline {4.1}Zalety aplikacji wieloplatformowych}{38}{section.4.1}
 \contentsline {section}{\numberline {4.2}Wady aplikacji wieloplatformowych}{38}{section.4.2}
-\contentsline {section}{\numberline {4.3}Uczenie maszynowe w aplikacjach mobilnych}{38}{section.4.3}
-\contentsline {section}{\numberline {4.4}Najlepsza metoda rozpoznawania pisma odręcznego}{39}{section.4.4}
-\contentsline {section}{\numberline {4.5}Koszt}{39}{section.4.5}
-\contentsline {chapter}{Zakończenie}{40}{chapter*.5}
-\contentsline {chapter}{Bibliografia}{41}{chapter*.6}
-\contentsline {chapter}{Oświadczenie}{42}{chapter*.7}
+\contentsline {section}{\numberline {4.3}Uczenie maszynowe w aplikacjach mobilnych}{39}{section.4.3}
+\contentsline {section}{\numberline {4.4}Najlepsza metoda rozpoznawania pisma odręcznego}{40}{section.4.4}
+\contentsline {chapter}{Zakończenie}{41}{chapter*.5}
+\contentsline {chapter}{Bibliografia}{42}{chapter*.6}
+\contentsline {chapter}{Oświadczenie}{43}{chapter*.7}

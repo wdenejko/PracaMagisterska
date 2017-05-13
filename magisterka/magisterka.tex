@@ -426,6 +426,13 @@ Aby dobrze zobrazować problem rozpoznawania pisma odręcznego w aplikacjach mob
 
 Usługi Microsoft Cognitive Services umożliwiają kompilowanie aplikacji z zaawansowanymi algorytmami przy użyciu zaledwie kilku wierszy kodu. Działają one na różnych urządzeniach i platformach, takich jak systemy iOS, Android i Windows, wciąż są ulepszane i łatwo je skonfigurować. Usług uruchomionych w ramach tego API jest dokładnie 22. Począwszy od lokalizowania twarzy na zdjęciach, rozpoznawania ich emocji, skończywszy na usłudze wykrywania tekstu na fotografiach, konwertowania mowy na tekst lub autosugestii wprowadzanego tekstu prosto z wyszukiwarki Bing.
 
+\begin{figure}[!tbh]
+\centering
+\includegraphics[width=.8\hsize]{fig/mscvapi}
+\caption{Przykładowa aplikacja implementująca Computer Vision API}
+\end{figure}
+\newpage
+
 Computer Vision API, jest system bazowanym na rozwiązaniach Azure, dostarcza deweloperom dostęp do algorytmów pozwalających na przetwarzanie obrazów i zwracanie informacji na ich temat. Poprzez wysłanie obrazu do serwera algorytmy umieszczone w chmurze firmy Microsoft są w stanie zanalizować kontekst wizualny w wielu różnych sposobach na podstawie wyborów użytkowników.
 
 Między innymi technologia zawiera narzędzia do rozpoznawania znaków oraz całych tekstów. Działa ona w 21 językach, dostępny jest również język polski. Usługa posiada możliwość dostosowania kątu nachylenia tekstu, horyzontalnego obrotu osią by rozpoznania dawały lepszy efekt. 
@@ -459,7 +466,12 @@ Najważniejsze komponenty TensorFlow, stworzonej przez Google biblioteki sztuczn
 
 Działanie TensorFlow przypomina sposób wykonywania obliczeń za pomocą grafu skierowanego, w którym wierzchołki to matematyczne operacje lub punkty, w których dochodzi do wymiany danych, zaś krawędzie opisują relacje wejścia i wyjścia pomiędzy węzłami, przedstawione w formie dynamicznych wielowymiarowych macierzy danych, czyli tensorów.
 
-ZDJĘCIE!
+\begin{figure}[!tbh]
+\centering
+\includegraphics[width=.8\hsize]{fig/tf}
+\caption{Graf przedstawiający działanie TensorFlow}
+\end{figure}
+\newpage
 
 Biblioteka oferowana przez firmę Google pozwala na obliczenia numeryczne z wykorzystywaniem takich grafów. Można tu korzystać z ogromnych klastrów superkomputerowych, stacji roboczych z wieloma procesorami graficznymi, a nawet wielordzeniowych mobilnych procesorów w smartfonach.
 
@@ -539,10 +551,10 @@ Używając zbioru treningowego stworzonego za pomocą narzędzia przedstawionego
 \begin{table}[!htb]
 \begin{tabular}{|l|l|} \hline
 Nazwa & Dokładność \\ \hline
-\texttt{kNN} & 38\% \\ \hline
-\texttt{Random Forest} & 28\% \\ \hline
-\texttt{Sieć neuronowa} & 73\% \\ \hline
-\texttt{CNN}     & 85\% \\ \hline
+\texttt{kNN} & 60\% \\ \hline
+\texttt{Random Forest} & 50\% \\ \hline
+\texttt{Sieć neuronowa} & 91\% \\ \hline
+\texttt{CNN}     & 95\% \\ \hline
 \end{tabular}
 \caption{Wyniki badań skuteczności klasyfikatorów}
 \end{table}
@@ -621,19 +633,17 @@ Jednak z obserwacji wynika, iż im bardziej precyzyjne zawarte są dane w modelu
 
 \begin{itemize}
 \item
-Xamarin bazowo unifikuje przede wszystkim backendową część aplikacji. Jeśli tworzysz aplikacje z rozbudowaną logiką biznesową, to warto ją pisać tylko raz. Xamarin na pewno w tym pomoże
+Xamarin bazowo unifikuje przede wszystkim serwerową część aplikacji. Jeśli tworzymy aplikacje z rozbudowaną logiką biznesową, to warto ją pisać tylko raz. Xamarin na pewno w tym pomoże
 \item
-Jeśli layout aplikacji opiera się o standardowe elementy i wzorce, to warto pokusić się o użycie Xamarin.Forms, który obsługuje kilkadziesiąt kontrolek, które później mapowane są na natywne rozwiązania
+Jeśli layout aplikacji opiera się o standardowe elementy i wzorce, to warto użyć Xamarin.Forms, który obsługuje kilkadziesiąt kontrolek, które później mapowane są na natywne rozwiązania
 \item
-Jeśli martwi Cię konieczność posiadania osobnego zestawu programistów na każdą platformę, to również warto dać szansę Xamarinowi. Nawet podejście native można w całości ograć w języku C\#. Xamarin mapuje 100\% API z Androida oraz iOS
+Jeśli konieczne jest posiadanie osobnego zestawu programistów na każdą platformę, to również warto dać szansę Xamarinowi. Nawet podejście natywne można w całości napisać w języku C\#. Xamarin mapuje 100\% API z platform Android oraz iOS
 \item
-Nawet jeśli znasz rozwiązania natywne, wciąż możesz poczuć się jak w domu, używając Xamarina. Dla przykładu, w Androidzie wciąż można używać Activity, kod layoutu pisać w plikach AXML, a aplikację konfigurować w Manifeście. Jednocześnie przy okazji łatwo jest napisać kawał kodu, który można użyć na dowolnej inne platformie. Bajka? Niekoniecznie. Xamarin
-\item
-Jeśli pracowałeś z jakąkolwiek technologią operującą na XAMLu (WPF, Silverlight, Universal Apps, UWP), to również w tej sytuacji nie powinieneś mieć problemów by się odnaleźć w temacie
+Jeśli programista posiadał doświadczenie z jakąkolwiek technologią operującą na XAMLu (WPF, Silverlight, Universal Apps, UWP), to również w tej sytuacji nie powinien mieć problemów z programowaniem w Xamarin.Formsie
 \item
 Pod Xamarina można programować w Visual Studio [Community] dla Windows lub Xamarin Studio dla OS X
 \item
-Kod źródłowy całego rozwiązania dostępny jest na GitHubie!
+Kod źródłowy całego rozwiązania dostępny jest na GitHubie
 \end{itemize}
 
 \section{Wady aplikacji wieloplatformowych}
@@ -644,30 +654,32 @@ Podejście Forms zazwyczaj nie pozwala na napisanie całej aplikacji. Część k
 \item
 Do pracy z Xamarinem wymagana jest również przynajmniej bazowa znajomość C\#. W podejściu Xamarin.Forms, trzeba się również nauczyć XAMLa.
 \item
-Ponadto przy wydaniu każdej nowej wersji wspieranych systemów, musimy czekać na wrappery. Oczywiście w chwili obecnej pojawiają się one praktycznie natychmiast, ale pytanie czy tak będzie zawsze?
+Ponadto przy wydaniu każdej nowej wersji wspieranych systemów, należy czekać wrappery. Oczywiście w chwili obecnej pojawiają się one praktycznie natychmiast, ale pytanie czy tak będzie zawsze?
 \item
 Xamarin bywa również niestabilny. Zdarzają się wersje lepsze i gorsze. Czasami pojawiają się problemy w sytuacji gdy odpalamy solucję przygotowaną w Visual Studio na Macu i odwrotnie. Zdarzają się również inne błędy.
 \item
-Ta technologia ma jeszcze jedno ryzyko. Obecnie jej właścicielem jest Microsoft, który czasem bywa nieprzewidywalny. Na szczęście tak jak pisałem wcześniej kod źródłowy Xamarina jest otwarty i można go znaleźć na GitHubie
+Ta technologia ma jeszcze jedno ryzyko. Obecnie jej właścicielem jest Microsoft, który czasem bywa nieprzewidywalny. Na szczęście kod źródłowy Xamarina jest otwarty i można go znaleźć na GitHubie
 
 \end{itemize}
 
 \section{Uczenie maszynowe w aplikacjach mobilnych}
 
-Wykorzystywanie technik uczenia maszynowego, czy to są algorytmy typu random forrest, czy też sieci neuronowe, wymagają olbżymich zasobów sprzętowych, w związku z tym urządzenia mobilne, których moc obliczeniowa nie może równać się z komputerami klasy PC czy klastrów procesorów graficznych nie nadają się do treningów. Istniejące gotowe rozwiązania jak na przykład przedstawione w pracu usługi Cognitive Services od firmy Microsoft idealnie pasują do rynku aplikacji mobilnych, ponieważ wszystkie obliczenia związane z klasyfikacją znajdują się po stronie serwera, wadą tego rozwiązania jest natomiast brak ingerencji w modele danych oraz brak jakiejkolwiek personalizacji, który mógłby pomóc w rozwiązaniu problemu.
+Wykorzystywanie technik uczenia maszynowego, czy to są algorytmy typu random forrest, czy też sieci neuronowe, wymagają olbrzymich zasobów sprzętowych, w związku z tym urządzenia mobilne, których moc obliczeniowa nie może równać się z komputerami klasy PC czy klastrów procesorów graficznych nie nadają się do treningów. Istniejące gotowe rozwiązania jak na przykład przedstawione w pracy usługi Cognitive Services od firmy Microsoft idealnie pasują do rynku aplikacji mobilnych, ponieważ wszystkie obliczenia związane z klasyfikacją znajdują się po stronie serwera, wadą tego rozwiązania jest natomiast brak ingerencji w modele danych oraz brak jakiejkolwiek personalizacji, który mógłby pomóc w rozwiązaniu problemu.
 
-Idealnym rozwiązaniem, również wykorzystanym w tej pracy przez autora jest połączenie mocy obliczeniowej komputerów PC lub laptopów by wytrenować odpowiedni model danych realizujący problem, a następnie stworzenie aplikacji webowej, która implementowałaby określony interfejst, tak aby była możliwość konsumowania go po stronie aplikacji mobilnej. W ten sposób zyskujemy nie zawodność po stronie mobilnej oraz personalizacje i wgląd w model danych po stronie serwera.
+Idealnym rozwiązaniem, również wykorzystanym w tej pracy przez autora jest połączenie mocy obliczeniowej komputerów PC lub laptopów by wytrenować odpowiedni model danych realizujący problem, a następnie stworzenie aplikacji webowej, która implementowałaby określony interfejs, tak aby była możliwość konsumowania go po stronie aplikacji mobilnej. W ten sposób zyskujemy nie zawodność po stronie mobilnej oraz personalizacje i wgląd w model danych po stronie serwera.
 
 \section{Najlepsza metoda rozpoznawania pisma odręcznego}
 
+W pracy przedstawionej przez autora zostało zaprezentowanych kilka metod klasyfikacji danych problemu rozpoznawania znaków pisma odręcznego oraz dwie biblioteki umożliwiające błyskawiczne rozpoznanie obrazka bez konieczności posiadania specjalistycznej wiedzy z zakresu uczenia maszynowego.
 
-
-\section{Koszt}
+Według badań zawartych w rozdziale 3, najlepszym istniejącym sposobem rozwiązania zadanego przez autora problemu jest wykorzystanie konwolucyjnych sieci neuronowych. Model danych odgrywa najważniejszą role przy podejmowaniu próby klasyfikacji znaków pisma odręcznego, gdyż elementy w nim zawarte powinny jak najbardziej odzwierciedlać rzeczywiste cechy liter oraz cyfr.
 
 % zakończenie
 \summary
 
 Celem pracy autora było zaprezentowanie istniejących rozwiązań pozwalających szybkie przeprowadzenie rozpoznania znaków oraz przedstawienie własnej implementacji sieci neuronowej, która rozwiązuje problem należący do tej samej klasy. 
+
+Wynikiem pracy jest webservice dostępny do użytku ogólnego oraz aplikacja wieloplatformowa, która pozwala sklasyfikować dowolną literę bądź cyfrę. Skuteczność wytworzonego modelu na podstawie propozycji sieci neuronowej autora znacząco poprawia istniejące implementacje dostępne do użytku. Cel pracy został zrealizowany.
 
 % literatura (obowiązkowo):
 \bibliographystyle{unsrt}
@@ -676,11 +688,11 @@ Celem pracy autora było zaprezentowanie istniejących rozwiązań pozwalającyc
 \begin{thebibliography}{9}
 
 \bibitem{1}
-  Leslie Lamport,
-  \emph{\LaTeX: a document preparation system},
-  Addison Wesley, Massachusetts,
-  2nd edition,
-  1994.
+  TODO,
+  \emph{TODO},
+  TODO,
+  TODO,
+  TODO.
 
 \end{thebibliography}
 
