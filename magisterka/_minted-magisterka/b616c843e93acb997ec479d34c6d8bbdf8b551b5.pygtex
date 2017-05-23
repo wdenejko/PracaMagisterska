@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{x0} \PYG{o}{=} \PYG{n}{x}\PYG{p}{[:}\PYG{n}{split}\PYG{p}{];} \PYG{n}{x1} \PYG{o}{=} \PYG{n}{x}\PYG{p}{[}\PYG{n}{split}\PYG{p}{:]}
+\PYG{n}{y0} \PYG{o}{=} \PYG{n}{y}\PYG{p}{[:}\PYG{n}{split}\PYG{p}{];} \PYG{n}{y1} \PYG{o}{=} \PYG{n}{y}\PYG{p}{[}\PYG{n}{split}\PYG{p}{:]}
+\PYG{n}{mlp} \PYG{o}{=} \PYG{n}{MLPClassifier}\PYG{p}{(}\PYG{n}{solver}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}sgd\PYGZsq{}}\PYG{p}{,} \PYG{n}{activation}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}relu\PYGZsq{}}\PYG{p}{,}
+                    \PYG{n}{hidden\PYGZus{}layer\PYGZus{}sizes}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{100}\PYG{p}{,}\PYG{l+m+mi}{30}\PYG{p}{),}
+                    \PYG{n}{learning\PYGZus{}rate\PYGZus{}init}\PYG{o}{=}\PYG{l+m+mf}{0.3}\PYG{p}{,} \PYG{n}{learning\PYGZus{}rate}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}adaptive\PYGZsq{}}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mf}{0.1}\PYG{p}{,}
+                    \PYG{n}{momentum}\PYG{o}{=}\PYG{l+m+mf}{0.9}\PYG{p}{,} \PYG{n}{nesterovs\PYGZus{}momentum}\PYG{o}{=}\PYG{n+nb+bp}{True}\PYG{p}{,}
+                    \PYG{n}{tol}\PYG{o}{=}\PYG{l+m+mf}{1e\PYGZhy{}4}\PYG{p}{,} \PYG{n}{max\PYGZus{}iter}\PYG{o}{=}\PYG{l+m+mi}{200}\PYG{p}{,}
+                    \PYG{n}{shuffle}\PYG{o}{=}\PYG{n+nb+bp}{True}\PYG{p}{,} \PYG{n}{batch\PYGZus{}size}\PYG{o}{=}\PYG{l+m+mi}{300}\PYG{p}{,}
+                    \PYG{n}{early\PYGZus{}stopping} \PYG{o}{=} \PYG{n+nb+bp}{False}\PYG{p}{,} \PYG{n}{validation\PYGZus{}fraction} \PYG{o}{=} \PYG{l+m+mf}{0.15}\PYG{p}{,}
+                    \PYG{n}{verbose}\PYG{o}{=}\PYG{n+nb+bp}{True}\PYG{p}{)}
+\PYG{n}{mlp}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{x0}\PYG{p}{,}\PYG{n}{y0}\PYG{p}{)}
+\end{Verbatim}

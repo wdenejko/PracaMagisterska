@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{var} \PYG{n}{csv} \PYG{p}{=} \PYG{k}{new} \PYG{n}{StringBuilder}\PYG{p}{();}
+\PYG{k+kt}{var} \PYG{n}{csv2} \PYG{p}{=} \PYG{k}{new} \PYG{n}{StringBuilder}\PYG{p}{();}
+\PYG{k+kt}{var} \PYG{n}{fileName} \PYG{p}{=} \PYG{n}{files}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{DirectoryName}
+               \PYG{p}{.}\PYG{n}{Replace}\PYG{p}{(}\PYG{n}{imagesPath} \PYG{p}{+} \PYG{l+s}{@\PYGZdq{}\PYGZbs{}\PYGZdq{}}\PYG{p}{,} \PYG{k+kt}{string}\PYG{p}{.}\PYG{n}{Empty}\PYG{p}{);}
+\PYG{n}{csv}\PYG{p}{.}\PYG{n}{Append}\PYG{p}{(}\PYG{n}{fileName}\PYG{p}{);}
+\PYG{n}{csv}\PYG{p}{.}\PYG{n}{Append}\PYG{p}{(}\PYG{l+s+sc}{\PYGZsq{},\PYGZsq{}}\PYG{p}{);}
+\PYG{k+kt}{var} \PYG{n}{originalImage} \PYG{p}{=} \PYG{k}{new} \PYG{n}{Image}\PYG{p}{\PYGZlt{}}\PYG{n}{Gray}\PYG{p}{,} \PYG{k+kt}{byte}\PYG{p}{\PYGZgt{}(}\PYG{n}{files}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{FullName}\PYG{p}{)}
+                    \PYG{p}{.}\PYG{n}{Not}\PYG{p}{();}
+\PYG{k+kt}{var} \PYG{n}{img} \PYG{p}{=} \PYG{n}{originalImage}\PYG{p}{.}\PYG{n}{Resize}\PYG{p}{(}\PYG{l+m}{28}\PYG{p}{,} \PYG{l+m}{28}\PYG{p}{,} \PYG{n}{Inter}\PYG{p}{.}\PYG{n}{Linear}\PYG{p}{);}
+\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{var} \PYG{n}{k} \PYG{p}{=} \PYG{l+m}{0}\PYG{p}{;} \PYG{n}{k} \PYG{p}{\PYGZlt{}} \PYG{n}{img}\PYG{p}{.}\PYG{n}{Height}\PYG{p}{;} \PYG{n}{k}\PYG{p}{++)}
+\PYG{p}{\PYGZob{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{var} \PYG{n}{j} \PYG{p}{=} \PYG{l+m}{0}\PYG{p}{;} \PYG{n}{j} \PYG{p}{\PYGZlt{}} \PYG{n}{img}\PYG{p}{.}\PYG{n}{Width}\PYG{p}{;} \PYG{n}{j}\PYG{p}{++)}
+    \PYG{p}{\PYGZob{}}
+       \PYG{n}{csv}\PYG{p}{.}\PYG{n}{Append}\PYG{p}{(}\PYG{n}{img}\PYG{p}{[}\PYG{n}{k}\PYG{p}{,} \PYG{n}{j}\PYG{p}{].}\PYG{n}{Intensity}\PYG{p}{);}
+       \PYG{n}{csv}\PYG{p}{.}\PYG{n}{Append}\PYG{p}{(}\PYG{l+s+sc}{\PYGZsq{},\PYGZsq{}}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{n}{csv2}\PYG{p}{.}\PYG{n}{AppendLine}\PYG{p}{(}\PYG{n}{csv}\PYG{p}{.}\PYG{n}{ToString}\PYG{p}{());}
+\PYG{n}{File}\PYG{p}{.}\PYG{n}{AppendAllText}\PYG{p}{(}\PYG{n}{csvFilePath}\PYG{p}{,} \PYG{n}{csv2}\PYG{p}{.}\PYG{n}{ToString}\PYG{p}{());}
+\end{Verbatim}

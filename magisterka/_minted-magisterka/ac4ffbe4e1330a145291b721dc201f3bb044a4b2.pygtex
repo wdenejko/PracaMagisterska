@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{labeled\PYGZus{}images} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}output.csv\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{images} \PYG{o}{=} \PYG{n}{labeled\PYGZus{}images}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{:}\PYG{l+m+mi}{5000}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{:]}
+\PYG{n}{labels} \PYG{o}{=} \PYG{n}{labeled\PYGZus{}images}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{:}\PYG{l+m+mi}{5000}\PYG{p}{,:}\PYG{l+m+mi}{1}\PYG{p}{]}
+\PYG{n}{train\PYGZus{}images}\PYG{p}{,} \PYG{n}{test\PYGZus{}images}\PYG{p}{,} \PYG{n}{train\PYGZus{}labels}\PYG{p}{,} \PYG{n}{test\PYGZus{}labels}
+\PYG{o}{=} \PYG{n}{train\PYGZus{}test\PYGZus{}split}\PYG{p}{(}\PYG{n}{images}\PYG{p}{,} \PYG{n}{labels}\PYG{p}{,} \PYG{n}{train\PYGZus{}size}\PYG{o}{=}\PYG{l+m+mf}{0.8}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{n}{knn} \PYG{o}{=} \PYG{n}{KNeighborsClassifier}\PYG{p}{(}\PYG{n}{n\PYGZus{}neighbors}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{n}{algorithm}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}kd\PYGZus{}tree\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{knn}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{train\PYGZus{}images}\PYG{p}{,} \PYG{n}{train\PYGZus{}labels}\PYG{o}{.}\PYG{n}{values}\PYG{o}{.}\PYG{n}{ravel}\PYG{p}{())}
+\PYG{k}{print} \PYG{n}{knn}\PYG{o}{.}\PYG{n}{score}\PYG{p}{(}\PYG{n}{test\PYGZus{}images}\PYG{p}{,}\PYG{n}{test\PYGZus{}labels}\PYG{p}{)}
+\end{Verbatim}

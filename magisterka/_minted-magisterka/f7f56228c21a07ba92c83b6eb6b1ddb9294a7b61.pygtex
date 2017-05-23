@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{images} \PYG{o}{=} \PYG{n}{labeled\PYGZus{}images}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{:}\PYG{l+m+mi}{5000}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{:]}
+\PYG{n}{labels} \PYG{o}{=} \PYG{n}{labeled\PYGZus{}images}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{:}\PYG{l+m+mi}{5000}\PYG{p}{,:}\PYG{l+m+mi}{1}\PYG{p}{]}
+\PYG{n}{train\PYGZus{}images}\PYG{p}{,} \PYG{n}{test\PYGZus{}images}\PYG{p}{,} \PYG{n}{train\PYGZus{}labels}\PYG{p}{,} \PYG{n}{test\PYGZus{}labels}
+\PYG{o}{=} \PYG{n}{train\PYGZus{}test\PYGZus{}split}\PYG{p}{(}\PYG{n}{images}\PYG{p}{,} \PYG{n}{labels}\PYG{p}{,} \PYG{n}{train\PYGZus{}size}\PYG{o}{=}\PYG{l+m+mf}{0.8}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{n}{clf} \PYG{o}{=} \PYG{n}{RandomForestClassifier}\PYG{p}{(}\PYG{n}{n\PYGZus{}jobs}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{train\PYGZus{}images}\PYG{p}{,} \PYG{n}{train\PYGZus{}labels}\PYG{o}{.}\PYG{n}{values}\PYG{p}{)}
+\PYG{k}{print} \PYG{n}{clf}\PYG{o}{.}\PYG{n}{score}\PYG{p}{(}\PYG{n}{test\PYGZus{}images}\PYG{p}{,}\PYG{n}{test\PYGZus{}labels}\PYG{p}{)}
+\end{Verbatim}
