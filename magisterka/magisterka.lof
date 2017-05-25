@@ -1,0 +1,22 @@
+\select@language {polish}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Przykład zdjęcia znaku}}{11}{figure.1.1}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Przykład problemu k-NN}}{14}{figure.1.2}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Diagram przepływu algorytmu Random Forest}}{17}{figure.1.3}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Schemat sztucznego neuronu}}{19}{figure.1.4}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Schemat budowy sieci wielowarstwowej}}{20}{figure.1.5}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Problem klasyfikacji}}{22}{figure.1.6}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Wybrane cechy i ich odpowiedniki w zdjęciu do klasyfikacji}}{23}{figure.1.7}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Wartości liczbowe pikseli różnych cech}}{23}{figure.1.8}
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Wynik przykładowej operacji splotu}}{24}{figure.1.9}
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Wynik operacji splotu danej cechy}}{25}{figure.1.10}
+\contentsline {figure}{\numberline {1.11}{\ignorespaces Przykład warstwy konwolucyjnej dla litery k}}{25}{figure.1.11}
+\contentsline {figure}{\numberline {1.12}{\ignorespaces Przykład sumowania}}{26}{figure.1.12}
+\contentsline {figure}{\numberline {1.13}{\ignorespaces Przykład normalizacji danych}}{27}{figure.1.13}
+\contentsline {figure}{\numberline {1.14}{\ignorespaces Przykład klasyfikacji za pomocą warstwy FCL}}{28}{figure.1.14}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Przykładowa aplikacja implementująca Computer Vision API}}{30}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Graf przedstawiający działanie TensorFlow}}{32}{figure.2.2}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces architektura platformy Xamarin}}{36}{figure.3.1}
+\addvspace {10\p@ }

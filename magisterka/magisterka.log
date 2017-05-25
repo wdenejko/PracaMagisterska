@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.1.2)  23 MAY 2017 20:58
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.1.2)  25 MAY 2017 21:08
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1035,22 +1035,17 @@ Package xcolor Warning: Incompatible color definition on input line 29.
 
 Package xcolor Warning: Incompatible color definition on input line 30.
 
-
-Package xcolor Warning: Incompatible color definition on input line 31.
-
-
-Package xcolor Warning: Incompatible color definition on input line 32.
-
-
-Package xcolor Warning: Incompatible color definition on input line 33.
-
 )
 \tf@toc=\write7
 \openout7 = `magisterka.toc'.
 
  [5] [6
 
-] [7]
+]
+
+LaTeX Warning: Citation `i' on page 7 undefined on input line 71.
+
+[7]
 Rozdział 1.
 [8
 
@@ -1091,13 +1086,8 @@ gest() + chr(125) + \"\"; f.write(\"\\makeatletter\" + macro + \"\\makeatother\
 
 
 (./magisterka.mintedmd5)
-(./_minted-magisterka/ac4ffbe4e1330a145291b721dc201f3bb044a4b2.pygtex)
-Overfull \hbox (4.32893pt too wide) in paragraph at lines 238--239
-[]\EU1/MinionPro(0)/m/n/12 Algorytm Random Forest to metoda klasyfikacji polega
-jąca na połączeniu drzew
- []
-
-[15] [16]
+(./_minted-magisterka/ac4ffbe4e1330a145291b721dc201f3bb044a4b2.pygtex) [15]
+[16]
 File: fig/randomforest.png Graphic file (type QTm)
  <use  "fig/randomforest.png" >
 \openout3 = `magisterka.pyg'.
@@ -1143,27 +1133,35 @@ gest() + chr(125) + \"\"; f.write(\"\\makeatletter\" + macro + \"\\makeatother\
 (./_minted-magisterka/b616c843e93acb997ec479d34c6d8bbdf8b551b5.pygtex) [21]
 File: fig/cnn1.png Graphic file (type QTm)
 
-<use  "fig/cnn1.png" > [22]
+<use  "fig/cnn1.png" >
 File: fig/cnn2.png Graphic file (type QTm)
  <use  "fig/cnn2.png" >
 File: fig/cnn3.png Graphic file (type QTm)
- <use  "fig/cnn3.png" >
+ <use  "fig/cnn3.png" > [22]
 [23]
 File: fig/cnn4.png Graphic file (type QTm)
- <use  "fig/cnn4.png" > [24]
+ <use  "fig/cnn4.png" >
 File: fig/cnn5.png Graphic file (type QTm)
- <use  "fig/cnn5.png" >
+ <use  "fig/cnn5.png" > [24]
 File: fig/figure_1.png Graphic file (type QTm)
 
-<use  "fig/figure_1.png" > [25]
+<use  "fig/figure_1.png" >
 File: fig/cnn6.png Graphic file (type QTm)
- <use  "fig/cnn6.png" >
+ <use  "fig/cnn6.png" > [25]
 File: fig/cnn7.png Graphic file (type QTm)
  <use  "fig/cnn7.png" >
-[26] [27]
+[26]
+File: fig/convnet.png Graphic file (type QTm)
+ <use  "fig/convnet.png" > [27]
 Rozdział 2.
 File: fig/mscvapi.jpg Graphic file (type QTm)
-<use  "fig/mscvapi.jpg" > [28
+<use  "fig/mscvapi.jpg" >
+Overfull \hbox (33.1079pt too wide) in paragraph at lines 472--472
+\EU1/MinionPro(0)/m/it/10.95 https://www.programmableweb.com/sites/default/file
+s/microsoft%20computer%20vision%20API.jpg  
+ []
+
+[28
 
 ] [29]
 File: fig/tf.png Graphic file (type QTm)
@@ -1172,43 +1170,68 @@ File: fig/tf.png Graphic file (type QTm)
 LaTeX Warning: Text page 31 contains only floats.
 
 
-Underfull \vbox (badness 1931) has occurred while \output is active []
+Overfull \vbox (7.64133pt too high) has occurred while \output is active []
 
- [31]
-[32] [33]
+
+[31] [32] [33]
 Rozdział 3.
-
-Underfull \vbox (badness 2080) has occurred while \output is active []
-
- [34
+[34
 
 ]
 File: fig/xamarin.png Graphic file (type QTm)
-
-<use  "fig/xamarin.png" >
-Overfull \hbox (77.99881pt too wide) in paragraph at lines 563--564
- [][] 
- []
-
-[35] [36]
-Underfull \vbox (badness 1776) has occurred while \output is active []
-
- [37]
-[38] [39]
+ <use  "fig/xamarin.png" > [35] [36] [37] [38] [39]
 Rozdział 4.
+[40
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [40
+] [41] [42]
+No file magisterka.bbl.
+[43
 
 ]
-[41] [42] [43]
-No file magisterka.bbl.
+Underfull \hbox (badness 10000) in paragraph at lines 806--808
+[]\EU1/MinionPro(0)/m/n/12 https://github.com/mathias-brandewinder/machine-lear
+ning-projects-for-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 810--812
+[]\EU1/MinionPro(0)/m/n/12 https://azure.microsoft.com/en-us/services/cognitive
+-services/ (Dostęp 22
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 818--820
+[]\EU1/MinionPro(0)/m/n/12 http://shyamalapriya.github.io/digit-recognition-usi
+ng-k-nearest-
+ []
+
+
+Underfull \hbox (badness 2856) in paragraph at lines 822--824
+[]\EU1/MinionPro(0)/m/n/12 http://neuralnetworksanddeeplearning.com/chap1.html,
+ (Dostęp 22 maja
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 826--828
+[]\EU1/MinionPro(0)/m/n/12 http://deblivingdata.net/machine-learning-the-digit-
+recognition-problem/,
+ []
+
 [44
 
-] [45
+]
+Underfull \hbox (badness 10000) in paragraph at lines 850--852
+[]\EU1/MinionPro(0)/m/n/12 https://stats.stackexchange.com/questions/19048/what
+-is-the-difference-
+ []
 
-] [46
+
+Underfull \hbox (badness 10000) in paragraph at lines 854--856
+[]\EU1/MinionPro(0)/m/n/12 https://en.wikipedia.org/wiki/Optical_character_reco
+gnition, (Dostęp 22
+ []
+
+[45] [46
 
 ]
 runsystem(rm "magisterka.mintedcmd")...executed.
@@ -1217,20 +1240,24 @@ runsystem(rm "magisterka.mintedmd5")...executed.
 
 runsystem(rm "magisterka.pyg")...executed.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 743.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 743.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 861.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 861.
  (./magisterka.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 743.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 743.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 743.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 861.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 861.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 861.
  ) 
 Here is how much of TeX's memory you used:
- 25209 strings out of 493638
- 453222 string characters out of 6146797
- 512366 words of memory out of 5000000
- 28319 multiletter control sequences out of 15000+600000
- 7929 words of font info for 62 fonts, out of 8000000 for 9000
+ 25233 strings out of 493638
+ 453450 string characters out of 6146797
+ 512529 words of memory out of 5000000
+ 28341 multiletter control sequences out of 15000+600000
+ 7937 words of font info for 63 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 55i,11n,61p,10389b,852s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,12n,61p,10389b,852s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on magisterka.pdf (46 pages).

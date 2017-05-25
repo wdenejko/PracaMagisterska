@@ -24,10 +24,7 @@
 \contentsline {section}{\numberline {4.1}Uczenie maszynowe w aplikacjach mobilnych}{40}{section.4.1}
 \contentsline {section}{\numberline {4.2}Najlepsza metoda rozpoznawania pisma odręcznego}{41}{section.4.2}
 \contentsline {section}{\numberline {4.3}Zalety aplikacji wieloplatformowych}{41}{section.4.3}
-\contentsline {section}{\numberline {4.4}Wady aplikacji wieloplatformowych}{41}{section.4.4}
-\contentsline {section}{\numberline {4.5}Uczenie maszynowe w aplikacjach mobilnych}{42}{section.4.5}
-\contentsline {section}{\numberline {4.6}Najlepsza metoda rozpoznawania pisma odręcznego}{43}{section.4.6}
-\contentsline {section}{\numberline {4.7}Koszt}{43}{section.4.7}
-\contentsline {chapter}{Zakończenie}{44}{chapter*.5}
-\contentsline {chapter}{Bibliografia}{45}{chapter*.6}
+\contentsline {section}{\numberline {4.4}Wady aplikacji wieloplatformowych}{42}{section.4.4}
+\contentsline {chapter}{Zakończenie}{43}{chapter*.5}
+\contentsline {chapter}{Bibliografia}{44}{chapter*.6}
 \contentsline {chapter}{Oświadczenie}{46}{chapter*.7}
