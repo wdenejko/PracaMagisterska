@@ -86,7 +86,7 @@ Postęp w metodach OCR jest bardzo widoczny, gdyż w obecnych czasach produkty p
 
 Wykonane telefonami komórkowymi z szumami na obrazkach, z tekstem napisanym pod nienaturalnymi kątami w wielu językach, pozostaje jednak problem rozpoznawania znaków pisma odręcznego.
 
-Rozpoznawanie pisma jest możliwe dzięki zastosowaniu metod z dziedziny rozpoznawania wzorców, czyli pola badawczego w obrębie uczenia maszynowego. Metoda ta może być definiowana jako działanie polegające na pobieraniu danych i podejmowaniu dalszych czynności zależnych od kategorii, do której należą te dane. By odpowiednio wyodrębnić poszczególne znaki z obrazu używane są biblioteki pozwalające na profesjonalną obróbkę zdjęć pod zastosowania w celach uczenia maszynowego. Przykładem takiej biblioteki jest OpenCV. Po wyodrębnieniu potrzebnych informacji na temat danego znaku obrazy są klasyfikowane jako poszczególne litery. Zwykle w tym procesie używane są sieci neuronowe.
+Rozpoznawanie pisma jest możliwe dzięki zastosowaniu metod z dziedziny rozpoznawania wzorców, czyli pola badawczego w obrębie uczenia maszynowego. Metoda ta może być definiowana jako działanie polegające na pobieraniu danych i podejmowaniu dalszych czynności zależnych od kategorii, do której należą te dane. By odpowiednio wyodrębnić poszczególne znaki z obrazu używane są biblioteki pozwalające na profesjonalną obróbkę zdjęć pod zastosowania w celach uczenia maszynowego. Przykładem takiej biblioteki jest OpenCV\cite{21}. Po wyodrębnieniu potrzebnych informacji na temat danego znaku obrazy są klasyfikowane jako poszczególne litery. Zwykle w tym procesie używane są sieci neuronowe.
 
 Kompletny system rozpoznawania wzorców składa się:
 \begin{itemize}
@@ -114,7 +114,7 @@ Zbiór treningowy\cite{19} jest kontenerem krotek (przykładów, obserwacji, pr�
 
 W przypadku systemu rozpoznawania wzorów zbiorem treningowym są zdjęcia obrazów zawierajace odpowiednio wszystkie litery polskiego alfabetu oraz cyfry. Wszystkie zdjęcia liter, które istnieją w zbiorze należy przeformatować do postaci najlepiej rozumianą przez wykorzystywane algorytmy.
 
-Do transformacji zdjęć zastosowano EmguCV\cite{18}, jest to wieloplatformowa implementacja (ang. wrapper) w technologi .NET biblioteki OpenCV, pozwalająca na wykorzystanie funkcjonalności OpenCV w środowisku .NET we wszystkich jego językach programowania takich jak C\#, VB, F\#\cite{1}. Można ją zainstalować używając menadżera pakietów Nuget w programie Visual Sutdio, Xamarin Studio lub Unity, a więc jest również kompatybilna z platformami mobilnymi Android oraz iOS.
+Do transformacji zdjęć zastosowano EmguCV\cite{18}, jest to wieloplatformowa implementacja (ang. wrapper) w technologi .NET biblioteki OpenCV, pozwalająca na wykorzystanie funkcjonalności OpenCV\cite{21} w środowisku .NET we wszystkich jego językach programowania takich jak C\#, VB, F\#\cite{1}. Można ją zainstalować używając menadżera pakietów Nuget w programie Visual Sutdio, Xamarin Studio lub Unity, a więc jest również kompatybilna z platformami mobilnymi Android oraz iOS.
 
 Transformacja zdjęcia przebiega następująco:
 \begin{itemize}
@@ -171,11 +171,11 @@ File.AppendAllText(csvFilePath, csv2.ToString());
 \end{minted}
 
 Pełna wersja programu znajduje się w dołączonej dokumentacji na płycie CD w folderze pod nazwą ImageResizer
-\newpage
 
 \section{Algorytm k-NN}
 
 Algorytm k-najbliższych sąsiadów (ang. k nearest neighbours)\cite{2}\cite{11} - algorytm regresji nieparametrycznej najczęściej używany w statystyce do prognozowania pewnej wartości zmiennej losowej.
+\newpage
 
 Założenia:
 \begin{itemize}
@@ -184,8 +184,6 @@ Dany jest zbiór teningowy, który stworzony został w oparciu o narzędzie Tran
 \item
 Dana jest obserwacja C, zawierająca wektor zmiennych $pixel_{0}$ ... $pixel_{1024}$, dla której chcemy prognozować wartość zmiennej objaśnianej label.
 \end{itemize}	
-
-   Ilustracja przedstawiająca przykład działania algorytmu k najbliższych sąsiadów:
 
 Algorytm działa następująco:
 \begin{itemize}
@@ -197,12 +195,11 @@ Wybierz k (ustalonej z góry liczby) najbliższych do C obserwacji ze zbioru tre
 Uśrednieniu wartości zmiennej objaśnianej dla wybranych obserwacji, w wyniku czego uzyskujemy prognozę.	
 \end{itemize}	
      
-\begin{figure}[!tbh]
-
 Poniższy przykład demonstrukcje problem klasyfikacji przy użyciu algorytmu kNN, obiekt zaznaczony kołem dla k najbliższych sąsiadów równe 2, zostanie sklasyfikowany jako trójkąt, natomiast jeżeli do klasyfikacji zostanie użytych 3 najbliższych sąsiadów obiekt zostanie sklasyfikowany jako kwadrat.
 
+\begin{figure}[!tbh]
 \centering
-\includegraphics[width=.6\hsize]{fig/knn}
+\includegraphics[width=.4\hsize]{fig/knn}
 \caption{Przykład problemu k-NN, \emph{Źródło: http://shyamalapriya.github.io/digit-recognition-using-k-nearest-neighbors/}}
 \end{figure}
 \newpage
@@ -215,7 +212,6 @@ Dla k = 3, niewiadoma oznaczona zielonym punktem będzie sklasyfikowana jako cze
 \end{figure}
 
 Fragment przykładowej implementacji powyższego algorytmu, który klasyfikuje przykładowy znak alfabetu dla k = 3 znajduje się poniżej:
-\newpage
 
 \begin{minted}{python}
 labeled_images = pd.read_csv('output.csv')
@@ -232,12 +228,11 @@ Pełna implementacja algorytmu k najbliższych sąsiadów jest dołączona w dok
 
 \section{Random Forest}
 Drzewa decyzyjne to graficzna metoda wspomagania procesu decyzyjnego. Algorytm drzew decyzyjnych jest również stosowany w uczeniu maszynowym do pozyskiwania wiedzy na podstawie przykładów.
+\newpage
 
 Koncepcja Bugging polega na budowie ekspertów dla podzbioru zadań. W tym przypadku, ze wszystkich problemów do rozwiązania losowany jest jeden ze zwracaniem podzbioru problemów, a następnie dla tego podzbioru szukany jest ekspert. W algorytmie tym z całego zbioru danych uczących losowany jest podzbiór - przez losowanie ze zwracaniem - i dla tego podzbioru budowany jest model predykcyjny. Następnie po raz kolejny ze zwracaniem losowany jest inny podzbiór wektorów i dla niego budowany jest kolejny model. Całość powtarzana jest k krotnie a na koniec wszystkie zbudowane modele użyte są do głosowania.
 
 Algorytm Random Forest\cite{3}\cite{13} to metoda klasyfikacji polegająca na połączeniu drzew decyzyjnych oraz koncepcji bugging, tworzy ona wiele drzew decyzyjnych na podstawie losowego zestawu danych. Ideą tego algorytmu polega na zbudowaniu rady ekspertów z losowych drzew decyzyjnych, gdzie w odróżnieniu od klasycznych drzew decyzji, losowe drzewa budowane są na zasadzie, zbiór analizowanych cech w węźle dobierany jest losowo. Ponadto, poszczególne drzewa z losowych lasów drzew budowane są zgodnie z koncepcją Bugging.
-
-\newpage
 
 Cechy algorytmu Random Forest:
 \begin{itemize}
@@ -262,6 +257,7 @@ W każdym węźle podział odbywa się poprzez wylosowanie bez zwracania m spoś
 \item
 Proces budowania drzewa bez przycinania trwa, jeśli to możliwe do momentu uzyskania w liściach elementów z tylko jednej klasy.
 \end{itemize}
+\newpage
 
 Proces klasyfikacji:
 \begin{itemize}
@@ -271,13 +267,12 @@ Dany wektor obserwacji jest klasyfikowany przez wszystkie drzewa, ostatecznie za
 W przypadku elementów niewylosowanych z oryginalnej podpróby, każdy taki i-ty element zostaje poddany klasyfikacji przez drzewa, w których budowie nie brał udziału. Taki element zostaje następnie przyporządkowany klasie, która osiągana była najczęściej.
 \end{itemize}
 
-\newpage
-
 \begin{figure}[!tbh]
 \centering
 \includegraphics[width=.6\hsize]{fig/randomforest}
 \caption{Diagram przepływu algorytmu Random Forest \emph{Źródło: Opracowanie własne}}
 \end{figure}
+\newpage
 
 Fragment przykładowej implementacji powyższego algorytmu, klasyfikujący przykładowy znak alfabetu znajduje się poniżej:
 
@@ -320,6 +315,7 @@ Podstawowym elementem sieci neuronowej jest neuron. Jego schemat został opracow
 \end{figure}
 
 Do wejść doprowadzane są sygnały z wejść sieci lub neuronów warstwy poprzedniej. Każdy sygnał mnożony jest przez odpowiadającą mu wartość liczbowa zwaną wagą. Wpływa ona na percepcje danego sygnału wejściowego i jego udział w sygnale wyjściowym przez neuron. Waga może być dodania lub ujemna, jeżeli nie ma połączenia miedzy neuronami to waga jest równa zero. Zsumowane iloczyny wag i sygnałów są argumentem funkcji zwanej funkcją aktywacji neuronu.
+\newpage
 
 Wartość funkcji aktywacji jest wyjściem neuronu i propagowana jest do neuronów warstwy następnej. Może ona przybierać jedną z trzech postaci:
 \begin{itemize}
@@ -330,7 +326,6 @@ liniowa
 \item
 skoku jednostkowego
 \end{itemize}
-\newpage
 
 Należy zauważyć, iż jest to podział bardziej formalny niż merytoryczny. Różnice funkcjonalne między tymi typami raczej nie występują, natomiast można stosować je naprzemiennie w różnych warstwach sieci.
 
@@ -338,9 +333,10 @@ Najbardziej popularnym typem sieci neuronowej jest sieć wielowarstwowa (ang. Mu
 
 \begin{figure}[!tbh]
 \centering
-\includegraphics[width=1\hsize]{fig/budowasieci}
+\includegraphics[width=.8\hsize]{fig/budowasieci}
 \caption{Schemat budowy sieci wielowarstwowej \emph{Źródło: http://galaxy.agh.edu.pl/~vlsi/AI/ex02/pogoda\_files/schemat1\_gif\_1.gif}}
 \end{figure}
+\newpage
 
 Do rozpoznania polskich znaków pisma odręcznego użyta została sieć posiadająca trzy warstwy:
 
@@ -353,13 +349,16 @@ Druga warstwa zawiera n neuronów, liczba n jest używana w kontekscie eksperyme
 Ostatnia warstwa, zawiera 36 neurony, ponieważ w alfabet składa się z 26 liter, rozpatrywane są zarówno litery oraz cyfry. Implementacja sieci:
 \end{itemize}
 
+Poniżej przedstawiony jest fragment implementacji sieci neuronowej z użyciem pakietu scikit-learn\cite{17}. Pełny kod programu znajduje się na dołączonej płycie CD.
+
 \begin{minted}{python}
 x0 = x[:split]; x1 = x[split:]
 y0 = y[:split]; y1 = y[split:]
 mlp = MLPClassifier(solver='sgd', activation='relu',
                     hidden_layer_sizes=(100,30),
-                    learning_rate_init=0.3, learning_rate='adaptive', alpha=0.1,
-                    momentum=0.9, nesterovs_momentum=True,
+                    learning_rate_init=0.3, learning_rate='adaptive', 
+                    alpha=0.1, momentum=0.9, 
+                    nesterovs_momentum=True,
                     tol=1e-4, max_iter=200,
                     shuffle=True, batch_size=300,
                     early_stopping = False, validation_fraction = 0.15,
@@ -387,7 +386,7 @@ CNN porównuje obrazy w kawałkach. Każda część nazywana jest cecha (ang. fe
 \includegraphics[width=0.7\hsize]{fig/cnn2}
 \caption{Wybrane cechy i ich odpowiedniki w zdjęciu do klasyfikacji \emph{Źródło: Opracownie własne}}
 \end{figure}
-\raggedbottom
+\newpage
 
 Każdą cechę można scharakteryzować jako mniejsze zdjęcie lub dwuwymiarową tablice wartości. W przypadku litery X, cechami będą ukośne linie i znak krzyża.
 
@@ -444,12 +443,7 @@ Dodatkowym narzędziem jest warstwa normalizacyjna (ang. Rectified Linear Units 
 Ostatnią warstwą sieci z możliwych do wykorzystania jest warstwa FCL (ang. Fully Connected Layer) jak sama nazwa wskazuje, zadaniem tego poziomu sieci jest połączenie otrzymanych wyników w poprzednich fazach, czyli faz Splotu, Pooling oraz ReLU. Wynikiem połączenia jest tablica wartości z przedziału od 0 do 1. 
 \newpage
 
-W zaprezentowanym przykładzie problemem do rozwiązania jest zadane pytanie:
-
-\begin{itemize}
-\item
-Do jakiej kategorii należy znak A przedstawiony na obrazku, X czy O?
-\end{itemize}
+W zaprezentowanym przykładzie problemem do rozwiązania jest zadane pytanie: Do jakiej kategorii należy znak A przedstawiony na obrazku, X czy O?
 
 Warstwa FCL zbudowana jest z wielu tradycyjnych sieci neuronowych. Zamiast traktować wejście sieci jako dwuwymiarowe tablice, wykorzystywane są tablice jednowymiarowe. Każda wartość otrzymuje końcowy wynik określający czy na zdjęciu przedstawione jest X - w takim wypadku wynik byłby równy 1 lub w przeciwnym wypadku kiedy końcowy wynik jest równy 0 w tym wypadku odpowiedzią zwróconą przez model jest litera O.
 
@@ -458,6 +452,22 @@ Warstwa FCL zbudowana jest z wielu tradycyjnych sieci neuronowych. Zamiast trakt
 \includegraphics[width=.8\hsize]{fig/convnet}
 \caption{Klasyfikacja przykładowego obrazu \emph{Źródło: http://cs231n.github.io/convolutional-networks/}}
 \end{figure}
+
+Podsumowując klasyfikacja przebiega następująco:
+\begin{itemize}
+\item
+Stwórz pierwszą warstwę splotu sieci i wyznacz 10 cech \emph{(ang. feature)} przykładowego zdjęcia,
+\item
+Wykonaj ReLU, znormalizuj dane,
+\item
+Następnie ponownie wykonaj krok 1 i 2,
+\item
+Przeprowadź sumowanie. Zmniejsz wielkość cech,
+\item
+Kolejnym etapem jest wykonanie kroków od 1 do 4 dwukrotnie,
+\item
+Po trzykrotnym wykonaniu operacji Pooling, stwórz warstwę FCL i podaj zaproponowane rozpoznania.
+\end{itemize}
 
 \chapter{Przegląd bibliotek uczenia maszynowego}
 Aby dobrze zobrazować problem rozpoznawania pisma odręcznego w aplikacjach mobilnych, wykorzystanych zostało kilka technologii oraz bibliotek dostępnych w językach programowania Python oraz C\#. Jednocześnie wybrane przykłady demonstrują gotowe implementacje algorytmów, które pozwalają wykorzystywać uczenie maszynowe do własnych potrzeb bez koniecznej wiedzy z zakresu uczenia maszynowego, takimi technologiami są Microsoft Computer Vision\cite{9} oraz TesseractAPI\cite{10}. Drugim przykładem są biblioteki dostępne do użycia dla programistów uczenia maszynowego, pozwalające na precyzyjne skonfigurowanie dostępnych algorytmów do własnych potrzeb, są to biblioteki Scikit-learn oraz Tensorflow. Dodatkowo, wykorzystana została biblioteka EmguCV pozwalająca na wykrywanie znaków na zdjęciach oraz odpowiednie formatowanie go na potrzeby stworzenia modelu danych do treningu.
@@ -853,6 +863,10 @@ Cel pracy, czyli przedstawienie własnego rozwiązania, mogącego posłużyć do
 \bibitem{20}
   https://en.wikipedia.org/wiki/Optical\_character\_recognition, 
   (Dostęp 22 maja 2017r.)
+
+\bibitem{21}
+  http://opencv.org,
+  (Dostęp 27 maja 2017r.)
 
 \end{thebibliography}
 
