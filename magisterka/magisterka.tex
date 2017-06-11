@@ -26,9 +26,11 @@
 
 % streszczenie
 \begin{abstract}
-  Niniejsza praca ma na celu stworzenie aplikacji rozpoznającej litery oraz cyfry pisane odręcznie, która charakteryzuje się kompatybilnością z systemami \emph{iOS} oraz \emph{Android}. Do wytworzenia aplikacji zostanie użyte narzędzie \emph{Xamarin}, które służy do tworzenia aplikacji wieloplatformowych. Zbadane zostaną różne metody połączenia technologii wieloplatformowej z istniejącymi rozwiązaniami OCR. Przedstawiona konwolucyjna sieć neuronowa zaprezentuje klasyfikacje liter alfabetu oraz cyfr. Zostaną przeprowadzone badania pokazujące przewagę konwolucyjnych sieci neuronowych nad innymi algorytmami uczenia maszynowego.
-  
-  Integralną częścią pracy jest aplikacja ImageResizer, która pozwala na przygotowanie modelu danych z podzielonego na poszczególne znaki oraz cyfry zbioru danych.
+Niniejsza praca ma na celu stworzenie kilku aplikacji mobilnych, które umożliwiają wykorzystanie istniejących oraz nowych metod klasyfikacji pisma odręcznego. Będą się one charakteryzować pełną kompatybilnością z systemami \emph{iOS} oraz \emph{Android}. Do wytworzenia aplikacji mobilnych zostaną użyte narzędzie \emph{Xamarin}, które służy do tworzenia aplikacji wieloplatformowych. Zbadane zostaną różne metody połączenia technologii wieloplatformowych z istniejącymi rozwiązaniami OCR \emph{ang. Optical Character Recognition}. Następnie autor zaprezentuje własną metodę klasyfikacji znaków pisma odręcznego za pomocą konwolucyjnych sieci neuronowych oraz stworzonej przez niego aplikacji webowej przy użyciu języka programowania Python i biblioteki Flask. Przedstawiona konwolucyjna sieć neuronowa \emph{ang. Convolutional Neural Network} zostanie stworzona w oparciu o język Python oraz bibliotekę Tensorflow.
+
+Integralną częścią pracy są aplikacje ImageReziser, która umożliwia przygotowanie modelu danych z podzielonego na litery oraz cyfry alfabetu. Drugą aplikacją jest OcrApp stworzona w oparciu o Xamarin, pozwala ona na klasyfikację tekstu poprzez zrobienie fotografii lub wybranie istniejącego zdjęcia, wykorzystuje ona bibliotekę TesseractAPI. Natomiast aplikacja VisionTest wykorzystuje rozwiązanie dostarczone przez firmę Microsoft i również jest stworzona w oparciu o technologię Xamarin. Ostatnią aplikacją załączoną na płycie CD jest aplikacja CnnOcrFlask. Korzysta ona z modelu konwolucyjnej sieci neuronowej stworzonej przez autora oraz działa w oparciu o przeglądarkę internetową. 
+
+W pracy zostały zawarte wyniki badań, które porównują działanie sieci neuronowej autora z istniejącymi implementacjami popularnych algorytmów służących do uczenia maszynowego. 
   
 \end{abstract}
 
